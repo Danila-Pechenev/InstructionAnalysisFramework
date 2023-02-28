@@ -39,7 +39,7 @@ def file_generator(base_dir: str, n_cores: int, core: int):
     count = -1
     for root, dirs, files in os.walk(base_dir):
         for file in files:
-            file_path = os.path.join(base_dir, file)
+            file_path = os.path.join(root, file)
             count += 1
             if count % n_cores == core:
                 yield file_path
@@ -67,10 +67,8 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             instructions_data = get_elf_instructions(assembly_listing)
             instructions_data["filename"] = file
             data.append(instructions_data)
-            print("OK")
         except:
-            # print("NOT OK")
-            print(file)
+            pass
 
     df = pd.DataFrame(data).fillna(0)
     if len(data) != 0:
