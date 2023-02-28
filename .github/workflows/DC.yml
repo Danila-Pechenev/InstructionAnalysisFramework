@@ -20,8 +20,9 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          python data_collection.py --base-dir=/bin /DataCollection/manjaro_data.csv
+          python data_collection.py /DataCollection/manjaro_data.csv
     - uses: actions/upload-artifact@v3
       with:
         name: manjaro_data
         path: ${{ github.workspace }}/manjaro_data.csv
+
