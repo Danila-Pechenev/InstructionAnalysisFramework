@@ -69,7 +69,8 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             data.append(instructions_data)
             print("OK")
         except:
-            print("NOT OK")
+            # print("NOT OK")
+            print(file)
 
     df = pd.DataFrame(data).fillna(0)
     if len(data) != 0:
