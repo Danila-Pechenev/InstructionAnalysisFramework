@@ -25,26 +25,3 @@ jobs:
         with:
           name: manjaro_data
           path: ${{ github.workspace }}/manjaro_data.csv
-
-  ubuntu:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: addnab/docker-run-action@v3
-        with:
-          image: ubuntu:lunar-20230128
-          options: -v ${{ github.workspace }}:/DataCollection:rw
-          run: |
-            apt-get update
-            apt-get install binutils
-            cd DataCollection
-            python -m venv venv
-            source venv/bin/activate
-            pip install -r requirements.txt
-            python data_collection.py /DataCollection/ubuntu_data.csv
-      - uses: actions/upload-artifact@v3
-        with:
-          name: ubuntu_data
-          path: ${{ github.workspace }}/ubuntu_data.csv
