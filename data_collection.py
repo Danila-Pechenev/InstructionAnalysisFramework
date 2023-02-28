@@ -21,9 +21,10 @@ def collect_data(base_dir: str, objdump_path: str, table_path: str):
                            [(list(file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)])
 
     df = pd.concat(dfs, ignore_index=True).fillna(0)
-    col = df.pop("filename")
-    df = df.astype(int)
-    df.insert(0, "filename", col)
+    if len(df) != 0:
+        col = df.pop("filename")
+        df = df.astype(int)
+        df.insert(0, "filename", col)
 
     df.to_csv(table_path, index=False)
 
