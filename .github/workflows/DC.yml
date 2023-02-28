@@ -13,5 +13,6 @@ jobs:
     - uses: addnab/docker-run-action@v3
       with:
         image: manjarolinux/base:20230226
+        options: -v ${{ github.workspace }}:/DataCollection:rw
         run: |
-          ls
+          pacman -S binutils
