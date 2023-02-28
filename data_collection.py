@@ -67,8 +67,9 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             instructions_data = get_elf_instructions(assembly_listing)
             instructions_data["filename"] = file
             data.append(instructions_data)
+            print("OK")
         except:
-            pass
+            print("NOT OK")
 
     df = pd.DataFrame(data).fillna(0)
     if len(data) != 0:
