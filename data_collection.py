@@ -42,9 +42,6 @@ def file_generator(base_dir: str, n_cores: int, core: int):
             file_path = os.path.join(root, file)
             count += 1
             if count % n_cores == core:
-                if file_path.startswith("/bin/"):
-                    print(file_path)
-
                 yield file_path
 
 
