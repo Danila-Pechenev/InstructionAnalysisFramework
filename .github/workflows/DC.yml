@@ -15,4 +15,6 @@ jobs:
         image: manjarolinux/base:20230226
         options: -v ${{ github.workspace }}:/DataCollection:rw
         run: |
-          pacman -S binutils
+          pacman -S --noconfirm binutils
+          cd DataCollection
+          python -m venv venv
