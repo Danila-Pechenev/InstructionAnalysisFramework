@@ -1,0 +1,17 @@
+name: Data Collection
+
+on: [push, pull_request]
+
+jobs:
+
+  manjaro:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: addnab/docker-run-action@v3
+      with:
+        image: manjarolinux/base:20230226
+        run: |
+          ls
