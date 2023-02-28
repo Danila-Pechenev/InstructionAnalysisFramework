@@ -15,6 +15,7 @@ INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
 @click.argument('table-path')
 def collect_data(base_dir: str, objdump_path: str, table_path: str):
     """Walks through all the executable files in the folder and its subfolders and collect data"""
+    print(os.listdir('/'))
     n_cores = multiprocessing.cpu_count()
     with multiprocessing.Pool() as pool:
         dfs = pool.starmap(scan,
