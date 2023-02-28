@@ -24,4 +24,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: manjaro_data
-        path: /DataCollection/manjaro_data.csv
+        path: DataCollection/manjaro_data.csv
