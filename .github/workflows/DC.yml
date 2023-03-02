@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "TIME=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-      - run: docker build --build-arg FILENAME=/DataCollection/manjaro20230226-$TIME-${{ GITHUB_SHA }}.csv
+      - run: docker build --build-arg FILENAME=/DataCollection/manjaro20230226-$TIME-${{ github.sha }}.csv
       - run: docker run -v ${{ github.workspace }}:/DataCollection:rw
       - uses: actions/upload-artifact@v3
         with:
           name: manjaro_data
-          path: ${{ github.workspace }}/manjaro20230226-$TIME-${{ GITHUB_SHA }}.csv
+          path: ${{ github.workspace }}/manjaro20230226-$TIME-${{ github.sha }}.csv
