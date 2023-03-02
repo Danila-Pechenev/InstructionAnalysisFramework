@@ -10,15 +10,32 @@ INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
 
 
 @click.command()
-@click.option('--base-dir', default='/', help='base directory for scanning')
-@click.option('--objdump-path', default="objdump", help='path to objdump')
+@click.option('--base-dir', '-d', default='/', help='Base directory for scanning.')
+@click.option('--objdump-path', '-o', default="objdump", help='Path to objdump.')
+@click.option('--recursive', '-r', is_flag=True,
+              help='Recursively walk a directory tree (starting from base directory).')
+@click.option('--files', '-f', default=None,
+              help='List of specific files on which program will be run. List items must not be separated by spaces, '
+                   'otherwise list must be placed in quotes.')
 @click.argument('table-path')
-def collect_data(base_dir: str, objdump_path: str, table_path: str):
+def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str):
     """Walks through all the executable files in the folder and its subfolders and collect data"""
     n_cores = multiprocessing.cpu_count()
     with multiprocessing.Pool() as pool:
-        dfs = pool.starmap(scan,
-                           [(list(file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)])
+        if files:
+            paths = parse_files(files)
+            dfs = pool.starmap(scan,
+                               [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in
+                                range(n_cores)])
+        else:
+            if recursive:
+                dfs = pool.starmap(scan,
+                                   [(list(recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in
+                                    range(n_cores)])
+            else:
+                dfs = pool.starmap(scan,
+                                   [(list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in
+                                    range(n_cores)])
 
     df = pd.concat(dfs, ignore_index=True).fillna(0)
     if len(df) != 0:
@@ -29,13 +46,35 @@ def collect_data(base_dir: str, objdump_path: str, table_path: str):
     df.to_csv(table_path, index=False)
 
 
+def parse_files(files: str) -> list[str]:
+    return [file.strip().strip("\"'") for file in files[1:-1].split(',')]
+
+
 def run_objdump(path_to_elf: str, objdump_path: str) -> str:
     completed_process = sp.run([objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
     completed_process.check_returncode()
     return completed_process.stdout.decode("utf-8")
 
 
-def file_generator(base_dir: str, n_cores: int, core: int):
+def user_files_generator(user_files: list[str], n_cores: int, core: int):
+    count = -1
+    for path in user_files:
+        count += 1
+        if count % n_cores == core:
+            yield path
+
+
+def non_recursive_file_generator(base_dir: str, n_cores: int, core: int):
+    count = -1
+    for path in os.listdir(base_dir):
+        file_path = os.path.join(base_dir, path)
+        if os.path.isfile(file_path):
+            count += 1
+            if count % n_cores == core:
+                yield file_path
+
+
+def recursive_file_generator(base_dir: str, n_cores: int, core: int):
     count = -1
     for root, dirs, files in os.walk(base_dir):
         for file in files:
