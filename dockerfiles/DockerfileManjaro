@@ -5,4 +5,4 @@ RUN pacman -S --noconfirm binutils && \
     source venv/bin/activate && \
     pip install -r requirements.txt
 ARG FILENAME
-ENTRYPOINT ["python", "data_collection.py", $FILENAME]
+CMD ["python", "data_collection.py", $FILENAME]
