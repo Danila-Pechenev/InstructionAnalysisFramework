@@ -3,10 +3,10 @@ import os
 
 def user_files_generator(user_files: list[str], n_cores: int, core: int):
     count = -1
-    for path in user_files:
+    for file_path in user_files:
         count += 1
         if count % n_cores == core:
-            yield path
+            yield file_path
 
 
 def non_recursive_file_generator(base_dir: str, n_cores: int, core: int):
