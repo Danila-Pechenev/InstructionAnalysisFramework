@@ -21,7 +21,7 @@ def non_recursive_file_generator(base_dir: str, n_cores: int, core: int):
 
 def recursive_file_generator(base_dir: str, n_cores: int, core: int):
     count = -1
-    for root, dirs, files in os.walk(base_dir):
+    for root, _, files in os.walk(base_dir):
         for file in files:
             file_path = os.path.join(root, file)
             count += 1

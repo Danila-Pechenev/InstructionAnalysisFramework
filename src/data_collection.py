@@ -1,11 +1,10 @@
 import multiprocessing
-import subprocess
 import subprocess as sp
 import pandas as pd
 import click
 import re
 
-from file_generators import *
+from file_generators import user_files_generator, non_recursive_file_generator, recursive_file_generator
 
 OBJDUMP_ARGS = ["-d", "--no-show-raw-insn", "--no-addresses"]
 INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
@@ -88,7 +87,7 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             instructions_data = get_elf_instructions(assembly_listing)
             instructions_data["filename"] = file
             data.append(instructions_data)
-        except subprocess.CalledProcessError:
+        except sp.CalledProcessError:
             pass
 
     df = pd.DataFrame(data).fillna(0)
