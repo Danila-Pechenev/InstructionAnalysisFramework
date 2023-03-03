@@ -1,4 +1,4 @@
-name: Publish Ubuntu Docker Image
+name: Publish OpenSUSE Docker Image
 
 on:
   workflow_dispatch:
