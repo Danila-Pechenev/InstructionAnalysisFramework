@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker build -f dockerfiles/DockerfileManjaro -t manjaro_dc .
-      - run: echo "TIME=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' manjaro_dc)" >> $GITHUB_ENV
+      - run: echo "TIME=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
+      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' manjaro_dc | cut -c 19-)" >> $GITHUB_ENV
       - uses: addnab/docker-run-action@v3
         with:
           image: manjaro_dc
@@ -22,8 +22,8 @@ jobs:
             python -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
-            python data_collection.py /DataCollection/${{ env.TIME }}-${{ env.IMAGE_SHA }}-${{ github.sha }}.csv
+            python data_collection.py /DataCollection/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
         with:
           name: manjaro_data
-          path: ${{ github.workspace }}/${{ env.TIME }}-${{ env.IMAGE_SHA }}-${{ github.sha }}.csv
+          path: ${{ github.workspace }}/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
