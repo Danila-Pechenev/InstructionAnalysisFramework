@@ -1,13 +1,13 @@
-name: Data Collection
+name: Manjaro Data Collection
 
 on: [push, pull_request]
 
+env:
+  COMMAND_OPTIONS: '-r --base-dir=/bin/'
+
 jobs:
-
-  manjaro:
-
+  manjaro_data_collection:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         name: Checking out a repo
@@ -27,9 +27,9 @@ jobs:
             python -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
-            python data_collection.py --base-dir=/bin/ /DataCollection/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
+            python data_collection.py ${{ env.COMMAND_OPTIONS }} /DataCollection/manjaro_${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
         name: Saving data as artifact of workflow
         with:
-          name: manjaro_data
-          path: ${{ github.workspace }}/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
+          name: manjaro_${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}
+          path: ${{ github.workspace }}/manjaro_${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
