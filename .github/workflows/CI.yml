@@ -15,14 +15,3 @@ jobs:
           options: "--check --verbose -l 120"
           src: "./"
           version: "~= 22.0"
-
-  pep8_check:
-    name: PEP8 check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Checking out a repo
-      - uses: quentinguidee/pep8-action@v1
-        name: Running PEP8 check
-        with:
-          arguments: '--max-line-length=120'
