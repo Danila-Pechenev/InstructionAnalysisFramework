@@ -6,7 +6,7 @@ env:
   COMMAND_OPTIONS: '-r --base-dir=/bin/'
 
 jobs:
-  manjaro_data_collection:
+  ubuntu_data_collection:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
