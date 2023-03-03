@@ -22,7 +22,7 @@ jobs:
             python -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
-            python data_collection.py /DataCollection//DataCollection/$TIME-$IMAGE_SHA-${{ github.sha }}.csv
+            python data_collection.py /DataCollection/$TIME-$IMAGE_SHA-${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
         with:
           name: manjaro_data
