@@ -1,4 +1,5 @@
 import multiprocessing
+import subprocess
 import subprocess as sp
 import pandas as pd
 import click
@@ -10,32 +11,60 @@ INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
 
 
 @click.command()
-@click.option('--base-dir', '-d', default='/', help='Base directory for scanning.')
-@click.option('--objdump-path', '-o', default="objdump", help='Path to objdump.')
-@click.option('--recursive', '-r', is_flag=True,
-              help='Recursively walk a directory tree (starting from base directory).')
-@click.option('--files', '-f', default=None,
-              help='List of specific files on which program will be run. List items must not be separated by spaces, '
-                   'otherwise list must be placed in quotes.')
-@click.argument('table-path')
-def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str):
+@click.option("--base-dir", "-d", default="/", help="Base directory for scanning.")
+@click.option("--objdump-path", "-o", default="objdump", help="Path to objdump.")
+@click.option(
+    "--recursive",
+    "-r",
+    is_flag=True,
+    help="Recursively walk a directory tree (starting from base directory).",
+)
+@click.option(
+    "--files",
+    "-f",
+    default=None,
+    help="List of specific files on which program will be run. List items must not be separated by spaces, "
+    "otherwise list must be placed in quotes.",
+)
+@click.argument("table-path")
+def collect_data(
+    base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str
+):
     """Walks through all the executable files in the folder and its subfolders and collect data"""
     n_cores = multiprocessing.cpu_count()
     with multiprocessing.Pool() as pool:
         if files:
             paths = parse_files(files)
-            dfs = pool.starmap(scan,
-                               [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in
-                                range(n_cores)])
+            dfs = pool.starmap(
+                scan,
+                [
+                    (list(user_files_generator(paths, n_cores, core)), objdump_path)
+                    for core in range(n_cores)
+                ],
+            )
         else:
             if recursive:
-                dfs = pool.starmap(scan,
-                                   [(list(recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in
-                                    range(n_cores)])
+                dfs = pool.starmap(
+                    scan,
+                    [
+                        (
+                            list(recursive_file_generator(base_dir, n_cores, core)),
+                            objdump_path,
+                        )
+                        for core in range(n_cores)
+                    ],
+                )
             else:
-                dfs = pool.starmap(scan,
-                                   [(list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in
-                                    range(n_cores)])
+                dfs = pool.starmap(
+                    scan,
+                    [
+                        (
+                            list(non_recursive_file_generator(base_dir, n_cores, core)),
+                            objdump_path,
+                        )
+                        for core in range(n_cores)
+                    ],
+                )
 
     df = pd.concat(dfs, ignore_index=True).fillna(0)
     if len(df) != 0:
@@ -47,11 +76,13 @@ def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: b
 
 
 def parse_files(files: str) -> list[str]:
-    return [file.strip().strip("\"'") for file in files[1:-1].split(',')]
+    return [file.strip().strip("\"'") for file in files[1:-1].split(",")]
 
 
 def run_objdump(path_to_elf: str, objdump_path: str) -> str:
-    completed_process = sp.run([objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
+    completed_process = sp.run(
+        [objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True
+    )
     completed_process.check_returncode()
     return completed_process.stdout.decode("utf-8")
 
@@ -106,7 +137,7 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             instructions_data = get_elf_instructions(assembly_listing)
             instructions_data["filename"] = file
             data.append(instructions_data)
-        except:
+        except subprocess.CalledProcessError:
             pass
 
     df = pd.DataFrame(data).fillna(0)
@@ -118,5 +149,5 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
     return df
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     collect_data()
