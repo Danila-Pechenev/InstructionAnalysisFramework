@@ -15,7 +15,7 @@ jobs:
         name: Building a docker image
       - run: echo "TIME=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
         name: Getting current time
-      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .Parent 0}}' manjaro_dc | cut -c 8-)" >> $GITHUB_ENV
+      - run: echo "IMAGE_SHA=$(docker inspect --format='{{.Parent}}' manjaro_dc | cut -c 8-)" >> $GITHUB_ENV
         name: Getting hash of the image
       - uses: addnab/docker-run-action@v3
         name: Running docker container
