@@ -1,3 +1,3 @@
-FROM manjarolinux/base:20230226
+FROM manjarolinux/base:latest
 RUN pacman -S --noconfirm binutils
 #   install here other packages
