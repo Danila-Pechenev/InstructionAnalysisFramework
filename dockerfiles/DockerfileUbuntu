@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:rolling
 LABEL maintainer="danilapechenev@gmail.com"
 RUN apt update
 RUN apt install --yes binutils

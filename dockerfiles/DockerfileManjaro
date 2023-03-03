@@ -1,4 +1,4 @@
-FROM manjarolinux/base:latest
+FROM manjarolinux/base:20230226
 LABEL maintainer="danilapechenev@gmail.com"
 RUN pacman -S --noconfirm binutils
 #   install here other packages
