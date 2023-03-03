@@ -1,0 +1,4 @@
+FROM opensuse/tumbleweed:latest
+RUN zypper install --no-confirm binutils
+RUN zypper install --no-confirm python3-pip
+#   install here other packages
