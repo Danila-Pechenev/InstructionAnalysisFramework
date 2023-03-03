@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checking out a repo
+      - uses: psf/black@stable
+        name: Running linter
+        with:
+          options: "--check --verbose -l 120"
+          src: "./"
+          version: "~= 22.0"

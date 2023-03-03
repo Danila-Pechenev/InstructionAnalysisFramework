@@ -27,9 +27,7 @@ INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
     "otherwise list must be placed in quotes.",
 )
 @click.argument("table-path")
-def collect_data(
-    base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str
-):
+def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str):
     """Walks through all the executable files in the folder and its subfolders and collect data"""
     n_cores = multiprocessing.cpu_count()
     with multiprocessing.Pool() as pool:
@@ -37,10 +35,7 @@ def collect_data(
             paths = parse_files(files)
             dfs = pool.starmap(
                 scan,
-                [
-                    (list(user_files_generator(paths, n_cores, core)), objdump_path)
-                    for core in range(n_cores)
-                ],
+                [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in range(n_cores)],
             )
         else:
             if recursive:
@@ -80,9 +75,7 @@ def parse_files(files: str) -> list[str]:
 
 
 def run_objdump(path_to_elf: str, objdump_path: str) -> str:
-    completed_process = sp.run(
-        [objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True
-    )
+    completed_process = sp.run([objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
     completed_process.check_returncode()
     return completed_process.stdout.decode("utf-8")
 
