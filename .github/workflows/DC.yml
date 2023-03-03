@@ -10,10 +10,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        name: Checking out a repo
       - run: docker build -f dockerfiles/DockerfileManjaro -t manjaro_dc .
+        name: Building a docker image
       - run: echo "TIME=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
-      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' manjaro_dc | cut -c 19-)" >> $GITHUB_ENV
+        name: Getting current time
+      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .Parent 0}}' manjaro_dc | cut -c 8-)" >> $GITHUB_ENV
+        name: Getting hash of the image
       - uses: addnab/docker-run-action@v3
+        name: Running docker container
         with:
           image: manjaro_dc
           options: -v ${{ github.workspace }}:/DataCollection:rw
@@ -24,6 +29,7 @@ jobs:
             pip install -r requirements.txt
             python data_collection.py /DataCollection/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
+        name: Saving data as artifact of workflow
         with:
           name: manjaro_data
           path: ${{ github.workspace }}/${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
