@@ -11,16 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checking out a repo
-      - run: docker build -f dockerfiles/DockerfileUbuntu -t ubuntu_dc .
-        name: Building a docker image
+      - run: docker pull danilapechenev/instruction-analysis:ubuntu
+        name: Getting a docker image from Docker Hub
       - run: echo "TIME=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
         name: Getting current time
-      - run: echo "IMAGE_SHA=$(docker inspect --format='{{.Parent}}' ubuntu_dc | cut -c 8-)" >> $GITHUB_ENV
+      - run: echo "IMAGE_SHA=$(docker inspect --format='{{.Parent}}' danilapechenev/instruction-analysis:ubuntu | cut -c 8-)" >> $GITHUB_ENV
         name: Getting hash of the image
       - uses: addnab/docker-run-action@v3
         name: Running docker container
         with:
-          image: ubuntu_dc
+          image: danilapechenev/instruction-analysis:ubuntu
           options: -v ${{ github.workspace }}:/DataCollection:rw
           run: |
             cd DataCollection
