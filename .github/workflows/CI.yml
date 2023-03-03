@@ -13,5 +13,5 @@ jobs:
         name: Running linter
         with:
           options: "--check --verbose -l 120"
-          src: "./"
+          src: "./src"
           version: "~= 22.0"

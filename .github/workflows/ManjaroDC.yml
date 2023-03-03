@@ -27,7 +27,7 @@ jobs:
             python -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
-            python data_collection.py ${{ env.COMMAND_OPTIONS }} /DataCollection/manjaro_${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
+            python src/data_collection.py ${{ env.COMMAND_OPTIONS }} /DataCollection/manjaro_${{ env.TIME }}_${{ env.IMAGE_SHA }}_${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
         name: Saving data as artifact of workflow
         with:
