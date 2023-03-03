@@ -1,8 +1,3 @@
 FROM manjarolinux/base:20230226
-RUN pacman -S --noconfirm binutils && \
-    cd DataCollection && \
-    python -m venv venv && \
-    source venv/bin/activate && \
-    pip install -r requirements.txt
-ARG FILENAME
-ENTRYPOINT ["python", "data_collection.py", $FILENAME]
+RUN pacman -S --noconfirm binutils
+#   install here other packages

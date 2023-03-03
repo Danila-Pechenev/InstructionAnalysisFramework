@@ -10,10 +10,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - run: docker build -f dockerfiles/DockerfileManjaro -t manjaro_dc .
       - run: echo "TIME=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-      - run: docker build -f dockerfiles/DockerfileManjaro --build-arg FILENAME=/DataCollection/manjaro20230226-$TIME-${{ github.sha }}.csv .
-      - run: docker run -v ${{ github.workspace }}:/DataCollection:rw
+      - run: echo "IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' manjaro_dc)" >> $GITHUB_ENV
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: manjaro_dc
+          options: -v ${{ github.workspace }}:/DataCollection:rw
+          run: |
+            cd DataCollection
+            python -m venv venv
+            source venv/bin/activate
+            pip install -r requirements.txt
+            python data_collection.py /DataCollection//DataCollection/$TIME-$IMAGE_SHA-${{ github.sha }}.csv
       - uses: actions/upload-artifact@v3
         with:
           name: manjaro_data
-          path: ${{ github.workspace }}/manjaro20230226-$TIME-${{ github.sha }}.csv
+          path: ${{ github.workspace }}/$TIME-$IMAGE_SHA-${{ github.sha }}.csv
