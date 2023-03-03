@@ -1,6 +1,6 @@
 name: Manjaro Data Collection
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 env:
   COMMAND_OPTIONS: '-r --base-dir=/bin/'
