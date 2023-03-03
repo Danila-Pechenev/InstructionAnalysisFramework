@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build the Docker image
-        run: docker build . --file dockerfiles/DockerfileManjaro --tag {{ secrets.DOCKER_USERNAME }}/instruction-analysis:manjaro
+        run: docker build . --file dockerfiles/DockerfileManjaro --tag ${{ secrets.DOCKER_USERNAME }}/instruction-analysis:manjaro
       - name: Push
         run: docker push ${{ secrets.DOCKER_USERNAME }}/instruction-analysis:manjaro
