@@ -6,7 +6,7 @@ env:
   COMMAND_OPTIONS: '-r --base-dir=/bin/'
 
 jobs:
-  opensuse_data_collection:
+  data_collection:
     strategy:
       matrix:
         os: [ manjaro, ubuntu, opensuse ]
