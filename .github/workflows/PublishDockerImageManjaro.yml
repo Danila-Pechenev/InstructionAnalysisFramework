@@ -17,6 +17,6 @@ jobs:
       - name: Build the Docker image & Push
         run: |
           for os in $(git diff --name-only HEAD~1 | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done);
-          docker build . --file dockerfiles/Dockerfile.${{ matrix.os }} --tag danilapechenev/instruction-analysis:${{ matrix.os }};
+          docker build . --file dockerfiles/Dockerfile.${{ matrix.os }} --tag danilapechenev/instruction-analysis:${{ matrix.os }} && \
           docker push danilapechenev/instruction-analysis:${{ matrix.os }};
           done
