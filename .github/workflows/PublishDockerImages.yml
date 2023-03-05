@@ -9,21 +9,16 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: danilapechenev
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - uses: jitterbit/get-changed-files@v1
-        id: changed_files
-        with:
-          format: '\n'
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker images & Push
         run: |
-          commits=$(git log -n 2 --pretty=format:%H)
-          echo $commits
-          for os in $(echo -e ${{ steps.changed_files.outputs.added_modified }} | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
+          for os in $(git diff --name-only --diff-filter=ACMRT HEAD~1 | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
             docker build . --file dockerfiles/Dockerfile.$os --tag danilapechenev/instruction-analysis:$os
             docker push danilapechenev/instruction-analysis:$os
           done
