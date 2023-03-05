@@ -3,3 +3,4 @@ LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
 RUN zypper install --no-confirm binutils && \
     zypper install --no-confirm python3-pip
 #   install here other packages
+
