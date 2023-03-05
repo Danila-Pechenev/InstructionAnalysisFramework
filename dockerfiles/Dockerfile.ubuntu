@@ -1,6 +1,6 @@
 FROM ubuntu:rolling
 LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
-# RUN apt update && \
-#     apt install --yes binutils && \
-#     apt install --yes python3-venv
+RUN apt update && \
+    apt install --yes binutils && \
+    apt install --yes python3-venv
 #   install here other packages
