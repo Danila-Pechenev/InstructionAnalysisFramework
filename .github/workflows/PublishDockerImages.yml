@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   push_to_dockerhub:
-    name: Push Docker image to Docker Hub
+    name: Build & Push Docker images to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -14,9 +14,9 @@ jobs:
         with:
           username: danilapechenev
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build the Docker image & Push
+      - name: Build Docker images & Push
         run: |
-          for os in $(git diff --name-only HEAD^ HEAD | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
-            docker build . --file dockerfiles/Dockerfile.${{ matrix.os }} --tag danilapechenev/instruction-analysis:${{ matrix.os }}
-            docker push danilapechenev/instruction-analysis:${{ matrix.os }}
+          for os in $(git diff --name-only --diff-filter=ACMRT ${{ github.event.commit.base.sha }} | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
+            docker build . --file dockerfiles/Dockerfile.$os --tag danilapechenev/instruction-analysis:$os
+            docker push danilapechenev/instruction-analysis:$os
           done
