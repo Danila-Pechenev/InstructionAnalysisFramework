@@ -1,4 +1,4 @@
-name: Publish Manjaro Docker Image
+name: Build & Publish Docker Images
 
 on: [push, pull_request, workflow_dispatch]
 
