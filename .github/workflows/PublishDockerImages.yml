@@ -16,7 +16,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker images & Push
         run: |
-          for os in $(git diff --name-only --diff-filter=ACMRT ${{ github.sha }}~1 | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
+          commits=`git log -n 2 --pretty=format:%H`
+          for os in $(git diff --name-only --diff-filter=ACMRT $commits | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done); do
             docker build . --file dockerfiles/Dockerfile.$os --tag danilapechenev/instruction-analysis:$os
             docker push danilapechenev/instruction-analysis:$os
           done
