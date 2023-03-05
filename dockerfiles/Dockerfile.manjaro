@@ -1,4 +1,5 @@
 FROM manjarolinux/base:20230226
 LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
-RUN pacman -S --noconfirm binutils
-#   install here other packages
+RUN pacman -S --noconfirm binutils && \
+    pacman -S --noconfirm firefox
+#   install other packages here

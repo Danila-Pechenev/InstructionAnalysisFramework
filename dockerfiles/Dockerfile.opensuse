@@ -1,6 +1,6 @@
 FROM opensuse/tumbleweed:latest
 LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
 RUN zypper install --no-confirm binutils && \
-    zypper install --no-confirm python3-pip
-#   install here other packages
-
+    zypper install --no-confirm python3-pip && \
+    zypper install --no-confirm firefox
+#   install other packages here

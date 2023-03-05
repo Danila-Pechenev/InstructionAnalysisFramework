@@ -3,7 +3,7 @@ name: Data Collection
 on: [push, pull_request, workflow_dispatch]
 
 env:
-  COMMAND_OPTIONS: '-r --base-dir=/bin/'
+  COMMAND_OPTIONS: '--base-dir=/'
 
 jobs:
   data_collection:
