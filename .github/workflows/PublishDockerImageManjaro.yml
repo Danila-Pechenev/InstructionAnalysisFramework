@@ -3,17 +3,7 @@ name: Publish Manjaro Docker Image
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  get_changed_files:
-    name: Get changed files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run bash command
-        run: echo "OS=$(git diff --name-only HEAD~1 | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done)" >> $GITHUB_ENV
-
   push_to_dockerhub:
-    strategy:
-      matrix:
-        os: $OS
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +14,9 @@ jobs:
         with:
           username: danilapechenev
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build the Docker image
-        run: docker build . --file dockerfiles/Dockerfile.${{ matrix.os }} --tag danilapechenev/instruction-analysis:${{ matrix.os }}
-      - name: Push
-        run: docker push danilapechenev/instruction-analysis:${{ matrix.os }}
+      - name: Build the Docker image & Push
+        run: |
+          for os in $(git diff --name-only HEAD~1 | grep "dockerfiles/*" | while read line ; do echo "${line#*.}" ; done)
+          docker build . --file dockerfiles/Dockerfile.${{ matrix.os }} --tag danilapechenev/instruction-analysis:${{ matrix.os }}
+          docker push danilapechenev/instruction-analysis:${{ matrix.os }}
+          done
