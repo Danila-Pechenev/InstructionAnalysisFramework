@@ -1,5 +1,5 @@
 FROM ubuntu:rolling
-LABEL maintainer="danilapechenev@gmail.com"
+LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
 RUN apt update
 RUN apt install --yes binutils
 RUN apt install --yes python3.10-venv
