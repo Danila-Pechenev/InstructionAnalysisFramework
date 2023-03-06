@@ -1,6 +1,10 @@
 name: Build & Publish Docker Images
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+      paths:
+        - dockerfiles/**
+  workflow_dispatch:
 
 jobs:
   push_to_dockerhub:
