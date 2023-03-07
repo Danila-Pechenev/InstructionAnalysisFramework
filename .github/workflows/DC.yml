@@ -1,0 +1,60 @@
+name: Data Collection
+
+on: [push, workflow_dispatch]
+
+env:
+  COMMAND_OPTIONS: ''
+
+jobs:
+  docker_images_processing:
+    name: Build & push docker images to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: danilapechenev
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build & push docker images
+        run: |
+          for os in $(git diff --name-only --diff-filter=ACMRT HEAD~1 dockerfiles/ | while read line ; do echo "${line#*.}" ; done); do
+            docker build . --file dockerfiles/Dockerfile.$os --tag danilapechenev/instruction-analysis:$os
+            docker push danilapechenev/instruction-analysis:$os
+          done
+
+  data_collection:
+    needs: docker_images_processing
+    strategy:
+      matrix:
+        os: [ manjaro, ubuntu, opensuse ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a repo
+        uses: actions/checkout@v3
+      - name: Get a docker image from Docker Hub
+        run: docker pull danilapechenev/instruction-analysis:${{ matrix.os }}
+      - name: Generate unique filename
+        run: |
+          TIME=$(date +'%Y-%m-%dT%H-%M-%S')
+          IMAGE_SHA=$(docker inspect --format='{{.Parent}}' danilapechenev/instruction-analysis:${{ matrix.os }} | cut -c 8-)
+          echo "FILENAME=${{ matrix.os }}_${{ TIME }}_${{ IMAGE_SHA }}_${{ github.sha }}" >> $GITHUB_ENV
+      - name: Gather data from image
+        uses: addnab/docker-run-action@v3
+        with:
+          image: danilapechenev/instruction-analysis:${{ matrix.os }}
+          options: -v ${{ github.workspace }}:/DataCollection:rw
+          run: |
+            cd DataCollection
+            python3 -m venv venv
+            . ./venv/bin/activate
+            python3 -m pip install -r requirements.txt
+            python3 src/data_collection.py ${{ env.COMMAND_OPTIONS }} ${{ env.FILENAME }}.csv
+      - name: Save data as artifact of workflow
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.FILENAME }}
+          path: ${{ github.workspace }}/${{ env.FILENAME }}.csv
