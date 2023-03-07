@@ -41,7 +41,7 @@ jobs:
         run: |
           TIME=$(date +'%Y-%m-%dT%H-%M-%S')
           IMAGE_SHA=$(docker inspect --format='{{.Parent}}' danilapechenev/instruction-analysis:${{ matrix.os }} | cut -c 8-)
-          echo "FILENAME=${{ matrix.os }}_${{ TIME }}_${{ IMAGE_SHA }}_${{ github.sha }}" >> $GITHUB_ENV
+          echo "FILENAME=${{ matrix.os }}_${TIME}_${IMAGE_SHA}_${{ github.sha }}" >> $GITHUB_ENV
       - name: Gather data from image
         uses: addnab/docker-run-action@v3
         with:
