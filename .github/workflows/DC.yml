@@ -3,7 +3,7 @@ name: Data Collection
 on: [push, workflow_dispatch]
 
 env:
-  COMMAND_OPTIONS: ''
+  COMMAND_OPTIONS: '-r'
 
 jobs:
   docker_images_processing:
@@ -27,6 +27,7 @@ jobs:
           done
 
   data_collection:
+    name: Collect data from images
     needs: docker_images_processing
     strategy:
       matrix:

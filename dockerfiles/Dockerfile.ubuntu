@@ -3,5 +3,8 @@ LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
 RUN apt update && \
     apt install --yes binutils && \
     apt install --yes python3-venv && \
-    apt install --yes firefox
+    apt install --yes firefox && \
+    apt install --yes chromium-bsu && \
+    apt install --yes kcachegrind && \
+    apt install --yes vlc
 #   install other packages here
