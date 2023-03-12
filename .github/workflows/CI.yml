@@ -19,5 +19,5 @@ jobs:
         name: Run linter on scripts
         with:
           options: "--check --verbose -l 120"
-          src: "./src"
+          src: "./scripts"
           version: "~= 22.0"
