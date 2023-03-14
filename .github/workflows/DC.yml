@@ -38,25 +38,25 @@ jobs:
       - name: Check out a repo
         uses: actions/checkout@v3
       - name: Get a docker image from Docker Hub
-        run: docker pull danilapechenev/instruction-analysis:"${{ matrix.os }}"
+        run: docker pull danilapechenev/instruction-analysis:${{ matrix.os }}
       - name: Generate unique filename
         run: |
           TIME=$(date +'%Y-%m-%dT%H-%M-%S')
-          IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' danilapechenev/instruction-analysis:"${{ matrix.os }}" | tail -c 65)
+          IMAGE_SHA=$(docker inspect --format='{{index .RepoDigests 0}}' danilapechenev/instruction-analysis:${{ matrix.os }} | tail -c 65)
           echo "FILENAME=${{ matrix.os }}_${TIME}_${IMAGE_SHA}_${{ github.sha }}" >> $GITHUB_ENV
       - name: Gather data from image
         uses: addnab/docker-run-action@v3
         with:
-          image: danilapechenev/instruction-analysis:"${{ matrix.os }}"
-          options: -v "${{ github.workspace }}":/DataCollection:rw
+          image: danilapechenev/instruction-analysis:${{ matrix.os }}
+          options: -v ${{ github.workspace }}:/DataCollection:rw
           run: |
             cd DataCollection
             python3 -m venv venv
             . ./venv/bin/activate
             python3 -m pip install -r requirements.txt
-            python3 src/data_collection.py ${{ env.COMMAND_OPTIONS }} "${{ env.FILENAME }}".csv
+            python3 src/data_collection.py ${{ env.COMMAND_OPTIONS }} ${{ env.FILENAME }}.csv
       - name: Save data as artifact of workflow
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.FILENAME }}
-          path: ${{ github.workspace }}/"${{ env.FILENAME }}".csv
+          path: ${{ github.workspace }}/${{ env.FILENAME }}.csv
