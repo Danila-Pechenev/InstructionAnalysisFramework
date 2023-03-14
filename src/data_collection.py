@@ -72,11 +72,7 @@ def collect_data(
         df = df.astype(int)
         df.insert(0, "filename", col)
 
-        df.set_index("filename", inplace=True)
-        df = df.loc[list(set(df.index))]
-        df.insert(0, "filename", df.index)
-        df = df.set_index(pd.Index(i for i in range(len(df))))
-
+    df.drop_duplicates(inplace=True)
     df.to_csv(table_path, index=False)
 
 
