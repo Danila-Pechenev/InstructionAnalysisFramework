@@ -3,7 +3,7 @@ name: Data Collection
 on: [push, workflow_dispatch]
 
 env:
-  COMMAND_OPTIONS: '-r'
+  COMMAND_OPTIONS: '-r -i /DataCollection'
 
 jobs:
   docker_images_processing:
