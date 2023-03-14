@@ -52,6 +52,11 @@ def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: b
         df = df.astype(int)
         df.insert(0, "filename", col)
 
+        df.set_index("filename", inplace=True)
+        df = df.loc[list(set(df.index))]
+        df.insert(0, "filename", df.index)
+        df = df.set_index(pd.Index(i for i in range(len(df))))
+
     df.to_csv(table_path, index=False)
 
 
@@ -62,6 +67,11 @@ def parse_files(files: str) -> list[str]:
 def run_objdump(path_to_elf: str, objdump_path: str) -> str:
     completed_process = sp.run([objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
     completed_process.check_returncode()
+    return completed_process.stdout.decode("utf-8")
+
+
+def run_readlink(path_to_file: str) -> str:
+    completed_process = sp.run(["readlink", "-f", path_to_file], capture_output=True)
     return completed_process.stdout.decode("utf-8")
 
 
@@ -82,6 +92,7 @@ def get_elf_instructions(assembly_listing: str) -> dict[str, int]:
 def scan(generator, objdump_path: str) -> pd.DataFrame:
     data = []
     for file in generator:
+        file = run_readlink(file)
         try:
             assembly_listing = run_objdump(file, objdump_path)
             instructions_data = get_elf_instructions(assembly_listing)
