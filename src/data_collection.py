@@ -27,17 +27,36 @@ INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
     help="List of specific files on which program will be run. List items must not be separated by spaces, "
     "otherwise list must be placed in quotes.",
 )
+@click.option(
+    "--ignore-folders",
+    "-i",
+    default=None,
+    help="List of folders which will be ignored during data collection.",
+)
 @click.argument("table-path")
-def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: bool, files: str):
-    """Walks through all the executable files in the folder and its subfolders and collect data"""
+def collect_data(
+    base_dir: str,
+    objdump_path: str,
+    recursive: bool,
+    files: str | None,
+    ignore_folders: str | None,
+    table_path: str,
+):
+    """Walks through files according to the passed parameters and
+    collects data (number of occurrences of each instruction)."""
+    if ignore_folders:
+        ignore_folders = parse_paths(ignore_folders)
+    else:
+        ignore_folders = []
     n_cores = multiprocessing.cpu_count()
     if files:
-        paths = parse_files(files)
+        paths = parse_paths(files)
         file_groups = [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in range(n_cores)]
     else:
         if recursive:
             file_groups = [
-                (list(recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)
+                (list(recursive_file_generator(base_dir, n_cores, core, ignore_folders)), objdump_path)
+                for core in range(n_cores)
             ]
         else:
             file_groups = [
@@ -61,8 +80,8 @@ def collect_data(base_dir: str, objdump_path: str, table_path: str, recursive: b
     df.to_csv(table_path, index=False)
 
 
-def parse_files(files: str) -> list[str]:
-    return [file.strip().strip("\"'") for file in files[1:-1].split(",")]
+def parse_paths(paths: str) -> list[str]:
+    return [path.strip().strip("\"'") for path in paths[1:-1].split(",")]
 
 
 def run_objdump(path_to_elf: str, objdump_path: str) -> str:
