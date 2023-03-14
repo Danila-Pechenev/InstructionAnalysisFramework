@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build & push docker images
         run: |
-          for filename in "$(git diff --name-only --diff-filter=ACMRT HEAD~1 'dockerfiles/Dockerfile.*')"; do
+          for filename in $(git diff --name-only --diff-filter=ACMRT HEAD~1 'dockerfiles/Dockerfile.*'); do
             os="${filename#*.}"
             docker build . --file dockerfiles/Dockerfile."$os" --tag danilapechenev/instruction-analysis:"$os"
             docker push danilapechenev/instruction-analysis:"$os"
