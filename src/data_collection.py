@@ -2,13 +2,13 @@ import multiprocessing
 import subprocess as sp
 import pandas as pd
 import click
-import re
 import os
 
 from file_generators import user_files_generator, non_recursive_file_generator, recursive_file_generator
 
 OBJDUMP_ARGS = ["-d", "--no-show-raw-insn", "--no-addresses"]
-INSTRUCTION_REGEX = r"^\s+([a-z]\S+)(\s+\S+)*$"
+PREFIXES = ["lock", "repne", "repnz", "rep", "repe", "repz", "cs", "ss", "ds", "es", "fs", "gs"]
+ALLOWED_SYMBOLS = "0123456789qazwsxedcrfvtgbyhnujmikolp"
 
 
 @click.command()
@@ -95,16 +95,33 @@ def run_readlink(path_to_file: str) -> str:
     return completed_process.stdout.decode("utf-8").split(os.linesep)[0]
 
 
+def instruction_predicate(word: str) -> bool:
+    for letter in word:
+        if letter not in ALLOWED_SYMBOLS:
+            return False
+    if word in PREFIXES:
+        return False
+
+    return True
+
+
+def process_one_line(line: str) -> str | None:
+    words = line.split()
+    for word in words:
+        if instruction_predicate(word):
+            return word
+
+
 def get_elf_instructions(assembly_listing: str) -> dict[str, int]:
     instructions_count = dict()
     for line in assembly_listing.splitlines():
-        matched = re.match(INSTRUCTION_REGEX, line)
-        if matched:
-            instruction = matched.group(1)
-            if instruction not in instructions_count:
-                instructions_count[instruction] = 1
-            else:
-                instructions_count[instruction] += 1
+        instruction = process_one_line(line)
+        if not instruction:
+            continue
+        if instruction not in instructions_count:
+            instructions_count[instruction] = 1
+        else:
+            instructions_count[instruction] += 1
 
     return instructions_count
 
@@ -122,10 +139,6 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
             pass
 
     df = pd.DataFrame(data).fillna(0)
-    if len(data) != 0:
-        col = df.pop("filename")
-        df = df.astype(int)
-        df.insert(0, "filename", col)
 
     return df
 
