@@ -35,8 +35,7 @@ def _find_key(name: str) -> str:
     key = None
     for df_key in _DFS:
         if df_key == name:
-            key = df_key
-            break
+            return df_key
         if df_key.startswith(name):
             if found:
                 raise KeyError(f"Found two or more dataframes with names starting with {name}")
@@ -182,7 +181,6 @@ def divide_into_categories(name: str) -> pd.DataFrame:
         elif column_upper[:-1] in _INSTRUCTIONS_INFO:
             category = _INSTRUCTIONS_INFO[column_upper[:-1]]["category"]
         else:
-            print(column)
             category = "Other"
         if category not in df.columns:
             df[category] = df[column]
@@ -263,7 +261,7 @@ def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
         return _DFS[key][mask].reset_index()
 
 
-def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 10000):
+def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000):
     """
     Builds a histogram of the total instruction usage in dataframes with the names given.
     :param names: None or list of dataframe names (or their beginnings).
@@ -278,7 +276,7 @@ def total_histogram(names: list[str] | None = None, percent: bool = True, ascend
     dfs_for_histogram = dict()
     for name in names:
         key = _find_key(name)
-        df = remove_filename_column(_DFS[key])
+        df = remove_filename_column(key)
         dfs_for_histogram[key] = pd.DataFrame(df.sum(axis=0), columns=[key])
     sums: pd.DataFrame = pd.concat(dfs_for_histogram.values(), join="outer", axis=1).fillna(0).astype(int)
     sums["sum"] = sums.sum(axis=1)
@@ -293,7 +291,7 @@ def total_histogram(names: list[str] | None = None, percent: bool = True, ascend
 
 
 def total_categories_histogram(
-    names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 10000
+    names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
 ):
     """
     Builds a histogram of the total instruction category usage in dataframes with the names given.
@@ -312,10 +310,12 @@ def total_categories_histogram(
         cat_names.append(cat_name)
         add_df(cat_name, divide_into_categories(name))
     total_histogram(names=cat_names, percent=percent, ascending=ascending, width=width)
+    for cat_name in cat_names:
+        remove_df(cat_name)
 
 
 def total_groups_histogram(
-    names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 10000
+    names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
 ):
     """
     Builds a histogram of the total instruction group usage in dataframes with the names given.
@@ -334,3 +334,5 @@ def total_groups_histogram(
         group_names.append(group_name)
         add_df(group_name, divide_into_groups(name))
     total_histogram(names=group_names, percent=percent, ascending=ascending, width=width)
+    for group_name in group_names:
+        remove_df(group_name)
