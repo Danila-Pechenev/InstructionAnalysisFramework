@@ -22,7 +22,7 @@ for category in CATEGORIES:
         start_index = 1
     for i in range(start_index, len(sections)):
         group = sections[i].h1.text
-        instruction_records = sections[i].tbody.find_all("tr")
+        instruction_records = sections[i].find_all("tr")
         for instruction_record in instruction_records:
             if instruction_record.td is not None:
                 instructions["instructions"].append(

@@ -1819,6 +1819,90 @@
             "description": "Behaves like the FISTP instruction but uses truncation, irrespective of the rounding mode specified in the floating-point control word (FCW)"
         },
         {
+            "instruction": "FBLD",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Load BCD"
+        },
+        {
+            "instruction": "FBSTP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Store BCD and pop"
+        },
+        {
+            "instruction": "FLD",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Load floating-point value"
+        },
+        {
+            "instruction": "FST",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Store floating-point value"
+        },
+        {
+            "instruction": "FSTP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Store floating-point value and pop"
+        },
+        {
+            "instruction": "FXCH",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Exchange register"
+        },
+        {
+            "instruction": "FCMOVE",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if equal"
+        },
+        {
+            "instruction": "FCMOVB",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if below"
+        },
+        {
+            "instruction": "FCMOVBE",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if below or equal"
+        },
+        {
+            "instruction": "FCMOVU",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if unordered"
+        },
+        {
+            "instruction": "FCMOVNE",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if not equal"
+        },
+        {
+            "instruction": "FCMOVNB",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if not below"
+        },
+        {
+            "instruction": "FCMOVNBE",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if not below or equal"
+        },
+        {
+            "instruction": "FCMOVNU",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Floating-point conditional move if not unordered"
+        },
+        {
             "instruction": "FIADD",
             "category": "Floating-Point Unit (FPU) instructions set",
             "group": "Basic Arithmetic Instructions",
@@ -1853,6 +1937,126 @@
             "category": "Floating-Point Unit (FPU) instructions set",
             "group": "Basic Arithmetic Instructions",
             "description": "Divide integer reverse"
+        },
+        {
+            "instruction": "FADD",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Add floating-point"
+        },
+        {
+            "instruction": "FADDP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Add floating-point and pop"
+        },
+        {
+            "instruction": "FSUB",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Subtract floating-point"
+        },
+        {
+            "instruction": "FSUBP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Subtract floating-point and pop"
+        },
+        {
+            "instruction": "FSUBR",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Subtract floating-point reverse"
+        },
+        {
+            "instruction": "FSUBRP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Subtract floating-point reverse and pop"
+        },
+        {
+            "instruction": "FMUL",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Multiply floating-point"
+        },
+        {
+            "instruction": "FMULP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Multiply floating-point and pop"
+        },
+        {
+            "instruction": "FDIV",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Divide floating-point"
+        },
+        {
+            "instruction": "FDIVP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Divide floating-point and pop"
+        },
+        {
+            "instruction": "FDIVR",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Divide floating-point reverse"
+        },
+        {
+            "instruction": "FDIVRP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Divide floating-point reverse and pop"
+        },
+        {
+            "instruction": "FPREM",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Partial remainder"
+        },
+        {
+            "instruction": "FPREM1",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "IEEE Partial remainder"
+        },
+        {
+            "instruction": "FRNDINT",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Round to integer"
+        },
+        {
+            "instruction": "FABS",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Absolute value"
+        },
+        {
+            "instruction": "FCHS",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Change sign"
+        },
+        {
+            "instruction": "FSQRT",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Square root"
+        },
+        {
+            "instruction": "FSCALE",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Scale by power of two"
+        },
+        {
+            "instruction": "FXTRACT",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Basic Arithmetic Instructions",
+            "description": "Extract exponent and significant"
         },
         {
             "instruction": "FSIN",
@@ -1955,6 +2159,78 @@
             "category": "Floating-Point Unit (FPU) instructions set",
             "group": "Comparison Instructions",
             "description": "Compare integer and pop"
+        },
+        {
+            "instruction": "FCOM",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare floating-point"
+        },
+        {
+            "instruction": "FCOMP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare floating-point and pop"
+        },
+        {
+            "instruction": "FCOMPP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare floating-point and pop twice"
+        },
+        {
+            "instruction": "FCOMI",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare floating-point and set EFLAGS"
+        },
+        {
+            "instruction": "FCOMIP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare floating-point, set EFLAGS, and pop"
+        },
+        {
+            "instruction": "FUCOM",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Unordered compare floating-point"
+        },
+        {
+            "instruction": "FUCOMP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Unordered compare floating-point and pop"
+        },
+        {
+            "instruction": "FUCOMPP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Unordered compare floating-point and pop twice"
+        },
+        {
+            "instruction": "FUCOMI",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Unordered compare floating-point and set EFLAGS"
+        },
+        {
+            "instruction": "FUCOMIP",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Unordered compare floating-point, set EFLAGS, and pop"
+        },
+        {
+            "instruction": "FTST",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Test floating-point (compare with 0.0)"
+        },
+        {
+            "instruction": "FXAM",
+            "category": "Floating-Point Unit (FPU) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Examine floating-point"
         },
         {
             "instruction": "FFREE",
@@ -2215,6 +2491,102 @@
             "description": "Shift right and merge vectors with quad word granularity using immediate shift value"
         },
         {
+            "instruction": "VMOVSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move scalar single-precision floating-point value between YMM registers or between an YMM register and memory"
+        },
+        {
+            "instruction": "VMOVAPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move four aligned packed single-precision floating-point values between YMM registers or between and YMM register and memory"
+        },
+        {
+            "instruction": "VMOVUPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move four unaligned packed single-precision floating-point values between YMM registers or between and YMM register and memory"
+        },
+        {
+            "instruction": "VMOVLPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two packed single-precision floating-point values to the low quad word of an YMM register and memory"
+        },
+        {
+            "instruction": "VMOVHPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two packed single-precision floating-point values to the high quad word of an YMM register and memory"
+        },
+        {
+            "instruction": "VMOVLHPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two packed single-precision floating-point values from the low quad word to the high quad word of another YMM register"
+        },
+        {
+            "instruction": "VMOVHLPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two packed single-precision floating-point values from the high quad word to the low quad word of another YMM register"
+        },
+        {
+            "instruction": "VMASKMOVPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Conditional SIMD packed loads and stores of single-precision floating-point values"
+        },
+        {
+            "instruction": "VMOVMSKPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Extract sign mask from four packed single-precision floating-point value"
+        },
+        {
+            "instruction": "VMOVSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move scalar double-precision floating-point value between YMM registers or between an YMM register and memory"
+        },
+        {
+            "instruction": "VMOVAPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two aligned packed double-precision floating-point values between YMM registers or between and YMM register and memory"
+        },
+        {
+            "instruction": "VMOVUPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move two unaligned packed double-precision floating-point values between YMM registers or between and YMM register and memory"
+        },
+        {
+            "instruction": "VMOVLPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move low packed double-precision floating-point value to the low quad word of an YMM register and memory"
+        },
+        {
+            "instruction": "VMOVHPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Move high packed double-precision floating-point value to the high quad word of an YMM register and memory"
+        },
+        {
+            "instruction": "VMASKMOVPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Conditional SIMD packed loads and stores of double-precision floating-point values"
+        },
+        {
+            "instruction": "VMOVMSKPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Data Transfer Instructions",
+            "description": "Extract sign mask from two packed double-precision floating-point value"
+        },
+        {
             "instruction": "VPBROADCASTB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Broadcast Instructions",
@@ -2225,6 +2597,102 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Broadcast Instructions",
             "description": "Broadcast byte size mask to all elements of a register"
+        },
+        {
+            "instruction": "VPBROADCASTW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast a word integer value to all elements of a register"
+        },
+        {
+            "instruction": "VPBROADCASTMW2D",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast word size mask to all elements of a register"
+        },
+        {
+            "instruction": "VPBROADCASTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast a double word integer value to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTI32X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast two double word values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTI32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast four double word values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTI32X8",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast eight double word values to all elements of a register"
+        },
+        {
+            "instruction": "VPBROADCASTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast a quad word integer value to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTI64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast two quad word values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTI64X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast four quad word values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast a single-precision floating-point value to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTF32X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast two single-precision floating-point values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTF32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast four single-precision floating-point values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTF32X8",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast eight single-precision floating-point values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast a double-precision floating-point value to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTF64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast two double-precision floating-point values to all elements of a register"
+        },
+        {
+            "instruction": "VBROADCASTF64X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Broadcast Instructions",
+            "description": "Broadcast four double-precision floating-point values to all elements of a register"
         },
         {
             "instruction": "VPEXPANDD",
@@ -2329,6 +2797,42 @@
             "description": "Insert 256-bits of packed integer values from the source into the destination operand at 256-bit granular offset. The remaining portions of the destination operand are copied from the corresponding fields of the first source operand"
         },
         {
+            "instruction": "VINSERTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Inserts a single-precision floating-point value from either a 32-bit memory location or selected from a specified offset in an YMM register to a specified offset in the destination YMM register. In addition, INSERTPS allows zeroing out selected data elements in the destination, using a mask"
+        },
+        {
+            "instruction": "VINSERTF128",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Insert 128-bits of packed floating-point values from the source into the destination operand"
+        },
+        {
+            "instruction": "VINSERTF32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Insert 128-bits of packed floating-point values from the source into the destination operand at 128-bit granular offset. The remaining portions of the destination operand are copied from the corresponding fields of the first source operand"
+        },
+        {
+            "instruction": "VINSERTF64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Insert 128-bits of packed floating-point values from the source into the destination operand at 128-bit granular offset. The remaining portions of the destination operand are copied from the corresponding fields of the first source operand"
+        },
+        {
+            "instruction": "VINSERTF32X8",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Insert 256-bits of packed floating-point values from the source into the destination operand at 256-bit granular offset. The remaining portions of the destination operand are copied from the corresponding fields of the first source operand"
+        },
+        {
+            "instruction": "VINSERTF64X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Insert Instructions",
+            "description": "Insert 256-bits of packed floating-point values from the source into the destination operand at 256-bit granular offset. The remaining portions of the destination operand are copied from the corresponding fields of the first source operand"
+        },
+        {
             "instruction": "VPEXTRB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Extract Instructions",
@@ -2383,6 +2887,42 @@
             "description": "Extract 256-bits of packed integer values from the source operand and store to the low 256-bit of the destination operand at 256-bit granular offset"
         },
         {
+            "instruction": "VEXTRACTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extracts a single-precision floating-point value from a specified offset in an YMM register and stores the result to memory or a general-purpose register"
+        },
+        {
+            "instruction": "VEXTRACTF128",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extract 128-bits of packed floating-point values from the source operand and store to the low 128-bit of the destination operand"
+        },
+        {
+            "instruction": "VEXTRACTF32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extract 128-bits of packed floating-point values from the source operand and store to the low 128-bit of the destination operand at 128-bit granular offset"
+        },
+        {
+            "instruction": "VEXTRACTF64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extract 128-bits of packed floating-point values from the source operand and store to the low 128-bit of the destination operand at 128-bit granular offset"
+        },
+        {
+            "instruction": "VEXTRACTF32X8",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extract 256-bits of packed floating-point values from the source operand and store to the low 256-bit of the destination operand at 256-bit granular offset"
+        },
+        {
+            "instruction": "VEXTRACTF64X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Extract Instructions",
+            "description": "Extract 256-bits of packed floating-point values from the source operand and store to the low 256-bit of the destination operand at 256-bit granular offset"
+        },
+        {
             "instruction": "VPGATHERDD",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Gather Instructions",
@@ -2393,6 +2933,90 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Gather Instructions",
             "description": "Gather packed double word values using signed quad word indices"
+        },
+        {
+            "instruction": "VPGATHERDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed quad word values using signed double word indices"
+        },
+        {
+            "instruction": "VPGATHERQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed quad word values using signed quad word indices"
+        },
+        {
+            "instruction": "VGATHERDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed single-precision floating-point values using signed double word indices"
+        },
+        {
+            "instruction": "VGATHERQPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed single-precision floating-point values using signed quad word indices"
+        },
+        {
+            "instruction": "VGATHERPF0DPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed single-precision floating-point values with signed double word indices using T0 hint"
+        },
+        {
+            "instruction": "VGATHERPF1DPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed single-precision floating-point values with signed double word indices using T1 hint"
+        },
+        {
+            "instruction": "VGATHERPF0QPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed single-precision floating-point values with signed quad word indices using T0 hint"
+        },
+        {
+            "instruction": "VGATHERPF1QPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed single-precision floating-point values with signed quad word indices using T1 hint"
+        },
+        {
+            "instruction": "VGATHERDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed double-precision floating-point values using signed double word indices"
+        },
+        {
+            "instruction": "VGATHERQPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Gather packed double-precision floating-point values using signed quad word indices"
+        },
+        {
+            "instruction": "VGATHERPF0DPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed double-precision floating-point values with signed double word indices using T0 hint"
+        },
+        {
+            "instruction": "VGATHERPF1DPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed double-precision floating-point values with signed double word indices using T1 hint"
+        },
+        {
+            "instruction": "VGATHERPF0QPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed double-precision floating-point values with signed quad word indices using T0 hint"
+        },
+        {
+            "instruction": "VGATHERPF1QPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Gather Instructions",
+            "description": "Sparse prefetch of packed double-precision floating-point values with signed quad word indices using T1 hint"
         },
         {
             "instruction": "VPSCATTERDD",
@@ -2407,6 +3031,90 @@
             "description": "Using signed quad word indices, scatter double word values to memory using writemask"
         },
         {
+            "instruction": "VPSCATTERDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, scatter quad word values to memory using writemask"
+        },
+        {
+            "instruction": "VPSCATTERQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, scatter quad word values to memory using writemask"
+        },
+        {
+            "instruction": "VSCATTERDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, scatter single-precision floating-point values to memory using writemask"
+        },
+        {
+            "instruction": "VSCATTERQPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, scatter single-precision floating-point values to memory using writemask"
+        },
+        {
+            "instruction": "VSCATTERPF0DPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, prefetch sparse single-precision floating-point values using writemask and T0 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF1DPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, prefetch sparse single-precision floating-point value using writemask and T1 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF0QPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, prefetch sparse single-precision floating-point values using writemask and T0 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF1QPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, prefetch sparse single-precision floating-point value using writemask and T1 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, scatter double-precision floating-point values to memory using writemask"
+        },
+        {
+            "instruction": "VSCATTERQPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, scatter double-precision floating-point values to memory using writemask"
+        },
+        {
+            "instruction": "VSCATTERPF0DPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, prefetch sparse double-precision floating-point values using writemask and T0 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF1QPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed double word indices, prefetch sparse double-precision floating-point value using writemask and T1 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF0QPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, prefetch sparse double-precision floating-point values using writemask and T0 hint with intent to write"
+        },
+        {
+            "instruction": "VSCATTERPF1DPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Scatter Instructions",
+            "description": "Using signed quad word indices, prefetch sparse double-precision floating-point value using writemask and T1 hint with intent to write"
+        },
+        {
             "instruction": "VPBLENDVB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Blending Instructions",
@@ -2419,10 +3127,130 @@
             "description": "Performs blending of byte elements between the first and the second operand (register or memory), using the instruction mask selector"
         },
         {
+            "instruction": "VPBLENDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified word elements in the source operand to the destination, using an immediate byte control"
+        },
+        {
+            "instruction": "VPBLENDMW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Performs blending of word elements between the first and the second operand (register or memory), using the instruction mask selector"
+        },
+        {
+            "instruction": "VPBLENDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified double word elements in the source operand to the destination, using an immediate byte control"
+        },
+        {
+            "instruction": "VPBLENDMD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Performs blending of double word elements between the first and the second operand (register or memory), using the instruction mask selector"
+        },
+        {
+            "instruction": "VPBLENDMQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Performs blending of quad word elements between the first and the second operand (register or memory), using the instruction mask selector"
+        },
+        {
+            "instruction": "VBLENDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified data elements in the source operand to the destination, using an immediate byte control"
+        },
+        {
+            "instruction": "VBLENDVPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified data elements in the source operand to the destination, using an implied mask"
+        },
+        {
+            "instruction": "VBLENDMPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Performs blending between single-precision elements in the first operand with the elements in the second operand using an opmask register as select control"
+        },
+        {
+            "instruction": "VBLENDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified data elements in the source operand to the destination, using an immediate byte control"
+        },
+        {
+            "instruction": "VBLENDVPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Conditionally copies specified data elements in the source operand to the destination, using an implied mask"
+        },
+        {
+            "instruction": "VBLENDMPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Blending Instructions",
+            "description": "Performs blending between double-precision elements in the first operand with the elements in the second operand using an opmask register as select control"
+        },
+        {
             "instruction": "VPSHUFB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Shuffle Instructions",
             "description": "Shuffle packed byte values"
+        },
+        {
+            "instruction": "VPSHUFLW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle packed low words values"
+        },
+        {
+            "instruction": "VPSHUFHW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle packed high words values"
+        },
+        {
+            "instruction": "VPSHUFD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle packed double words values"
+        },
+        {
+            "instruction": "VSHUFI32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle 128-bit packed double word values"
+        },
+        {
+            "instruction": "VSHUFI64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle 128-bit packed quad word values"
+        },
+        {
+            "instruction": "VSHUFPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffles values in packed single-precision floating-point operands"
+        },
+        {
+            "instruction": "VSHUFF32X4",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle 128-bit packed single-precision floating-point operands"
+        },
+        {
+            "instruction": "VSHUFPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffles values in packed double-precision floating-point operands"
+        },
+        {
+            "instruction": "VSHUFF64X2",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shuffle Instructions",
+            "description": "Shuffle 128-bit packed double-precision floating-point operands"
         },
         {
             "instruction": "VPERMW",
@@ -2437,6 +3265,78 @@
             "description": "Permute packed word elements from two tables using indexes"
         },
         {
+            "instruction": "VPERMD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed double word elements"
+        },
+        {
+            "instruction": "VPERMI2D",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed double word elements from two tables using indexes"
+        },
+        {
+            "instruction": "VPERMQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed quad word elements"
+        },
+        {
+            "instruction": "VPERMI2Q",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed quad word elements from two tables using indexes"
+        },
+        {
+            "instruction": "VPERM2I128",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute 128-bit integer fields using controls"
+        },
+        {
+            "instruction": "VPERMPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed single-precision floating-point elements"
+        },
+        {
+            "instruction": "VPERMILPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed single-precision floating-point elements using controls"
+        },
+        {
+            "instruction": "VPERMI2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed single-precision elements from two tables using indexes"
+        },
+        {
+            "instruction": "VPERMPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed double-precision floating-point elements"
+        },
+        {
+            "instruction": "VPERMILPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed double-precision floating-point elements using controls"
+        },
+        {
+            "instruction": "VPERMI2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute packed double-precision elements from two tables using indexes"
+        },
+        {
+            "instruction": "VPERM2F128",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Permute Instructions",
+            "description": "Permute 128-bit floating-point fields using controls"
+        },
+        {
             "instruction": "VPUNPCKLBW",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Unpack Instructions",
@@ -2447,6 +3347,66 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Unpack Instructions",
             "description": "Unpack high-order bytes"
+        },
+        {
+            "instruction": "VPUNPCKLWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack low-order words"
+        },
+        {
+            "instruction": "VPUNPCKHWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack high-order words"
+        },
+        {
+            "instruction": "VPUNPCKLDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack low-order double words"
+        },
+        {
+            "instruction": "VPUNPCKHDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack high-order double words"
+        },
+        {
+            "instruction": "VPUNPCKLQDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack low quad words"
+        },
+        {
+            "instruction": "VPUNPCKHQDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpack high quad words"
+        },
+        {
+            "instruction": "VUNPCKLPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpacks and interleaves the two low-order values from two single-precision floating-point operands"
+        },
+        {
+            "instruction": "VUNPCKHPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpacks and interleaves the two high-order values from two single-precision floating-point operands"
+        },
+        {
+            "instruction": "VUNPCKLPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpacks and interleaves the low values from two packed double-precision floating-point operands"
+        },
+        {
+            "instruction": "VUNPCKHPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Unpack Instructions",
+            "description": "Unpacks and interleaves the high values from two packed double-precision floating-point operands"
         },
         {
             "instruction": "VPACKSSWB",
@@ -2461,6 +3421,18 @@
             "description": "Pack words into bytes with unsigned saturation"
         },
         {
+            "instruction": "VPACKSSDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Pack Instructions",
+            "description": "Pack double words into words with signed saturation"
+        },
+        {
+            "instruction": "VPACKUSDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Pack Instructions",
+            "description": "Pack double words into words with unsigned saturation"
+        },
+        {
             "instruction": "VPMOVSXBW",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Conversion Instructions",
@@ -2473,6 +3445,498 @@
             "description": "Zero extend the lower 8-bit integer of each packed word element into packed signed word integers"
         },
         {
+            "instruction": "VPMOVSXBD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Sign extend the lower 8-bit integer of each packed double word element into packed signed double word integers"
+        },
+        {
+            "instruction": "VPMOVZXBD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Zero extend the lower 8-bit integer of each packed double word element into packed signed double word integers"
+        },
+        {
+            "instruction": "VPMOVSXBQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Sign extend the lower 8-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVZXBQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Zero extend the lower 8-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVWB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed word integers into packed bytes with truncation"
+        },
+        {
+            "instruction": "VPMOVSWB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed word integers into packed signed bytes using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSWB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned word integers into packed unsigned bytes using unsigned saturation"
+        },
+        {
+            "instruction": "VPMOVSXWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Sign extend the lower 16-bit integer of each packed double word element into packed signed double word integers"
+        },
+        {
+            "instruction": "VPMOVZXWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Zero extend the lower 16-bit integer of each packed double word element into packed signed double word integers"
+        },
+        {
+            "instruction": "VPMOVSXWQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Sign extend the lower 16-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVZXWQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Zero extend the lower 16-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVDB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed double word integers into packed bytes with truncation"
+        },
+        {
+            "instruction": "VPMOVSDB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed double word integers into packed signed bytes using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSDB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned double word integers into packed unsigned bytes using unsigned saturation"
+        },
+        {
+            "instruction": "VPMOVDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed double word integers into packed words with truncation"
+        },
+        {
+            "instruction": "VPMOVSDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed double word integers into packed signed words using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned double word integers into packed unsigned words using unsigned saturation"
+        },
+        {
+            "instruction": "VPMOVSXDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Sign extend the lower 32-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVZXDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Zero extend the lower 32-bit integer of each packed quad word element into packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMOVQB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed quad word integers into packed bytes with truncation"
+        },
+        {
+            "instruction": "VPMOVSQB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed quad word integers into packed signed bytes using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSQB",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned quad word integers into packed unsigned bytes using unsigned saturation"
+        },
+        {
+            "instruction": "VPMOVQW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed quad word integers into packed words with truncation"
+        },
+        {
+            "instruction": "VPMOVSQW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed quad word integers into packed signed words using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSQW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned quad word integers into packed unsigned words using unsigned saturation"
+        },
+        {
+            "instruction": "VPMOVQD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed quad word integers into packed double words with truncation"
+        },
+        {
+            "instruction": "VPMOVSQD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed signed quad word integers into packed signed double words using signed saturation"
+        },
+        {
+            "instruction": "VPMOVUSQD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Converts packed unsigned quad word integers into packed unsigned double words using unsigned saturation"
+        },
+        {
+            "instruction": "VCVTSI2SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar signed double word integer to scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTUSI2SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar unsigned double word integer to scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTDQ2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed signed double word integers to packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTUDQ2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed unsigned double word integers to packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTSI2SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar signed double word integer to scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTUSI2SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar unsigned double word integer to scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTDQ2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed signed double word integers to packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTUDQ2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed unsigned double word integers to packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTSI2SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar signed quad word integer to scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTUSI2SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar unsigned quad word integer to scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTQQ2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed signed quad word integers to packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTUQQ2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed unsigned quad word integers to packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTSI2SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar signed quad word integer to scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTUSI2SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar unsigned quad word integer to scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTQQ2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed signed quad word integers to packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTUQQ2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed unsigned quad word integers to packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTPH2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert eight/four data element containing 16-bit floating-point data into eight/four single-precision floating-point data"
+        },
+        {
+            "instruction": "VCVTSS2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar single-precision floating-point value to scalar signed double word integer"
+        },
+        {
+            "instruction": "VCVTSS2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar single-precision floating-point value to scalar unsigned double word integer"
+        },
+        {
+            "instruction": "VCVTPS2DQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed single-precision floating-point values to packed signed double word integers"
+        },
+        {
+            "instruction": "VCVTPS2UDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed single-precision floating-point values to packed unsigned double word integers"
+        },
+        {
+            "instruction": "VCVTTSS2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar single-precision floating-point value to scalar signed double word integer"
+        },
+        {
+            "instruction": "VCVTTSS2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar single-precision floating-point value to scalar unsigned double word integer"
+        },
+        {
+            "instruction": "VCVTTPS2DQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed single-precision floating-point values to packed signed double word integers"
+        },
+        {
+            "instruction": "VCVTTPS2UDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed single-precision floating-point values to packed unsigned double word integers"
+        },
+        {
+            "instruction": "VCVTSS2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar single-precision floating-point value to scalar signed quad word integer"
+        },
+        {
+            "instruction": "VCVTSS2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar single-precision floating-point value to scalar unsigned quad word integer"
+        },
+        {
+            "instruction": "VCVTPS2QQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed single-precision floating-point values to packed signed quad word integers"
+        },
+        {
+            "instruction": "VCVTPS2UQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed single precision floating-point values to packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VCVTTSS2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar single-precision floating-point value to scalar signed quad word integer"
+        },
+        {
+            "instruction": "VCVTTSS2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar single-precision floating-point value to scalar unsigned quad word integer"
+        },
+        {
+            "instruction": "VCVTTPS2QQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed single precision floating-point values to packed signed quad word integers"
+        },
+        {
+            "instruction": "VCVTTPS2UQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed single precision floating-point values to packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VCVTPS2PH",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert eight/four data element containing single-precision floating-point data into eight/four 16-bit floating-point data"
+        },
+        {
+            "instruction": "VCVTSS2SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar single-precision floating-point value to scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTPS2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed single-precision floating-point values to packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VCVTSD2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar double-precision floating-point value to scalar signed double word integer"
+        },
+        {
+            "instruction": "VCVTSD2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar double-precision floating-point value to scalar unsigned double word integer"
+        },
+        {
+            "instruction": "VCVTPD2DQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed double-precision floating-point values to packed signed double word integers"
+        },
+        {
+            "instruction": "VCVTPD2UDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed double-precision floating-point values to packed unsigned double word integers"
+        },
+        {
+            "instruction": "VCVTTSD2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar double-precision floating-point value to scalar signed double word integer"
+        },
+        {
+            "instruction": "VCVTTSD2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar double-precision floating-point value to scalar unsigned double word integer"
+        },
+        {
+            "instruction": "VCVTTPD2DQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed double-precision floating-point values to packed signed double word integers"
+        },
+        {
+            "instruction": "VCVTTPD2UDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed double-precision floating-point values to packed unsigned double word integers"
+        },
+        {
+            "instruction": "VCVTSD2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar double-precision floating-point value to scalar signed quad word integer"
+        },
+        {
+            "instruction": "VCVTSD2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar double-precision floating-point value to scalar unsigned quad word integer"
+        },
+        {
+            "instruction": "VCVTPD2QQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed double-precision floating-point values to packed signed quad word integers"
+        },
+        {
+            "instruction": "VCVTPD2UQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed double-precision floating-point values to packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VCVTTSD2SI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar double-precision floating-point value to scalar signed quad word integer"
+        },
+        {
+            "instruction": "VCVTTSD2USI",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation scalar double-precision floating-point value to scalar unsigned quad word integer"
+        },
+        {
+            "instruction": "VCVTTPD2QQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed double-precision floating-point values to packed signed quad word integers"
+        },
+        {
+            "instruction": "VCVTTPD2UQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert with truncation packed double-precision floating-point values to packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VCVTSD2SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert scalar double-precision floating-point value to scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VCVTPD2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Conversion Instructions",
+            "description": "Convert packed double-precision floating-point values to packed single-precision floating-point values"
+        },
+        {
             "instruction": "VPTESTMB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Logical Instructions",
@@ -2483,6 +3947,192 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Logical Instructions",
             "description": "Performs a bitwise logical NOT AND of packed byte integers and set mask"
+        },
+        {
+            "instruction": "VPTESTMW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical AND of packed word integers and set mask"
+        },
+        {
+            "instruction": "VPTESTNMW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical NOT AND of packed word integers and set mask"
+        },
+        {
+            "instruction": "VPTESTMD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical AND of packed double word integers and set mask"
+        },
+        {
+            "instruction": "VPTESTNMD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical NOT AND of packed double word integers and set mask"
+        },
+        {
+            "instruction": "VPANDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND of packed double word integers"
+        },
+        {
+            "instruction": "VPANDND",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND NOT of packed double word integers"
+        },
+        {
+            "instruction": "VPORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical OR of packed double word integers"
+        },
+        {
+            "instruction": "VPXORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical exclusive XOR of packed double word integers"
+        },
+        {
+            "instruction": "VPTERNLOGD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise ternary logic with double word granularity. The immediate value determines the specific binary function being implemented"
+        },
+        {
+            "instruction": "VPTESTMQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical AND of packed quad word integers and set mask"
+        },
+        {
+            "instruction": "VPTESTNMQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a bitwise logical NOT AND of packed quad word integers and set mask"
+        },
+        {
+            "instruction": "VPANDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND of packed quad word integers"
+        },
+        {
+            "instruction": "VPANDNQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND NOT of packed quad word integers"
+        },
+        {
+            "instruction": "VPORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical OR of packed quad word integers"
+        },
+        {
+            "instruction": "VPXORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical exclusive XOR of packed quad word integers"
+        },
+        {
+            "instruction": "VPTERNLOGQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise ternary logic with quad word granularity. The immediate value determines the specific binary function being implemented"
+        },
+        {
+            "instruction": "VPTEST",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Performs a logical AND between the destinations with this mask and sets the ZF flag if the result is zero. The CF flag (zero for TEST) is set if the inverted mask AND with the destination is all zero"
+        },
+        {
+            "instruction": "VPAND",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND"
+        },
+        {
+            "instruction": "VPANDN",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical AND NOT"
+        },
+        {
+            "instruction": "VPOR",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical OR"
+        },
+        {
+            "instruction": "VPXOR",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Bitwise logical exclusive OR"
+        },
+        {
+            "instruction": "VTESTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Packed bit test of single-precision floating-point elements"
+        },
+        {
+            "instruction": "VANDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical AND of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VANDNPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical AND NOT of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VORPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical OR of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VXORPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical XOR of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VTESTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Packed bit test of double-precision floating-point elements"
+        },
+        {
+            "instruction": "VANDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical AND of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VANDNPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical AND NOT of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VORPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical OR of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VXORPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Logical Instructions",
+            "description": "Perform bitwise logical XOR of packed double-precision floating-point values"
         },
         {
             "instruction": "VPSLLW",
@@ -2521,6 +4171,138 @@
             "description": "Variable bit shift right arithmetic"
         },
         {
+            "instruction": "VPSLLD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed double words left logical"
+        },
+        {
+            "instruction": "VPSRLD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed double words right logical"
+        },
+        {
+            "instruction": "VPSRAD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed double words right arithmetic"
+        },
+        {
+            "instruction": "VPSLLVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift left logical"
+        },
+        {
+            "instruction": "VPSRLVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift right logical"
+        },
+        {
+            "instruction": "VPSRAVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift right arithmetic"
+        },
+        {
+            "instruction": "VPROLD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate double words left using immediate bits count"
+        },
+        {
+            "instruction": "VPRORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate double words right using immediate bits count"
+        },
+        {
+            "instruction": "VPROLVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate double words left using variable bits count"
+        },
+        {
+            "instruction": "VPRORVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate double words right using variable bits count"
+        },
+        {
+            "instruction": "VPSLLQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed quad word left logical"
+        },
+        {
+            "instruction": "VPSRLQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed quad word right logical"
+        },
+        {
+            "instruction": "VPSRAQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift packed quad words right arithmetic"
+        },
+        {
+            "instruction": "VPSLLVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift left logical"
+        },
+        {
+            "instruction": "VPSRLVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift right logical"
+        },
+        {
+            "instruction": "VPSRAVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Variable bit shift right arithmetic"
+        },
+        {
+            "instruction": "VPROLQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate quad words left using immediate bits count"
+        },
+        {
+            "instruction": "VPRORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate quad words right using immediate bits count"
+        },
+        {
+            "instruction": "VPROLVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate quad words left using variable bits count"
+        },
+        {
+            "instruction": "VPRORVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Rotate quad words right using variable bits count"
+        },
+        {
+            "instruction": "VPSLLDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift double quad word left logical"
+        },
+        {
+            "instruction": "VPSRLDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Shift and Rotate Instructions",
+            "description": "Shift double quad word right logical"
+        },
+        {
             "instruction": "VPCMPEQB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Comparison Instructions",
@@ -2543,6 +4325,390 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Comparison Instructions",
             "description": "Compare packed unsigned byte values into mask"
+        },
+        {
+            "instruction": "VPCMPEQW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed words for equal"
+        },
+        {
+            "instruction": "VPCMPGTW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed word integers for greater than"
+        },
+        {
+            "instruction": "VPCMPW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed word values into mask"
+        },
+        {
+            "instruction": "VPCMPUW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed unsigned word values into mask"
+        },
+        {
+            "instruction": "VPCMPEQD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double words for equal"
+        },
+        {
+            "instruction": "VPCMPGTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed double word integers for greater than"
+        },
+        {
+            "instruction": "VPCMPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed double word values into mask"
+        },
+        {
+            "instruction": "VPCMPUD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed unsigned double word values into mask"
+        },
+        {
+            "instruction": "VPCMPEQQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed quad words for equal"
+        },
+        {
+            "instruction": "VPCMPGTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed quad word integers for greater than"
+        },
+        {
+            "instruction": "VPCMPQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed signed quad word values into mask"
+        },
+        {
+            "instruction": "VPCMPUQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed unsigned quad word values into mask"
+        },
+        {
+            "instruction": "VCMPEQPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is equal to source value"
+        },
+        {
+            "instruction": "VCMPLTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is less than source value"
+        },
+        {
+            "instruction": "VCMPLEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPGTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is greater than source value"
+        },
+        {
+            "instruction": "VCMPGEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPUNORDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if at least one of the two source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPNEQPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is not equal to source value"
+        },
+        {
+            "instruction": "VCMPNLTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is not less than source value"
+        },
+        {
+            "instruction": "VCMPNLEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is not less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPNGTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is not greater than source value"
+        },
+        {
+            "instruction": "VCMPNGEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if destination value is not greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPORDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed single-precision floating-point values and set mask if neither of both source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPEQSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is equal to source value"
+        },
+        {
+            "instruction": "VCMPLTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is less than source value"
+        },
+        {
+            "instruction": "VCMPLESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPGTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is greater than source value"
+        },
+        {
+            "instruction": "VCMPGESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPUNORDSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if at least one of the two source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPNEQSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is not equal to source value"
+        },
+        {
+            "instruction": "VCMPNLTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is not less than source value"
+        },
+        {
+            "instruction": "VCMPNLESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is not less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPNGTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is not greater than source value"
+        },
+        {
+            "instruction": "VCMPNGESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if destination value is not greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPORDSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar single-precision floating-point values and set mask if neither of both source operands is a NaN"
+        },
+        {
+            "instruction": "VCOMISS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Perform ordered comparison of scalar single-precision floating-point value and set flags in EFLAGS register"
+        },
+        {
+            "instruction": "VUCOMISS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Perform unordered comparison of scalar single-precision floating-point value and set flags in EFLAGS register"
+        },
+        {
+            "instruction": "VCMPEQPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is equal to source value"
+        },
+        {
+            "instruction": "VCMPLTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is less than source value"
+        },
+        {
+            "instruction": "VCMPLEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPGTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is greater than source value"
+        },
+        {
+            "instruction": "VCMPGEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPUNORDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if at least one of the two source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPNEQPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is not equal to source value"
+        },
+        {
+            "instruction": "VCMPNLTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is not less than source value"
+        },
+        {
+            "instruction": "VCMPNLEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is not less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPNGTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is not greater than source value"
+        },
+        {
+            "instruction": "VCMPNGEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if destination value is not greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPORDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare packed double-precision floating-point values and set mask if neither of both source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPEQSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is equal to source value"
+        },
+        {
+            "instruction": "VCMPLTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is less than source value"
+        },
+        {
+            "instruction": "VCMPLESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPGTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is greater than source value"
+        },
+        {
+            "instruction": "VCMPGESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPUNORDSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if at least one of the two source operands is a NaN"
+        },
+        {
+            "instruction": "VCMPNEQSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is not equal to source value"
+        },
+        {
+            "instruction": "VCMPNLTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is not less than source value"
+        },
+        {
+            "instruction": "VCMPNLESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is not less than or equal to source value"
+        },
+        {
+            "instruction": "VCMPNGTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is not greater than source value"
+        },
+        {
+            "instruction": "VCMPNGESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if destination value is not greater than or equal to source value"
+        },
+        {
+            "instruction": "VCMPORDSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Compare scalar double-precision floating-point values and set mask if neither of both source operands is a NaN"
+        },
+        {
+            "instruction": "VCOMISD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Perform ordered comparison of scalar double-precision floating-point value and set flags in EFLAGS register"
+        },
+        {
+            "instruction": "VUCOMISD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Comparison Instructions",
+            "description": "Perform unordered comparison of scalar double-precision floating-point value and set flags in EFLAGS register"
         },
         {
             "instruction": "VPADDB",
@@ -2579,6 +4745,294 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Packed Arithmetic Instructions",
             "description": "Subtract packed signed byte integers with signed saturation"
+        },
+        {
+            "instruction": "VPADDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed word integers"
+        },
+        {
+            "instruction": "VPADDUSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed unsigned word integers with unsigned saturation"
+        },
+        {
+            "instruction": "VPADDSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed signed word integers with signed saturation"
+        },
+        {
+            "instruction": "VPHADDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Adds two adjacent, signed 16-bit integers horizontally from the source and destination operands and packs the signed 16-bit results to the destination operand"
+        },
+        {
+            "instruction": "VPHADDSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Adds two adjacent, signed 16-bit integers horizontally from the source and destination operands and packs the signed, saturated 16-bit results to the destination operand"
+        },
+        {
+            "instruction": "VPSUBW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed word integers"
+        },
+        {
+            "instruction": "VPSUBUSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed unsigned word integers with unsigned saturation"
+        },
+        {
+            "instruction": "VPSUBSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed signed word integers with signed saturation"
+        },
+        {
+            "instruction": "VPHSUBW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs horizontal subtraction on each adjacent pair of 16-bit signed integers by subtracting the most significant word from the least significant word of each pair in the source and destination operands. The signed 16-bit results are packed and written to the destination operand"
+        },
+        {
+            "instruction": "VPHSUBSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs horizontal subtraction on each adjacent pair of 16-bit signed integers by subtracting the most significant word from the least significant word of each pair in the source and destination operands. The signed, saturated 16-bit results are packed and written to the destination operand"
+        },
+        {
+            "instruction": "VPMULHUW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed unsigned integers and store high result"
+        },
+        {
+            "instruction": "VPMULLW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed signed word integers and store low result"
+        },
+        {
+            "instruction": "VPMULHW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed signed word integers and store high result"
+        },
+        {
+            "instruction": "VPMULHRSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiplies vertically each signed 16-bit integer from the destination operand with the corresponding signed 16-bit integer of the source operand, producing intermediate, signed 32-bit integers. Each intermediate 32-bit integer is truncated to the 18 most significant bits. Rounding is always performed by adding 1 to the least significant bit of the 18-bit intermediate result. The final result is obtained by selecting the 16 bits immediately to the right of the most significant bit of each 18-bit intermediate result and packed to the destination operand"
+        },
+        {
+            "instruction": "VPMADDUBSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiplies each unsigned byte value with the corresponding signed byte value to produce an intermediate, 16-bit signed integer. Each adjacent pair of 16-bit signed values are added horizontally. The signed, saturated 16-bit results are packed to the destination operand"
+        },
+        {
+            "instruction": "VPADDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed double word integers"
+        },
+        {
+            "instruction": "VPHADDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Adds two adjacent, signed 32-bit integers horizontally from the source and destination operands and packs the signed 32-bit results to the destination operand"
+        },
+        {
+            "instruction": "VPSUBD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed double word integers"
+        },
+        {
+            "instruction": "VPHSUBD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs horizontal subtraction on each adjacent pair of 32-bit signed integers by subtracting the most significant double word from the least significant double word of each pair in the source and destination operands. The signed 32-bit results are packed and written to the destination operand"
+        },
+        {
+            "instruction": "VPMULLD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Returns four lower 32-bits of the 64-bit results of signed 32-bit integer multiplies"
+        },
+        {
+            "instruction": "VPMADDWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply and add packed word integers"
+        },
+        {
+            "instruction": "VPADDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed quad word integers"
+        },
+        {
+            "instruction": "VPSUBQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed quad word integers"
+        },
+        {
+            "instruction": "VPMULUDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed unsigned double word integers"
+        },
+        {
+            "instruction": "VPMULDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Returns two 64-bit signed result of signed 32-bit integer multiplies"
+        },
+        {
+            "instruction": "VPMULLQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Returns two lower 64-bits of the 128-bit results of signed 64-bit integer multiplies"
+        },
+        {
+            "instruction": "VADDSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VADDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VHADDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs a single-precision addition on contiguous data elements. The first data element of the result is obtained by adding the first and second elements of the first operand; the second element by adding the third and fourth elements of the first operand; the third by adding the first and second elements of the second operand; and the fourth by adding the third and fourth elements of the second operand"
+        },
+        {
+            "instruction": "VSUBSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VSUBPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VHSUBPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs a single-precision subtraction on contiguous data elements. The first data element of the result is obtained by subtracting the second element of the first operand from the first element of the first operand; the second element by subtracting the fourth element of the first operand from the third element of the first operand; the third by subtracting the second element of the second operand from the first element of the second operand; and the fourth by subtracting the fourth element of the second operand from the third element of the second operand"
+        },
+        {
+            "instruction": "VADDSUBPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs single-precision addition on the second and fourth pairs of 32-bit data elements within the operands; single-precision subtraction on the first and third pairs"
+        },
+        {
+            "instruction": "VMULSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VMULPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VDIVSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Divide scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VDIVPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Divide packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VADDSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add scalar double precision floating-point value"
+        },
+        {
+            "instruction": "VADDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Add packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VHADDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs a double-precision addition on contiguous data elements. The first data element of the result is obtained by adding the first and second elements of the first operand; the second element by adding the first and second elements of the second operand"
+        },
+        {
+            "instruction": "VSUBSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VSUBPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Subtract scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VHSUBPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs a double-precision subtraction on contiguous data elements. The first data element of the result is obtained by subtracting the second element of the first operand from the first element of the first operand; the second element by subtracting the second element of the second operand from the first element of the second operand"
+        },
+        {
+            "instruction": "VADDSUBPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Performs double-precision addition on the second pair of quad words, and double-precision subtraction on the first pair"
+        },
+        {
+            "instruction": "VMULSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VMULPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Multiply packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VDIVSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Divide scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VDIVPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Packed Arithmetic Instructions",
+            "description": "Divide packed double-precision floating-point values"
         },
         {
             "instruction": "VFMADD132SS",
@@ -2761,6 +5215,186 @@
             "description": "Fused multiply-alternating subtract/add of packed single-precision floating-point values"
         },
         {
+            "instruction": "VFMADD132SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADD213SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADD231SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADD132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADD213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADD231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD132SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD213SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD231SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMADD231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB132SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB213SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB231SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUB231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB132SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB213SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB231SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFNMSUB231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused negative multiply-subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADDSUB132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating add/subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADDSUB213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating add/subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMADDSUB231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating add/subtract of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUBADD132PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating subtract/add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUBADD213PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating subtract/add of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VFMSUBADD231PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Fused Arithmetic Instructions",
+            "description": "Fused multiply-alternating subtract/add of packed double-precision floating-point values"
+        },
+        {
             "instruction": "VPABSB",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Primitives of Functions",
@@ -2819,6 +5453,576 @@
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Primitives of Functions",
             "description": "Double block packed Sum of Absolute Differences on unsigned bytes"
+        },
+        {
+            "instruction": "VPABSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the absolute value of each signed 16-bit data element"
+        },
+        {
+            "instruction": "VPSIGNW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Negates each signed integer element of the destination operand if the sign of the corresponding element in the source operand is less than zero"
+        },
+        {
+            "instruction": "VPAVGW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute average of packed unsigned word integers"
+        },
+        {
+            "instruction": "VPMINUW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed unsigned word integers"
+        },
+        {
+            "instruction": "VPMINSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed signed word integers"
+        },
+        {
+            "instruction": "VPMAXUW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed unsigned word integers"
+        },
+        {
+            "instruction": "VPMAXSW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed signed word integers"
+        },
+        {
+            "instruction": "VPHMINPOSUW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Finds the value and location of the minimum unsigned word from one of 8 horizontally packed unsigned words. The resulting value and location (offset within the source) are packed into the low double word of the destination YMM register"
+        },
+        {
+            "instruction": "VPABSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the absolute value of each signed 32-bit data element"
+        },
+        {
+            "instruction": "VPSIGND",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Negates each signed integer element of the destination operand if the sign of the corresponding element in the source operand is less than zero"
+        },
+        {
+            "instruction": "VPMINUD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed unsigned double word integers"
+        },
+        {
+            "instruction": "VPMINSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed signed double word integers"
+        },
+        {
+            "instruction": "VPMAXUD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed unsigned double word integers"
+        },
+        {
+            "instruction": "VPMAXSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed signed double word integers"
+        },
+        {
+            "instruction": "VPLZCNTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Count the number of leading zero bits in each packed double word element"
+        },
+        {
+            "instruction": "VPCONFLICTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Detect conflicts within a vector of packed double word values into dense memory"
+        },
+        {
+            "instruction": "VPABSQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the absolute value of each signed 64-bit data element"
+        },
+        {
+            "instruction": "VPMINUQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VPMINSQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Minimum of packed signed quad word integers"
+        },
+        {
+            "instruction": "VPMAXUQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed unsigned quad word integers"
+        },
+        {
+            "instruction": "VPMAXSQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Maximum of packed signed quad word integers"
+        },
+        {
+            "instruction": "VPLZCNTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Count the number of leading zero bits in each packed quad word element"
+        },
+        {
+            "instruction": "VPCONFLICTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Detect conflicts within a vector of packed quad word values into dense memory"
+        },
+        {
+            "instruction": "VSQRTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute square root of scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VSQRTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute square roots of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VMINSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return minimum scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VMINPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return minimum packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VMAXSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return maximum scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VMAXPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return maximum packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VROUNDSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round the low packed single precision floating-point value into an integer value and return a rounded floating-point value"
+        },
+        {
+            "instruction": "VROUNDPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round packed single precision floating-point values into integer values and return rounded floating-point values"
+        },
+        {
+            "instruction": "VRNDSCALESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round scalar single-precision floating-point value to include a given number of fraction bits"
+        },
+        {
+            "instruction": "VRNDSCALEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round packed single-precision floating-point values to include a given number of fraction bits"
+        },
+        {
+            "instruction": "VDPPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform single-precision dot products for up to 4 elements and broadcast"
+        },
+        {
+            "instruction": "VRANGESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Range restriction calculation for pairs of scalar single-precision floating-point values"
+        },
+        {
+            "instruction": "VRANGEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Range restriction calculation for packed pairs of single-precision floating-point values"
+        },
+        {
+            "instruction": "VREDUCESS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform a reduction transformation on a scalar single-precision floating-point value by subtracting a number of fraction bits"
+        },
+        {
+            "instruction": "VREDUCEPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform reduction transformation on packed single-precision floating-point values by subtracting a number of fraction bits"
+        },
+        {
+            "instruction": "VGETEXPSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Convert the biased exponent of scalar single-precision floating-point value to floating-point value representing unbiased integer exponent"
+        },
+        {
+            "instruction": "VGETEXPPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Convert the biased exponent of packed single-precision floating-point values to floating-point values representing unbiased integer exponent"
+        },
+        {
+            "instruction": "VGETMANTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Extract the normalized mantissa from scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VGETMANTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Extract the normalized mantissa from packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VSCALEFSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Scale scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VSCALEFPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Scale packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VEXP2PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Approximation to the exponential 2^x of packed single-precision floating-point values with less than 2^-23 relative error"
+        },
+        {
+            "instruction": "VFPCLASSSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Tests scalar single-precision floating-point value for the following categories: NaN, +0, -0, +Inf, -Inf, denormal, finite, negative"
+        },
+        {
+            "instruction": "VFPCLASSPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Tests packed single-precision floating-point values for the following categories: NaN, +0, -0, +Inf, -Inf, denormal, finite, negative"
+        },
+        {
+            "instruction": "VFIXUPIMMSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Fix up special scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VFIXUPIMMPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Fix up special packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VRCP14SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal of the scalar single-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP14PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocals of the packed single-precision floating-point values. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP28SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal of the scalar single-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP28PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocals of the packed single-precision floating-point values. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRSQRT14SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square root of the scalar single-precision floating-point value. The max relative error is less than 2^-14"
+        },
+        {
+            "instruction": "VRSQRT14PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square roots of the packed single-precision floating-point values. The max relative error is less than 2^-14"
+        },
+        {
+            "instruction": "VRSQRT28SS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square root of the scalar single-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRSQRT28PS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square roots of the packed single-precision floating-point values. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCPPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute reciprocals of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VRCPSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute reciprocal of scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VRSQRTPS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute reciprocals of square roots of packed single-precision floating-point values"
+        },
+        {
+            "instruction": "VRSQRTSS",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute reciprocal of square root of scalar single-precision floating-point value"
+        },
+        {
+            "instruction": "VSQRTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute scalar square root of scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VSQRTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Compute packed square roots of packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VMINSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return minimum scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VMINPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return minimum packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VMAXSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return maximum scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VMAXPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Return maximum packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VROUNDSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round the low packed double precision floating-point value into an integer value and return a rounded floating-point value"
+        },
+        {
+            "instruction": "VROUNDPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round packed double precision floating-point values into integer values and return rounded floating-point values"
+        },
+        {
+            "instruction": "VRNDSCALESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round scalar double-precision floating-point value to include a given number of fraction bits"
+        },
+        {
+            "instruction": "VRNDSCALEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Round packed double-precision floating-point values to include a given number of fraction bits"
+        },
+        {
+            "instruction": "VDPPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform double-precision dot product for up to 2 elements and broadcast"
+        },
+        {
+            "instruction": "VRANGESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Range restriction calculation for pairs of scalar double-precision floating-point values"
+        },
+        {
+            "instruction": "VRANGEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Range restriction calculation for packed pairs of double-precision floating-point values"
+        },
+        {
+            "instruction": "VREDUCESD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform a reduction transformation on a scalar double-precision floating-point value by subtracting a number of fraction bits"
+        },
+        {
+            "instruction": "VREDUCEPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Perform reduction transformation on packed double-precision floating-point values by subtracting a number of fraction bits"
+        },
+        {
+            "instruction": "VGETEXPSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Convert the biased exponent of scalar double-precision floating-point value to floating-point value representing unbiased integer exponent"
+        },
+        {
+            "instruction": "VGETEXPPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Convert the biased exponent of packed double-precision floating-point values to floating-point values representing unbiased integer exponent"
+        },
+        {
+            "instruction": "VGETMANTSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Extract the normalized mantissa from scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VGETMANTPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Extract the normalized mantissa from packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VSCALEFSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Scale scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VSCALEFPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Scale packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VEXP2PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Approximation to the exponential 2^x of packed double-precision floating-point values with less than 2^-23 relative error"
+        },
+        {
+            "instruction": "VFPCLASSSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Tests scalar double-precision floating-point value for the following categories: NaN, +0, -0, +Inf, -Inf, denormal, finite, negative"
+        },
+        {
+            "instruction": "VFPCLASSPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Tests packed double-precision floating-point values for the following categories: NaN, +0, -0, +Inf, -Inf, denormal, finite, negative"
+        },
+        {
+            "instruction": "VFIXUPIMMSD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Fix up special scalar double-precision floating-point value"
+        },
+        {
+            "instruction": "VFIXUPIMMPD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Fix up special packed double-precision floating-point values"
+        },
+        {
+            "instruction": "VRCP14SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal of the scalar double-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP14PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocals of the packed double-precision floating-point values. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP28SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal of the scalar double-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRCP28PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocals of the packed double-precision floating-point values. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRSQRT14SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square root of the scalar double-precision floating-point value. The max relative error is less than 2^-14"
+        },
+        {
+            "instruction": "VRSQRT14PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square roots of the packed double-precision floating-point values. The max relative error is less than 2^-14"
+        },
+        {
+            "instruction": "VRSQRT28SD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square root of the scalar double-precision floating-point value. The max relative error is less than 2^-28"
+        },
+        {
+            "instruction": "VRSQRT28PD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Primitives of Functions",
+            "description": "Computes the approximate reciprocal square roots of the packed double-precision floating-point values. The max relative error is less than 2^-28"
         },
         {
             "instruction": "KMOVB",
@@ -2906,6 +6110,270 @@
         },
         {
             "instruction": "VPMOVB2M",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Converts a vector register to a mask register"
+        },
+        {
+            "instruction": "KMOVW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Move 16-bit from and to mask registers"
+        },
+        {
+            "instruction": "KTESTW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Set ZF and CF depending on sign bit AND and ANDN of 16-bit masks"
+        },
+        {
+            "instruction": "KORTESTW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 8-bit masks with setting ZF CF accordingly"
+        },
+        {
+            "instruction": "KNOTW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise NOT of 16-bits mask"
+        },
+        {
+            "instruction": "KANDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND of two 16-bit masks"
+        },
+        {
+            "instruction": "KANDNW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND NOT of two 16-bit masks"
+        },
+        {
+            "instruction": "KORW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 16-bit masks"
+        },
+        {
+            "instruction": "KXORW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XOR of two 16-bit masks"
+        },
+        {
+            "instruction": "KXNORW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XNOR of two 16-bit masks"
+        },
+        {
+            "instruction": "KADDW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Add two 16-bit masks"
+        },
+        {
+            "instruction": "KSHIFTLW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift left 16-bit mask register"
+        },
+        {
+            "instruction": "KSHIFTRW",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift right 16-bit mask register"
+        },
+        {
+            "instruction": "KUNPCKWD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Unpack and interleave 16-bit masks"
+        },
+        {
+            "instruction": "VPMOVM2W",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Convert a mask register to a vector register"
+        },
+        {
+            "instruction": "VPMOVW2M",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Converts a vector register to a mask register"
+        },
+        {
+            "instruction": "KMOVD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Move 32-bit from and to mask registers"
+        },
+        {
+            "instruction": "KTESTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Set ZF and CF depending on sign bit AND and ANDN of 32-bit masks"
+        },
+        {
+            "instruction": "KORTESTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 8-bit masks with setting ZF CF accordingly"
+        },
+        {
+            "instruction": "KNOTD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise NOT of 32-bits mask"
+        },
+        {
+            "instruction": "KANDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND of two 32-bit masks"
+        },
+        {
+            "instruction": "KANDND",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND NOT of two 32-bit masks"
+        },
+        {
+            "instruction": "KORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 32-bit masks"
+        },
+        {
+            "instruction": "KXORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XOR of two 32-bit masks"
+        },
+        {
+            "instruction": "KXNORD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XNOR of two 32-bit masks"
+        },
+        {
+            "instruction": "KADDD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Add two 32-bit masks"
+        },
+        {
+            "instruction": "KSHIFTLD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift left 32-bit mask register"
+        },
+        {
+            "instruction": "KSHIFTRD",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift right 32-bit mask register"
+        },
+        {
+            "instruction": "KUNPCKDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Unpack and interleave 32-bit masks"
+        },
+        {
+            "instruction": "VPMOVM2D",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Convert a mask register to a vector register"
+        },
+        {
+            "instruction": "VPMOVD2M",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Converts a vector register to a mask register"
+        },
+        {
+            "instruction": "KMOVQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Move 64-bit from and to mask registers"
+        },
+        {
+            "instruction": "KTESTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Set ZF and CF depending on sign bit AND and ANDN of 64-bit masks"
+        },
+        {
+            "instruction": "KORTESTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 8-bit masks with setting ZF CF accordingly"
+        },
+        {
+            "instruction": "KNOTQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise NOT of 64-bits mask"
+        },
+        {
+            "instruction": "KANDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND of two 64-bit masks"
+        },
+        {
+            "instruction": "KANDNQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical AND NOT of two 64-bit masks"
+        },
+        {
+            "instruction": "KORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical OR of two 64-bit masks"
+        },
+        {
+            "instruction": "KXORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XOR of two 64-bit masks"
+        },
+        {
+            "instruction": "KXNORQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Bitwise logical XNOR of two 64-bit masks"
+        },
+        {
+            "instruction": "KADDQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Add two 64-bit masks"
+        },
+        {
+            "instruction": "KSHIFTLQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift left 64-bit mask register"
+        },
+        {
+            "instruction": "KSHIFTRQ",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Shift right 64-bit mask register"
+        },
+        {
+            "instruction": "VPMOVM2Q",
+            "category": "Single Instruction Multiple Data (SIMD) instructions set",
+            "group": "Opmask Instructions",
+            "description": "Convert a mask register to a vector register"
+        },
+        {
+            "instruction": "VPMOVQ2M",
             "category": "Single Instruction Multiple Data (SIMD) instructions set",
             "group": "Opmask Instructions",
             "description": "Converts a vector register to a mask register"
