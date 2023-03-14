@@ -1,3 +1,6 @@
+# This script gathers instructions and their category, group and description from
+# https://linasm.sourceforge.net/docs/instructions/index.php
+
 from bs4 import BeautifulSoup
 import requests
 import json
