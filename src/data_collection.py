@@ -3,6 +3,7 @@ import subprocess as sp
 import pandas as pd
 import click
 import re
+import os
 
 from file_generators import user_files_generator, non_recursive_file_generator, recursive_file_generator
 
@@ -72,7 +73,7 @@ def run_objdump(path_to_elf: str, objdump_path: str) -> str:
 
 def run_readlink(path_to_file: str) -> str:
     completed_process = sp.run(["readlink", "-f", path_to_file], capture_output=True)
-    return completed_process.stdout.decode("utf-8")
+    return completed_process.stdout.decode("utf-8").split(os.linesep)[0]
 
 
 def get_elf_instructions(assembly_listing: str) -> dict[str, int]:
