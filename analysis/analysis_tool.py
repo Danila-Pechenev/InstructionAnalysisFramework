@@ -239,9 +239,9 @@ def where_category(category: str, name: str, divide_df: bool = True) -> pd.DataF
     divided_df = divide_into_categories(key)
     mask = divided_df[category] != 0
     if divide_df:
-        return divided_df[mask].reset_index()
+        return divided_df[mask].reset_index(inplace=True)
     else:
-        return _DFS[key][mask].reset_index()
+        return _DFS[key][mask].reset_index(inplace=True)
 
 
 def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
@@ -256,9 +256,9 @@ def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
     divided_df = divide_into_groups(key)
     mask = divided_df[group] != 0
     if divide_df:
-        return divided_df[mask].reset_index()
+        return divided_df[mask].reset_index(inplace=True)
     else:
-        return _DFS[key][mask].reset_index()
+        return _DFS[key][mask].reset_index(inplace=True)
 
 
 def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000):
