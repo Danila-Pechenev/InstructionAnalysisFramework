@@ -107,7 +107,11 @@ def remove_filename_column(name: str) -> pd.DataFrame:
     :param name: Name of the dataframe or its beginning.
     :return: Dataframe without "filename" column.
     """
-    df = _DFS[_find_key(name)].drop("filename", axis=1)
+    df = _DFS[_find_key(name)]
+    try:
+        df = df.drop("filename", axis=1)
+    except KeyError:
+        pass
     return df
 
 
@@ -153,7 +157,7 @@ def total_instruction_usage(name: str, to_dict: bool = True, show: bool = True) 
     :param show: Pretty print a result. Default: True.
     :return: Dictionary of dataframe with total instruction usage.
     """
-    df = remove_filename_column(_DFS[_find_key(name)])
+    df = remove_filename_column(_find_key(name))
     total = df.sum()
     total_dict = dict(total)
     if show:
@@ -259,6 +263,25 @@ def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
         return divided_df[mask].reset_index(drop=True)
     else:
         return _DFS[key][mask].reset_index(drop=True)
+
+
+def sort_columns_by_sum(name: str, ascending: bool = False) -> pd.DataFrame:
+    """
+    Sorts columns in the dataframe by its sums.
+    :param name: Name of the dataframe or its beginning.
+    :param ascending: If True, the dataframe columns will be sorted in ascending order, otherwise - in descending order.
+    Default: False.
+    :return: Dataframe with sorted columns.
+    """
+    key = _find_key(name)
+    df = _DFS[key]
+    occurrences_list: list[(str, int)] = sorted(
+        total_instruction_usage(key, show=False).items(), key=lambda elem: elem[1], reverse=not ascending
+    )
+    occurrences = dict(occurrences_list)
+    if "filename" in df.columns:
+        return df[["filename"] + list(occurrences.keys())]
+    return df[list(occurrences.keys())]
 
 
 def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000):
