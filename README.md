@@ -1,4 +1,4 @@
-# Instruction analysis utility
+# Instruction analysis framework
 
 ### Create and activate virtual environment
 ```bash
