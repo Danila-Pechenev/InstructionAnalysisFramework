@@ -65,7 +65,7 @@ def get_df(name: str) -> pd.DataFrame:
     """!
     Returns dataframe by name (or its beginning).
         @param name: Name of the dataframe or its beginning.
-        @return: Dataframe.
+        @return Dataframe.
     """
     return _DFS[_find_key(name)]
 
@@ -84,7 +84,7 @@ def head(name: str, number_of_rows: int = 5) -> pd.DataFrame:
     Returns head of the dataframe.
         @param name: Name of the dataframe or its beginning.
         @param number_of_rows: Number of rows in head. Default: 5.
-        @return: Head of the dataframe.
+        @return Head of the dataframe.
     """
     return _DFS[_find_key(name)].head(number_of_rows)
 
@@ -101,7 +101,7 @@ def df_len(name: str) -> int:
     """!
     Returns length of the dataframe.
         @param name: Name of the dataframe or its beginning.
-        @return: Length of the dataframe.
+        @return Length of the dataframe.
     """
     return len(_DFS[_find_key(name)])
 
@@ -110,7 +110,7 @@ def remove_filename_column(name: str) -> pd.DataFrame:
     """!
     Removes "filename" column from the dataframe.
         @param name: Name of the dataframe or its beginning.
-        @return: Dataframe without "filename" column.
+        @return Dataframe without "filename" column.
     """
     df = _DFS[_find_key(name)]
     try:
@@ -136,7 +136,7 @@ def initialize_with_archives(archives_folder: str, dataframes_dir: str) -> None:
 def dfs_list() -> list[str]:
     """!
     Returns a list of dataframe names in the scope.
-        @return: List of dataframe names.
+        @return List of dataframe names.
     """
     return list(_DFS.keys())
 
@@ -160,7 +160,7 @@ def total_instruction_usage(name: str, to_dict: bool = True, show: bool = True) 
         @param name: Name of the dataframe or its beginning.
         @param to_dict: If True, function returns the result in the form of a dictionary. Default: True.
         @param show: Pretty print a result. Default: True.
-        @return: Dictionary or dataframe with total instruction usage.
+        @return Dictionary or dataframe with total instruction usage.
     """
     df = remove_filename_column(_find_key(name))
     total = df.sum()
@@ -177,7 +177,7 @@ def divide_into_categories(name: str) -> pd.DataFrame:
     """!
     Divides instructions in the dataframe into categories.
         @param name: Name of the dataframe or its beginning.
-        @return: Dataframe with instruction categories.
+        @return Dataframe with instruction categories.
     """
     df = _DFS[_find_key(name)].copy()
     columns = list(df.columns)
@@ -203,7 +203,7 @@ def divide_into_groups(name: str) -> pd.DataFrame:
     """!
     Divides instructions in the dataframe into groups.
         @param name: Name of the dataframe or its beginning.
-        @return: Dataframe with instruction groups.
+        @return Dataframe with instruction groups.
     """
     df = _DFS[_find_key(name)].copy()
     columns = list(df.columns)
@@ -230,7 +230,7 @@ def where_instruction(instruction: str, name: str) -> pd.DataFrame:
     Leaves only those rows in which the instruction occurs a non-zero number of times.
         @param instruction: Instruction.
         @param name: Name of the dataframe or its beginning.
-        @return: Dataframe with selected rows.
+        @return Dataframe with selected rows.
     """
     key = _find_key(name)
     return _DFS[key][_DFS[key][instruction] != 0]
@@ -242,7 +242,7 @@ def where_category(category: str, name: str, divide_df: bool = True) -> pd.DataF
         @param category: Category.
         @param name: Name of the dataframe or its beginning.
         @param divide_df: If True, function will divide instructions in the dataframe into categories. Default: True.
-        @return: Dataframe with selected rows.
+        @return Dataframe with selected rows.
     """
     key = _find_key(name)
     divided_df = divide_into_categories(key)
@@ -259,7 +259,7 @@ def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
         @param group: Group.
         @param name: Name of the dataframe or its beginning.
         @param divide_df: If True, function will divide instructions in the dataframe into groups. Default: True.
-        @return: Dataframe with selected rows.
+        @return Dataframe with selected rows.
     """
     key = _find_key(name)
     divided_df = divide_into_groups(key)
@@ -276,7 +276,7 @@ def sort_columns_by_sum(name: str, ascending: bool = False) -> pd.DataFrame:
         @param name: Name of the dataframe or its beginning.
         @param ascending: If True, the dataframe columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        @return: Dataframe with sorted columns.
+        @return Dataframe with sorted columns.
     """
     key = _find_key(name)
     df = _DFS[key]
@@ -309,7 +309,7 @@ def top_rare(name: str, n: int = 10) -> pd.DataFrame:
     Leaves in the dataframe top n the rarest instructions.
         @param name: Name of the dataframe or its beginning.
         @param n: Number of instructions. Default: 10.
-        @return: Dataframe with top n the rarest instructions.
+        @return Dataframe with top n the rarest instructions.
     """
     df = sort_columns_by_sum(name, ascending=True)
     if "filename" in df:
