@@ -18,14 +18,14 @@ _INSTRUCTION_PAGES = dict()
 _INSTRUCTIONS_INFO = dict()
 
 with open("../x86doc/index.html") as file:
-    index_text = BeautifulSoup(file, "lxml")
-entries = index_text.find_all("a")[1:]
-for entry in entries:
+    _index_text = BeautifulSoup(file, "lxml")
+_entries = _index_text.find_all("a")[1:]
+for entry in _entries:
     _INSTRUCTION_PAGES[entry.get_text()] = entry["href"][1:]
 
 with open(_INSTRUCTIONS_INFO_FILE, "r") as read_file:
-    instructions_info = json.load(read_file)["instructions"]
-for item in instructions_info:
+    _instructions_info = json.load(read_file)["instructions"]
+for item in _instructions_info:
     _INSTRUCTIONS_INFO[item["instruction"]] = {
         "category": item["category"],
         "group": item["group"],
