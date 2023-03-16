@@ -54,8 +54,8 @@ def _find_key(name: str) -> str:
 def add_df(name: str, df: pd.DataFrame) -> None:
     """
     Adds a new dataframe to the scope.
-        :param name: Name of the dataframe.
-        :param df: Dataframe.
+        @param name: Name of the dataframe.
+        @param df: Dataframe.
     """
     _DFS[name] = df
 
@@ -63,8 +63,8 @@ def add_df(name: str, df: pd.DataFrame) -> None:
 def get_df(name: str) -> pd.DataFrame:
     """
     Returns dataframe by name (or its beginning).
-        :param name: Name of the dataframe or its beginning.
-        :return: Dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe.
     """
     return _DFS[_find_key(name)]
 
@@ -328,7 +328,7 @@ def total_histogram(
         :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
         :param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 10000.
+        :param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
@@ -359,7 +359,7 @@ def total_categories_histogram(
         :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
         :param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 10000.
+        :param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
@@ -383,7 +383,7 @@ def total_groups_histogram(
         :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
         :param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 10000.
+        :param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
