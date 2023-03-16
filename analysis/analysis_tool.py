@@ -51,7 +51,7 @@ def _find_key(name: str) -> str:
 
 
 # GENERAL FUNCTIONS
-def add_df(name: str, df: pd.DataFrame):
+def add_df(name: str, df: pd.DataFrame) -> None:
     """
     Adds a new dataframe to the scope.
         :param name: Name of the dataframe.
@@ -69,7 +69,7 @@ def get_df(name: str) -> pd.DataFrame:
     return _DFS[_find_key(name)]
 
 
-def show_df(name: str, number_of_rows: int = 5):
+def show_df(name: str, number_of_rows: int = 5) -> None:
     """
     Shows dataframe by name (or its beginning).
         :param name: Name of the dataframe or its beginning.
@@ -88,7 +88,7 @@ def head(name: str, number_of_rows: int = 5) -> pd.DataFrame:
     return _DFS[_find_key(name)].head(number_of_rows)
 
 
-def remove_df(name: str):
+def remove_df(name: str) -> None:
     """
     Returns dataframe by name (or its beginning).
         :param name: Name of the dataframe or its beginning.
@@ -119,7 +119,7 @@ def remove_filename_column(name: str) -> pd.DataFrame:
     return df
 
 
-def initialize_with_archives(archives_folder: str, dataframes_dir: str):
+def initialize_with_archives(archives_folder: str, dataframes_dir: str) -> None:
     """
     Unzips archives and loads dataframes to the scope.
         :param archives_folder: Path to the folder with archives.
@@ -140,7 +140,7 @@ def dfs_list() -> list[str]:
     return list(_DFS.keys())
 
 
-def what_is_instruction(instruction: str):
+def what_is_instruction(instruction: str) -> None:
     """
     Shows instruction information in a new tab (if such an instruction was found).
         :param instruction: Instruction.
@@ -318,7 +318,9 @@ def top_rare(name: str, n: int = 10) -> pd.DataFrame:
     return df[df.columns[: (n + offset)]]
 
 
-def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000):
+def total_histogram(
+    names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
+) -> None:
     """
     Builds a histogram of the total instruction usage in dataframes with the names given.
         :param names: None or list of dataframe names (or their beginnings).
@@ -349,7 +351,7 @@ def total_histogram(names: list[str] | None = None, percent: bool = True, ascend
 
 def total_categories_histogram(
     names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
-):
+) -> None:
     """
     Builds a histogram of the total instruction category usage in dataframes with the names given.
         :param names: None or list of dataframe names (or their beginnings).
@@ -373,7 +375,7 @@ def total_categories_histogram(
 
 def total_groups_histogram(
     names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
-):
+) -> None:
     """
     Builds a histogram of the total instruction group usage in dataframes with the names given.
         :param names: None or list of dataframe names (or their beginnings).
