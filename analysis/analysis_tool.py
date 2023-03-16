@@ -1,4 +1,5 @@
 """
+@package analysis_tool
 Documentation for analysis tool.
 """
 
@@ -52,7 +53,7 @@ def _find_key(name: str) -> str:
 
 # GENERAL FUNCTIONS
 def add_df(name: str, df: pd.DataFrame) -> None:
-    """
+    """!
     Adds a new dataframe to the scope.
     @param name: Name of the dataframe.
     @param df: Dataframe.
@@ -61,7 +62,7 @@ def add_df(name: str, df: pd.DataFrame) -> None:
 
 
 def get_df(name: str) -> pd.DataFrame:
-    """
+    """!
     Returns dataframe by name (or its beginning).
     @param name Name of the dataframe or its beginning.
     @return Dataframe.
