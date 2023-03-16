@@ -279,9 +279,39 @@ def sort_columns_by_sum(name: str, ascending: bool = False) -> pd.DataFrame:
         total_instruction_usage(key, show=False).items(), key=lambda elem: elem[1], reverse=not ascending
     )
     occurrences = dict(occurrences_list)
-    if "filename" in df.columns:
+    if "filename" in df:
         return df[["filename"] + list(occurrences.keys())]
     return df[list(occurrences.keys())]
+
+
+def top_popular(name: str, n: int = 10) -> pd.DataFrame:
+    """
+    Leaves in the dataframe top n most popular instructions.
+    :param name: Name of the dataframe or its beginning.
+    :param n: Number of instructions. Default: 10.
+    :return: Dataframe with top n most popular instructions.
+    """
+    df = sort_columns_by_sum(name)
+    if "filename" in df:
+        offset = 1
+    else:
+        offset = 0
+    return df[df.columns[: (n + offset)]]
+
+
+def top_rare(name: str, n: int = 10) -> pd.DataFrame:
+    """
+    Leaves in the dataframe top n the rarest instructions.
+    :param name: Name of the dataframe or its beginning.
+    :param n: Number of instructions. Default: 10.
+    :return: Dataframe with top n the rarest instructions.
+    """
+    df = sort_columns_by_sum(name, ascending=True)
+    if "filename" in df:
+        offset = 1
+    else:
+        offset = 0
+    return df[df.columns[: (n + offset)]]
 
 
 def total_histogram(names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000):
