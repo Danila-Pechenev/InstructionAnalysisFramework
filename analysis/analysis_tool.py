@@ -1,4 +1,4 @@
-"""@package docstring
+"""
 Documentation for analysis tool.
 """
 
