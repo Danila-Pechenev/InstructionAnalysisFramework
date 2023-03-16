@@ -1,4 +1,4 @@
-"""
+"""!
 @package analysis_tool
 Documentation for analysis tool.
 """
@@ -55,8 +55,8 @@ def _find_key(name: str) -> str:
 def add_df(name: str, df: pd.DataFrame) -> None:
     """!
     Adds a new dataframe to the scope.
-    @param name: Name of the dataframe.
-    @param df: Dataframe.
+        @param name: Name of the dataframe.
+        @param df: Dataframe.
     """
     _DFS[name] = df
 
@@ -64,53 +64,53 @@ def add_df(name: str, df: pd.DataFrame) -> None:
 def get_df(name: str) -> pd.DataFrame:
     """!
     Returns dataframe by name (or its beginning).
-    @param name Name of the dataframe or its beginning.
-    @return Dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe.
     """
     return _DFS[_find_key(name)]
 
 
 def show_df(name: str, number_of_rows: int = 5) -> None:
-    """
-    Shows dataframe by name (or its beginning).
-        :param name: Name of the dataframe or its beginning.
-        :param number_of_rows: Number of rows to show. Default: 5.
+    """!
+    Shows the dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @param number_of_rows: Number of rows to show. Default: 5.
     """
     display(_DFS[_find_key(name)].head(number_of_rows))
 
 
 def head(name: str, number_of_rows: int = 5) -> pd.DataFrame:
-    """
-    Returns head of dataframe by name (or its beginning).
-        :param name: Name of the dataframe or its beginning.
-        :param number_of_rows: Number of rows in head. Default: 5.
-        :return: Head of the dataframe.
+    """!
+    Returns head of the dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @param number_of_rows: Number of rows in head. Default: 5.
+        @return: Head of the dataframe.
     """
     return _DFS[_find_key(name)].head(number_of_rows)
 
 
 def remove_df(name: str) -> None:
-    """
+    """!
     Returns dataframe by name (or its beginning).
-        :param name: Name of the dataframe or its beginning.
+        @param name: Name of the dataframe or its beginning.
     """
     _DFS.pop(_find_key(name))
 
 
 def df_len(name: str) -> int:
-    """
-    Returns length of the dataframe by name (or its beginning).
-        :param name: Name of the dataframe or its beginning.
-        :return: Length of the dataframe.
+    """!
+    Returns length of the dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @return: Length of the dataframe.
     """
     return len(_DFS[_find_key(name)])
 
 
 def remove_filename_column(name: str) -> pd.DataFrame:
-    """
+    """!
     Removes "filename" column from the dataframe.
-        :param name: Name of the dataframe or its beginning.
-        :return: Dataframe without "filename" column.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe without "filename" column.
     """
     df = _DFS[_find_key(name)]
     try:
@@ -121,10 +121,10 @@ def remove_filename_column(name: str) -> pd.DataFrame:
 
 
 def initialize_with_archives(archives_folder: str, dataframes_dir: str) -> None:
-    """
+    """!
     Unzips archives and loads dataframes to the scope.
-        :param archives_folder: Path to the folder with archives.
-        :param dataframes_dir: Path to the folder in which unzipped dataframes will be placed.
+        @param archives_folder: Path to the folder with archives.
+        @param dataframes_dir: Path to the folder in which unzipped dataframes will be placed.
     """
     for archive in os.listdir(archives_folder):
         path = os.path.join(archives_folder, archive)
@@ -134,17 +134,17 @@ def initialize_with_archives(archives_folder: str, dataframes_dir: str) -> None:
 
 
 def dfs_list() -> list[str]:
-    """
+    """!
     Returns a list of dataframe names in the scope.
-        :return: List of dataframe names.
+        @return: List of dataframe names.
     """
     return list(_DFS.keys())
 
 
 def what_is_instruction(instruction: str) -> None:
-    """
+    """!
     Shows instruction information in a new tab (if such an instruction was found).
-        :param instruction: Instruction.
+        @param instruction: Instruction.
     """
     try:
         path = f"../x86doc{_INSTRUCTION_PAGES[instruction.upper()]}"
@@ -155,12 +155,12 @@ def what_is_instruction(instruction: str) -> None:
 
 # ANALYSIS FUNCTIONS
 def total_instruction_usage(name: str, to_dict: bool = True, show: bool = True) -> dict[str, int] | pd.DataFrame:
-    """al
-    Counts total instruction usage (sum of all values in each column) by name of the dataframe (or its beginning).
-        :param name: Name of the dataframe or its beginning.
-        :param to_dict: If True, function returns the result in the form of a dictionary. Default: True.
-        :param show: Pretty print a result. Default: True.
-        :return: Dictionary of dataframe with total instruction usage.
+    """!
+    Counts total instruction usage (sum of all values in each column) in the dataframe.
+        @param name: Name of the dataframe or its beginning.
+        @param to_dict: If True, function returns the result in the form of a dictionary. Default: True.
+        @param show: Pretty print a result. Default: True.
+        @return: Dictionary or dataframe with total instruction usage.
     """
     df = remove_filename_column(_find_key(name))
     total = df.sum()
@@ -174,10 +174,10 @@ def total_instruction_usage(name: str, to_dict: bool = True, show: bool = True) 
 
 
 def divide_into_categories(name: str) -> pd.DataFrame:
-    """
+    """!
     Divides instructions in the dataframe into categories.
-        :param name: Name of the dataframe or its beginning.
-        :return: Dataframe with instruction categories.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe with instruction categories.
     """
     df = _DFS[_find_key(name)].copy()
     columns = list(df.columns)
@@ -200,10 +200,10 @@ def divide_into_categories(name: str) -> pd.DataFrame:
 
 
 def divide_into_groups(name: str) -> pd.DataFrame:
-    """
+    """!
     Divides instructions in the dataframe into groups.
-        :param name: Name of the dataframe or its beginning.
-        :return: Dataframe with instruction groups.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe with instruction groups.
     """
     df = _DFS[_find_key(name)].copy()
     columns = list(df.columns)
@@ -226,23 +226,23 @@ def divide_into_groups(name: str) -> pd.DataFrame:
 
 
 def where_instruction(instruction: str, name: str) -> pd.DataFrame:
-    """
+    """!
     Leaves only those rows in which the instruction occurs a non-zero number of times.
-        :param instruction: Instruction.
-        :param name: Name of the dataframe or its beginning.
-        :return: Dataframe with selected rows.
+        @param instruction: Instruction.
+        @param name: Name of the dataframe or its beginning.
+        @return: Dataframe with selected rows.
     """
     key = _find_key(name)
     return _DFS[key][_DFS[key][instruction] != 0]
 
 
 def where_category(category: str, name: str, divide_df: bool = True) -> pd.DataFrame:
-    """
+    """!
     Leaves only those rows in which instructions of the category occur a non-zero number of times.
-        :param category: Category.
-        :param name: Name of the dataframe or its beginning.
-        :param divide_df: If True, function will divide instructions in the dataframe into categories. Default: True.
-        :return: Dataframe with selected rows.
+        @param category: Category.
+        @param name: Name of the dataframe or its beginning.
+        @param divide_df: If True, function will divide instructions in the dataframe into categories. Default: True.
+        @return: Dataframe with selected rows.
     """
     key = _find_key(name)
     divided_df = divide_into_categories(key)
@@ -254,12 +254,12 @@ def where_category(category: str, name: str, divide_df: bool = True) -> pd.DataF
 
 
 def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
-    """
+    """!
     Leaves only those rows in which instructions of the group occur a non-zero number of times.
-        :param group: Group.
-        :param name: Name of the dataframe or its beginning.
-        :param divide_df: If True, function will divide instructions in the dataframe into groups. Default: True.
-        :return: Dataframe with selected rows.
+        @param group: Group.
+        @param name: Name of the dataframe or its beginning.
+        @param divide_df: If True, function will divide instructions in the dataframe into groups. Default: True.
+        @return: Dataframe with selected rows.
     """
     key = _find_key(name)
     divided_df = divide_into_groups(key)
@@ -271,12 +271,12 @@ def where_group(group: str, name: str, divide_df: bool = True) -> pd.DataFrame:
 
 
 def sort_columns_by_sum(name: str, ascending: bool = False) -> pd.DataFrame:
-    """
+    """!
     Sorts columns in the dataframe by its sums.
-        :param name: Name of the dataframe or its beginning.
-        :param ascending: If True, the dataframe columns will be sorted in ascending order,
+        @param name: Name of the dataframe or its beginning.
+        @param ascending: If True, the dataframe columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :return: Dataframe with sorted columns.
+        @return: Dataframe with sorted columns.
     """
     key = _find_key(name)
     df = _DFS[key]
@@ -290,11 +290,11 @@ def sort_columns_by_sum(name: str, ascending: bool = False) -> pd.DataFrame:
 
 
 def top_popular(name: str, n: int = 10) -> pd.DataFrame:
-    """
+    """!
     Leaves in the dataframe top n most popular instructions.
-        :param name: Name of the dataframe or its beginning.
-        :param n: Number of instructions. Default: 10.
-        :return: Dataframe with top n most popular instructions.
+        @param name: Name of the dataframe or its beginning.
+        @param n: Number of instructions. Default: 10.
+        @return: Dataframe with top n most popular instructions.
     """
     df = sort_columns_by_sum(name)
     if "filename" in df:
@@ -305,11 +305,11 @@ def top_popular(name: str, n: int = 10) -> pd.DataFrame:
 
 
 def top_rare(name: str, n: int = 10) -> pd.DataFrame:
-    """
+    """!
     Leaves in the dataframe top n the rarest instructions.
-        :param name: Name of the dataframe or its beginning.
-        :param n: Number of instructions. Default: 10.
-        :return: Dataframe with top n the rarest instructions.
+        @param name: Name of the dataframe or its beginning.
+        @param n: Number of instructions. Default: 10.
+        @return: Dataframe with top n the rarest instructions.
     """
     df = sort_columns_by_sum(name, ascending=True)
     if "filename" in df:
@@ -322,14 +322,14 @@ def top_rare(name: str, n: int = 10) -> pd.DataFrame:
 def total_histogram(
     names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
 ) -> None:
-    """
+    """!
     Builds a histogram of the total instruction usage in dataframes with the names given.
-        :param names: None or list of dataframe names (or their beginnings).
+        @param names: None or list of dataframe names (or their beginnings).
         If None, all dataframes in the scope will be used. Default: None.
-        :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
-        :param ascending: If True, the histogram columns will be sorted in ascending order,
+        @param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
+        @param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 2000.
+        @param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
@@ -353,14 +353,14 @@ def total_histogram(
 def total_categories_histogram(
     names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
 ) -> None:
-    """
+    """!
     Builds a histogram of the total instruction category usage in dataframes with the names given.
-        :param names: None or list of dataframe names (or their beginnings).
+        @param names: None or list of dataframe names (or their beginnings).
         If None, all dataframes in the scope will be used. Default: None.
-        :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
-        :param ascending: If True, the histogram columns will be sorted in ascending order,
+        @param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
+        @param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 2000.
+        @param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
@@ -377,14 +377,14 @@ def total_categories_histogram(
 def total_groups_histogram(
     names: list[str] | None = None, percent: bool = True, ascending: bool = False, width: int = 2000
 ) -> None:
-    """
+    """!
     Builds a histogram of the total instruction group usage in dataframes with the names given.
-        :param names: None or list of dataframe names (or their beginnings).
+        @param names: None or list of dataframe names (or their beginnings).
         If None, all dataframes in the scope will be used. Default: None.
-        :param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
-        :param ascending: If True, the histogram columns will be sorted in ascending order,
+        @param percent: If True, the histogram will be built by percentage, not by absolute values. Default: True.
+        @param ascending: If True, the histogram columns will be sorted in ascending order,
         otherwise - in descending order. Default: False.
-        :param width: Width of the histogram. Default: 2000.
+        @param width: Width of the histogram. Default: 2000.
     """
     if names is None:
         names = dfs_list()
