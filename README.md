@@ -72,11 +72,23 @@ as workflow artifacts.
 ### Data analysis
 Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
 using [functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py)
-provided by the framework. An example of such an analysis with a demonstration of some
-of the capabilities of the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
+provided by the framework. An example of such an analysis with a demonstration of some capabilities of
+the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
 The functions for analysis and visualization are carefully documented. The documentation is
 [published](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
 on GitHub Pages and is updated automatically when changes occur.
+
+### Dvision of instructions into categories and groups
+There are a lot of instructions. This creates inconveniences when analyzing data about their use.
+It is necessary to divide the instructions into clusters. To solve this problem, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
+that collects information from [the site](https://linasm.sourceforge.net/docs/instructions/index.php),
+where a fairly large number of different instructions are presented.
+We call the category of the instruction the section of the site on the left where it
+is included, and the group — its subsection in it. Thus, the script collects for
+each instruction its description, category and group and stores the result in
+[json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
+The division of instructions into categories and groups significantly increases completeness of information and
+clarity of data analysis.
 
 ## Описание [Ru]
 ### Проблема
@@ -156,3 +168,16 @@ on GitHub Pages and is updated automatically when changes occur.
 Функции для анализа и визуализации тщательно документирована. Документация
 [публикуется](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
 на GitHub Pages и при изменениях обновляется автоматически.
+
+### Разделение инструкций на категории и группы
+Инструкций очень много. Это создает неудобства при анализе данных об их использовании.
+Необходимо разделить инструкции на кластеры. Для решения этой проблемы был
+написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py),
+собирающий информацию с [сайта](https://linasm.sourceforge.net/docs/instructions/index.php),
+где представлено достаточно большое количество различных инструкций.
+Мы будем называть категорией инструкции тот раздел сайта слева, куда она
+включена, а группой — ее подраздел в нем. Таким образом, скрипт собирает для
+каждой инструкции ее описание, категорию и группу и сохраняет результат в
+[json-файле](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
+Разделение инструкций на категории и группы значительно повышает информативность и
+ясность анализа данных.
