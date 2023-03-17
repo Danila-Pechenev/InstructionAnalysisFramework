@@ -233,7 +233,7 @@ def where_instruction(instruction: str, name: str) -> pd.DataFrame:
         @return Dataframe with selected rows.
     """
     key = _find_key(name)
-    return _DFS[key][_DFS[key][instruction] != 0]
+    return _DFS[key][_DFS[key][instruction] != 0].reset_index(drop=True)
 
 
 def where_category(category: str, name: str, divide_df: bool = True) -> pd.DataFrame:
