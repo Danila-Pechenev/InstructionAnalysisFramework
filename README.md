@@ -71,8 +71,10 @@ as workflow artifacts.
 
 ### Data analysis
 Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
-using [functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py)
-provided by the framework. An example of such an analysis with a demonstration of some capabilities of
+both using standard functions provided by the pandas library and using
+[functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py)
+provided by the framework.
+An example of such an analysis with a demonstration of some capabilities of
 the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
 The functions for analysis and visualization are carefully documented. The documentation is
 [published](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
@@ -162,7 +164,8 @@ clarity of data analysis.
 
 ### Анализ данных
 Архивы с таблицами скачиваются и анализируются в интерактивной среде Jupyter Notebook
-при помощи [функций](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py),
+как при помощи стандартных функций, предоставляемых библиотекой pandas, так и с помощью
+[функций](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py),
 предоставляемых фреймворком. Пример такого анализа с демонстрацией некоторых
 возможностей инструмента представлен в [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
 Функции для анализа и визуализации тщательно документирована. Документация
