@@ -48,7 +48,7 @@ which files script goes through. You can get acquainted with them as follows:
 ```
 For example, one can run a script on all files that are available in the system as follows:
 ```bash
-(venv) [...]$ python src/data_collection.py -r <path to table>
+(venv) [...]$ python src/data_collection.py -r <path to the table>
 ```
 In order for data collection to take place on different GNU/Linux
 distributions, regardless of which operating system is installed on the machine
@@ -68,6 +68,15 @@ distributions in parallel: in each distribution, an image is loaded from
 DockerHub, a Docker container is launched, and a Python script is run in it
 that generates a table with data. The resulting tables are stored in archives  on GitHub Actions
 as workflow artifacts.
+
+### Data analysis
+Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
+using [functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py)
+provided by the framework. An example of such an analysis with a demonstration of some
+of the capabilities of the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
+The functions for analysis and visualization are carefully documented. The documentation is
+[published](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
+on GitHub Pages and is updated automatically when changes occur.
 
 ## Описание [Ru]
 ### Проблема
@@ -117,7 +126,7 @@ as workflow artifacts.
 ```
 Например, запустить скрипт на всех файлах, которые имеются в системе, можно следующим образом:
 ```bash
-(venv) [...]$ python src/data_collection.py -r <path to table>
+(venv) [...]$ python src/data_collection.py -r <path to the table>
 ```
 Чтобы сбор данных мог происходить на разных дистрибутивах GNU/Linux
 вне зависимости от того, какая операционная система установлена на машине,
@@ -138,3 +147,12 @@ as workflow artifacts.
 запускается Docker-контейнер, а в нем запускается Python-скрипт,
 генерирующий таблицу с данными. Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
+
+### Анализ данных
+Архивы с таблицами скачиваются и анализируются в интерактивной среде Jupyter Notebook
+при помощи [функций](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py),
+предоставляемых фреймворком. Пример такого анализа с демонстрацией некоторых
+возможностей инструмента представлен в [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
+Функции для анализа и визуализации тщательно документирована. Документация
+[публикуется](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
+на GitHub Pages и при изменениях обновляется автоматически.
