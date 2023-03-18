@@ -97,6 +97,8 @@ def instruction_predicate(word: str) -> bool:
             return False
     if word in PREFIXES:
         return False
+    if "0x" in word:
+        return False
 
     return True
 
