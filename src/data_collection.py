@@ -127,6 +127,8 @@ def get_elf_instructions(assembly_listing: str) -> dict[str, int]:
 def scan(generator, objdump_path: str) -> pd.DataFrame:
     data = []
     for file in generator:
+        if file.startswith("/DataCollection"):
+            print(file)
         file = run_readlink(file)
         try:
             assembly_listing = run_objdump(file, objdump_path)
