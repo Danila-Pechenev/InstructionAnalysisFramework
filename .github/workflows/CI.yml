@@ -13,7 +13,7 @@ jobs:
         uses: psf/black@stable
         with:
           options: "--check --verbose -l 120"
-          src: "./src"
+          src: "./data_collection"
           version: "~= 22.0"
       - name: Run linter on scripts
         uses: psf/black@stable
