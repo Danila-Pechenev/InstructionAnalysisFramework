@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import multiprocessing
 import subprocess as sp
 import pandas as pd
