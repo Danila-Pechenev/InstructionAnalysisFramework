@@ -11,7 +11,12 @@ PREFIXES = ["lock", "repne", "repnz", "rep", "repe", "repz", "cs", "ss", "ds", "
 ALLOWED_SYMBOLS = "0123456789qazwsxedcrfvtgbyhnujmikolp"
 
 
-@click.command()
+@click.group()
+def cli():
+    pass
+
+
+@cli.command()
 @click.option("--base-dir", "-d", default="/", help="Base directory for scanning.")
 @click.option("--objdump-path", "-o", default="objdump", help="Path to objdump.")
 @click.option(
@@ -21,51 +26,70 @@ ALLOWED_SYMBOLS = "0123456789qazwsxedcrfvtgbyhnujmikolp"
     help="Recursively walk a directory tree (starting from base directory).",
 )
 @click.option(
-    "--files",
-    "-f",
-    default=None,
-    help="List of specific files on which program will be run. List items must not be separated by spaces, "
-    "otherwise list must be placed in quotes.",
-)
-@click.option(
     "--ignore-folders",
     "-i",
     default=None,
     help="List of folders which will be ignored during data collection.",
 )
 @click.argument("table-path")
-def collect_data(
+def scan_folder(
     base_dir: str,
     objdump_path: str,
     recursive: bool,
-    files: str | None,
     ignore_folders: str | None,
     table_path: str,
 ):
-    """Walks through files according to the passed parameters and
-    collects data (number of occurrences of each instruction)."""
+    """Walks through the files in the folder (and possibly its subfolders) according to the passed parameters
+    and collects data (number of occurrences of each instruction in each code file) in a csv table."""
     if ignore_folders:
         ignore_folders = parse_paths(ignore_folders)
     else:
         ignore_folders = []
     n_cores = multiprocessing.cpu_count()
-    if files:
-        paths = parse_paths(files)
-        file_groups = [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in range(n_cores)]
+    if recursive:
+        file_groups = [
+            (list(recursive_file_generator(base_dir, n_cores, core, ignore_folders)), objdump_path)
+            for core in range(n_cores)
+        ]
     else:
-        if recursive:
-            file_groups = [
-                (list(recursive_file_generator(base_dir, n_cores, core, ignore_folders)), objdump_path)
-                for core in range(n_cores)
-            ]
-        else:
-            file_groups = [
-                (list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)
-            ]
+        file_groups = [
+            (list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)
+        ]
 
     with multiprocessing.Pool() as pool:
         dfs = pool.starmap(scan, file_groups)
 
+    finalize_scan(dfs, table_path)
+
+
+@cli.command()
+@click.option("--objdump-path", "-o", default="objdump", help="Path to objdump.")
+@click.option(
+    "--files",
+    "-f",
+    default="[]",
+    help="List of specific files on which program will be run. List items must not be separated by spaces, "
+    "otherwise list must be placed in quotes.",
+)
+@click.argument("table-path")
+def scan_files(
+    objdump_path: str,
+    files: str,
+    table_path: str,
+):
+    """Walks through the files in the given list
+    and collects data (number of occurrences of each instruction in each code file) in a csv table."""
+    n_cores = multiprocessing.cpu_count()
+    paths = parse_paths(files)
+    file_groups = [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in range(n_cores)]
+
+    with multiprocessing.Pool() as pool:
+        dfs = pool.starmap(scan, file_groups)
+
+    finalize_scan(dfs, table_path)
+
+
+def finalize_scan(dfs: list[pd.DataFrame], table_path: str):
     df = pd.concat(dfs, ignore_index=True).fillna(0)
     if len(df) != 0:
         col = df.pop("filename")
@@ -142,4 +166,4 @@ def scan(generator, objdump_path: str) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    collect_data()
+    cli()
