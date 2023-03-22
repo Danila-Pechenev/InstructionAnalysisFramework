@@ -36,7 +36,7 @@ To start using the capabilities of the framework, you need to
 ```
 
 ### Data collection
-A [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/src/data_collection.py) was written to collect the data.
+A [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py) was written to collect the data.
 It provides many options for configuration for the needs of particular
 users. In general, the script runs through certain files in parallel and tries to get an assembly listing
 of each file. If the attempt is successful, that is, the file contains the code,
@@ -44,11 +44,11 @@ the path to the file and the number of all instructions found in it are
 recorded in a csv table, which is the result of the script. Program parameters determine
 which files script goes through. You can get acquainted with them as follows:
 ```bash
-(venv) [...]$ python src/data_collection.py --help
+(venv) [...]$ python data_collection/data_collection.py --help
 ```
 For example, one can run a script on all files that are available in the system as follows:
 ```bash
-(venv) [...]$ python src/data_collection.py -r <path to the table>
+(venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
 In order for data collection to take place on different GNU/Linux
 distributions, regardless of which operating system is installed on the machine
@@ -72,10 +72,10 @@ as workflow artifacts.
 ### Data analysis
 Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
 both using standard functions provided by the pandas library and using
-[functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py)
+[functions](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/analysis_tool.py)
 provided by the framework.
 An example of such an analysis with a demonstration of some capabilities of
-the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
+the tool is presented in [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/demo.ipynb).
 The functions for analysis and visualization are carefully documented. The documentation is
 [published](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
 on GitHub Pages and is updated automatically when changes occur.
@@ -128,7 +128,7 @@ clarity of data analysis.
 (venv) [InstructionAnalysisFramework]$ pip install -r requirements.txt
 ```
 ### Сбор данных
-Для сбора данных был написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/src/data_collection.py).
+Для сбора данных был написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py).
 Он предоставляет множество возможностей для конфигурации под нужды конкретных
 пользователей. В целом, скрипт параллельно проходит по определенным файлам и пробует получить ассемблерный
 листинг каждого файла. Если попытка удачна, то есть файл содержит код, путь до файла
@@ -136,11 +136,11 @@ clarity of data analysis.
 которая и является результатом работы скрипта. По каким именно файлам необходимо
 пройтись и определяют параметры программы. Ознакомиться с ними можно так:
 ```bash
-(venv) [...]$ python src/data_collection.py --help
+(venv) [...]$ python data_collection/data_collection.py --help
 ```
 Например, запустить скрипт на всех файлах, которые имеются в системе, можно следующим образом:
 ```bash
-(venv) [...]$ python src/data_collection.py -r <path to the table>
+(venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
 Чтобы сбор данных мог происходить на разных дистрибутивах GNU/Linux
 вне зависимости от того, какая операционная система установлена на машине,
@@ -165,9 +165,9 @@ clarity of data analysis.
 ### Анализ данных
 Архивы с таблицами скачиваются и анализируются в интерактивной среде Jupyter Notebook
 как при помощи стандартных функций, предоставляемых библиотекой pandas, так и с помощью
-[функций](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/analysis_tool.py),
+[функций](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/analysis_tool.py),
 предоставляемых фреймворком. Пример такого анализа с демонстрацией некоторых
-возможностей инструмента представлен в [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/analysis/demo.ipynb).
+возможностей инструмента представлен в [demo.ipynb](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/demo.ipynb).
 Функции для анализа и визуализации тщательно документирована. Документация
 [публикуется](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
 на GitHub Pages и при изменениях обновляется автоматически.
