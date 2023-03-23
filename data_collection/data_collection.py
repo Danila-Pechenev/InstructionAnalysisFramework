@@ -19,7 +19,7 @@ def cli():
 
 @cli.command()
 @click.option("--base-dir", "-d", default="/", help="Base directory for scanning.")
-@click.option("--objdump-path", "-o", default="objdump", help="Path to objdump.")
+@click.option("--objdump-command", "-o", default="objdump", help="Objdump command.")
 @click.option(
     "--recursive",
     "-r",
@@ -35,26 +35,27 @@ def cli():
 @click.argument("table-path")
 def scan_folder(
     base_dir: str,
-    objdump_path: str,
+    objdump_command: str,
     recursive: bool,
     ignore_folders: str | None,
     table_path: str,
 ):
     """Walks through the files in the folder (and possibly its subfolders) according to the passed parameters
     and collects data (number of occurrences of each instruction in each code file) in a csv table."""
+    validate_objdump(objdump_command)
+    n_cores = multiprocessing.cpu_count()
     if ignore_folders:
         ignore_folders = parse_paths(ignore_folders)
     else:
         ignore_folders = []
-    n_cores = multiprocessing.cpu_count()
     if recursive:
         file_groups = [
-            (list(recursive_file_generator(base_dir, n_cores, core, ignore_folders)), objdump_path)
+            (list(recursive_file_generator(base_dir, n_cores, core, ignore_folders)), objdump_command)
             for core in range(n_cores)
         ]
     else:
         file_groups = [
-            (list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_path) for core in range(n_cores)
+            (list(non_recursive_file_generator(base_dir, n_cores, core)), objdump_command) for core in range(n_cores)
         ]
 
     with multiprocessing.Pool() as pool:
@@ -64,7 +65,7 @@ def scan_folder(
 
 
 @cli.command()
-@click.option("--objdump-path", "-o", default="objdump", help="Path to objdump.")
+@click.option("--objdump-command", "-o", default="objdump", help="Objdump command.")
 @click.option(
     "--files",
     "-f",
@@ -74,15 +75,16 @@ def scan_folder(
 )
 @click.argument("table-path")
 def scan_files(
-    objdump_path: str,
+    objdump_command: str,
     files: str,
     table_path: str,
 ):
     """Walks through the files in the given list
     and collects data (number of occurrences of each instruction in each code file) in a csv table."""
+    validate_objdump(objdump_command)
     n_cores = multiprocessing.cpu_count()
     paths = parse_paths(files)
-    file_groups = [(list(user_files_generator(paths, n_cores, core)), objdump_path) for core in range(n_cores)]
+    file_groups = [(list(user_files_generator(paths, n_cores, core)), objdump_command) for core in range(n_cores)]
 
     with multiprocessing.Pool() as pool:
         dfs = pool.starmap(scan, file_groups)
@@ -105,8 +107,15 @@ def parse_paths(paths: str) -> list[str]:
     return [path.strip().strip("\"'") for path in paths[1:-1].split(",")]
 
 
-def run_objdump(path_to_elf: str, objdump_path: str) -> str:
-    completed_process = sp.run([objdump_path, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
+def validate_objdump(objdump_command: str):
+    try:
+        sp.run([objdump_command, "-v"], capture_output=False)
+    except FileNotFoundError as e:
+        raise Exception(f"No such objdump: {objdump_command}.")
+
+
+def run_objdump(path_to_elf: str, objdump_command: str) -> str:
+    completed_process = sp.run([objdump_command, *OBJDUMP_ARGS, path_to_elf], capture_output=True)
     completed_process.check_returncode()
     return completed_process.stdout.decode("utf-8")
 
@@ -149,12 +158,12 @@ def get_elf_instructions(assembly_listing: str) -> dict[str, int]:
     return instructions_count
 
 
-def scan(generator, objdump_path: str) -> pd.DataFrame:
+def scan(generator, objdump_command: str) -> pd.DataFrame:
     data = []
     for file in generator:
         file = run_readlink(file)
         try:
-            assembly_listing = run_objdump(file, objdump_path)
+            assembly_listing = run_objdump(file, objdump_command)
             instructions_data = get_elf_instructions(assembly_listing)
             instructions_data["filename"] = file
             data.append(instructions_data)
