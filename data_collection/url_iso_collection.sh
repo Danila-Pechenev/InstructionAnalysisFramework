@@ -3,7 +3,9 @@ set -eou pipefail
 #
 # This is a script for collecting data from iso-image by a link to it
 # Run it from InstructionAnalysisFramework folder
-# Usage: ./data_collection/url_iso_collection.sh <link_to_iso_file> <table_path>
+# Usage:
+# ./data_collection/url_iso_collection.sh <link_to_iso_file> <table_path> [optional: <objdump_command>
+# (default: objdump)]
 #
 trap 'rm -f "$iso_file"' EXIT
 
