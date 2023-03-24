@@ -29,7 +29,7 @@ def scan_iso(
     sp.run(["apt", "update"], capture_output=False)
     sp.run(["apt", "install", "--yes", objdump_package], capture_output=False)
     print(os.getcwd())
-    sp.run(["./url_iso_collection.sh", url, table_path, objdump_command], capture_output=False)
+    sp.run(["./data_collection/url_iso_collection.sh", url, table_path, objdump_command], capture_output=False)
 
 
 if __name__ == "__main__":

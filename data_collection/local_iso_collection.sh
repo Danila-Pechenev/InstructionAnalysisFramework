@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+set -euo pipefail
 #
 # This is a script for collecting data from iso-image
 # Run it from InstructionAnalysisFramework folder
