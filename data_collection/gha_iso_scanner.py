@@ -5,8 +5,8 @@ import json
 
 
 @click.command()
-@click.argument("json-file")
-@click.argument("key")
+@click.argument("json-file-path")
+@click.argument("iso-key")
 @click.argument("table-path")
 def scan_iso(
     json_file_path: str,
