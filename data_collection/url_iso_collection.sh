@@ -9,7 +9,8 @@ set -euo pipefail
 #
 trap 'rm -f "$iso_file"' EXIT
 
+objdump_command="${3:-objdump}"
 iso_file=$(mktemp imageXXX.iso)
 wget -O "$iso_file" "$1"
-./data_collection/local_iso_collection.sh "$iso_file" "$2"
+./data_collection/local_iso_collection.sh "$iso_file" "$2" "$objdump_command"
 rm "$iso_file"
