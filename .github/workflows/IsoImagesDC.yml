@@ -7,7 +7,7 @@ jobs:
     name: Collect data from iso-images
     strategy:
       matrix:
-        iso_key: [ debian_amd64, debian_arm64 ]
+        iso_key: [ debian_amd64, debian_arm64, freebsd_riscv64 ]
     runs-on: ubuntu-latest
     steps:
       - name: Check out a repo
