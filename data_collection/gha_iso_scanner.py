@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import subprocess as sp
 import click
 import json
@@ -27,7 +28,8 @@ def scan_iso(
         raise KeyError("No such key.")
     sp.run(["apt", "update"], capture_output=False)
     sp.run(["apt", "install", "--yes", objdump_package], capture_output=False)
-    sp.run(["./url_iso_collection", url, table_path, objdump_command], capture_output=False)
+    print(os.getcwd())
+    sp.run(["./url_iso_collection.sh", url, table_path, objdump_command], capture_output=False)
 
 
 if __name__ == "__main__":
