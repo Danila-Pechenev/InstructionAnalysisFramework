@@ -1,0 +1,31 @@
+name: Iso Images Data Collection
+
+on: [push, workflow_dispatch]
+
+jobs:
+  data_collection:
+    name: Collect data from iso-images
+    strategy:
+      matrix:
+        iso_key: [ debian_amd64, debian_arm64 ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a repo
+        uses: actions/checkout@v3
+      - name: Generate unique filename
+        run: |
+          TIME=$(date +'%Y-%m-%dT%H-%M-%S')
+          echo "FILENAME=${{ matrix.iso_key }}_${TIME}_${{ github.sha }}" >> $GITHUB_ENV
+      - name: Gather data from iso-image
+        run: |
+          python3 -m venv venv
+          . ./venv/bin/activate
+          python3 -m pip install -r requirements.txt
+          sudo apt-get update
+          sudo apt-get install --yes fuseiso
+          python3 data_collection/gha_iso_scanner.py iso-images.json "${{ matrix.iso_key }}" ${{ env.FILENAME }}.csv
+      - name: Save data as artifact of workflow
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.FILENAME }}
+          path: ${{ github.workspace }}/${{ env.FILENAME }}.csv
