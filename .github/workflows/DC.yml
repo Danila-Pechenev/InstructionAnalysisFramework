@@ -76,7 +76,6 @@ jobs:
           echo "FILENAME=${{ matrix.iso_key }}_${TIME}_${{ github.sha }}" >> $GITHUB_ENV
       - name: Gather data from iso-image
         run: |
-          cd DataCollection
           python3 -m venv venv
           . ./venv/bin/activate
           python3 -m pip install -r requirements.txt
