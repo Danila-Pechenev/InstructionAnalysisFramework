@@ -18,4 +18,4 @@ trap clean EXIT
 objdump_command="${3:-objdump}"
 root=$(mktemp -d)
 fuseiso -- "$1" "$root"
-python data_collection/data_collection.py scan-folder -o "$objdump_command" -d "$root" -r "$2"
+python data_collection/data_collection.py scan-folder -o "$objdump_command" -d "$root" -r -- "$2"
