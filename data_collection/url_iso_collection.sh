@@ -9,7 +9,7 @@ set -euo pipefail
 #
 function clean {
     if [ -v iso_file ]; then
-        rm -f "$iso_file"
+        rm -f -- "$iso_file"
     fi
 }
 trap clean EXIT
