@@ -50,6 +50,7 @@ For example, one can run a script on all files that are available in the system 
 ```bash
 (venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
+#### On different GNU/Linux distributions
 In order for data collection to take place on different GNU/Linux
 distributions, regardless of which operating system is installed on the machine
 on which the script is running, the script is run in Docker containers.
@@ -60,7 +61,7 @@ code data the user wants to get. This approach allows the framework to achieve
 extensibility — to add a distribution for scanning, one just needs
 to add the corresponding docker file.
 
-Data is collected using GitHub Actions in two stages ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DC.yml)).
+Data is collected using GitHub Actions in two stages ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml)).
 First, the images are collected according to docker files and published in the [repository](https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general)
 on DockerHub. If the dockerfile has not been modified since the last GitHub Actions workflow,
 the image is not reassembled. At the next stage, data is collected on all
@@ -68,6 +69,18 @@ distributions in parallel: in each distribution, an image is loaded from
 DockerHub, a Docker container is launched, and a Python script is run in it
 that generates a table with data. The resulting tables are stored in archives  on GitHub Actions
 as workflow artifacts.
+#### On different platforms
+The framework provides the ability to scan iso images, which allows one to collect data
+from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
+to collect data from an iso image that is already on the disk, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+to scan the image by its URL.
+
+In addition, data from iso images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
+For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json),
+in particular, the URL and objdump, which will be used in the data collection process.
+Then, the process on GitHub Actions, using an auxiliary [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+reads data from a json file, installs the necessary utilities, downloads and scans iso images.
+The resulting tables are stored in archives  on GitHub Actions as workflow artifacts.
 
 ### Data analysis
 Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
@@ -81,8 +94,8 @@ The functions for analysis and visualization are carefully documented. The docum
 on GitHub Pages and is updated automatically when changes occur.
 
 ### Dvision of instructions into categories and groups
-There are a lot of instructions. This creates inconveniences when analyzing data about their use.
-It is necessary to divide the instructions into clusters. To solve this problem, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
+There are a lot of instructions, and this can create inconvenience when analyzing data about their use.
+Framework users may want to divide instructions into clusters. To solve this problem, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
 that collects information from [the site](https://linasm.sourceforge.net/docs/instructions/index.php),
 where a fairly large number of different instructions are presented.
 We call the category of the instruction the section of the site on the left where it
@@ -142,6 +155,7 @@ clarity of data analysis.
 ```bash
 (venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
+#### На разных дистрибутивах GNU/Linux
 Чтобы сбор данных мог происходить на разных дистрибутивах GNU/Linux
 вне зависимости от того, какая операционная система установлена на машине,
 производящей запуск, скрипт запускается в Docker-контейнерах.
@@ -152,7 +166,7 @@ clarity of data analysis.
 расширяемости — чтобы добавить дистрибутив для сканирования, нужно лишь
 добавить соответствующий ему докерфайл.
 
-Сбор данных происходит при помощи GitHub Actions в два этапа ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DC.yml)).
+Сбор данных происходит при помощи GitHub Actions в два этапа ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml)).
 Сначала образы собираются согласно докерфайлам и публикуются в [репозитории](https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general)
 на DockerHub. В случае, если докерфайл не был изменен с момента последнего
 запуска процесса на GitHub Actions, повторная сборка образа не производится.
@@ -160,6 +174,19 @@ clarity of data analysis.
 в каждом дистрибутиве загружается образ с DockerHub,
 запускается Docker-контейнер, а в нем запускается Python-скрипт,
 генерирующий таблицу с данными. Полученные таблицы сохраняются в архивах как
+артефакты запуска процесса на GitHub Actions.
+#### На разных платформах
+Фреймворк предоставляет возможность сканирования iso-образов, что позволяет собирать данные
+с разных архитектур набора команд. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
+для сбора данных с iso-образа, который уже лежит на диске, или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+для сканирования образа по его URL.
+
+Помимо этого, данные с iso-образов по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
+Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json)
+записывается некоторая информация об обрабатываемых образах, в частности, URL и objdump, который будет использоваться в процессе сбора данных.
+Далее процесс на GitHub Actions, используя вспомогательный [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+считывает данные с json-файла, устанавливает необходимые утилиты, скачивает и сканирует iso-образы.
+Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
 
 ### Анализ данных
@@ -173,8 +200,8 @@ clarity of data analysis.
 на GitHub Pages и при изменениях обновляется автоматически.
 
 ### Разделение инструкций на категории и группы
-Инструкций очень много. Это создает неудобства при анализе данных об их использовании.
-Необходимо разделить инструкции на кластеры. Для решения этой проблемы был
+Инструкций очень много, и это может создать неудобства при анализе данных об их использовании.
+У пользователей фреймворка может возникнуть желание разделить инструкции на кластеры. Для решения этой проблемы был
 написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py),
 собирающий информацию с [сайта](https://linasm.sourceforge.net/docs/instructions/index.php),
 где представлено достаточно большое количество различных инструкций.
