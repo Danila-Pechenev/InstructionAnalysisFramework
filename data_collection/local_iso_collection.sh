@@ -8,7 +8,7 @@ set -euo pipefail
 # (default: objdump)]
 #
 function clean {
-    if [ -v root ]; then
+    if [ -z ${root+x} ]; then
         fusermount -qu -- "$root" || true
         rmdir -- "$root"
     fi

@@ -8,7 +8,7 @@ set -euo pipefail
 # (default: objdump)]
 #
 function clean {
-    if [ -v iso_file ]; then
+    if [ -z ${iso_file+x} ]; then
         rm -f -- "$iso_file"
     fi
 }
