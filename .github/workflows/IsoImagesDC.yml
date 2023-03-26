@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   data_collection:
-    name: Collect data from iso-images
+    name: Collect data from iso images
     strategy:
       matrix:
         iso_key: [ debian_amd64, debian_arm64, freebsd_riscv64 ]
@@ -16,7 +16,7 @@ jobs:
         run: |
           TIME=$(date +'%Y-%m-%dT%H-%M-%S')
           echo "FILENAME=${{ matrix.iso_key }}_${TIME}_${{ github.sha }}" >> $GITHUB_ENV
-      - name: Gather data from iso-image
+      - name: Gather data from iso image
         run: |
           python3 -m venv venv
           . ./venv/bin/activate
