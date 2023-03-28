@@ -42,7 +42,7 @@ users. In general, the script runs through certain files in parallel and tries t
 of each file. If the attempt is successful, that is, the file contains the code,
 the path to the file and the number of all instructions found in it are
 recorded in a csv table, which is the result of the script. Program parameters determine
-which files script goes through. You can get acquainted with them as follows:
+which files script goes through. One can get acquainted with them as follows:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py --help
 ```
@@ -73,7 +73,10 @@ as workflow artifacts.
 The framework provides the ability to scan iso images, which allows one to collect data
 from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
 to collect data from an iso image that is already on the disk, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
-to scan the image by its URL.
+to scan the image by its URL. For example, one can collect data from an image by URL as follows:
+```bash
+(venv) [...]$ ./data_collection/url_iso_collection.sh <link to iso file> <table path>
+```
 
 In addition, data from iso images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json),
@@ -179,7 +182,10 @@ clarity of data analysis.
 Фреймворк предоставляет возможность сканирования iso-образов, что позволяет собирать данные
 с разных архитектур набора команд. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
 для сбора данных с iso-образа, который уже лежит на диске, или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
-для сканирования образа по его URL.
+для сканирования образа по его URL. Например, собрать данные с образа по URL можно так:
+```bash
+(venv) [...]$ ./data_collection/url_iso_collection.sh <link to iso file> <table path>
+```
 
 Помимо этого, данные с iso-образов по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json)
