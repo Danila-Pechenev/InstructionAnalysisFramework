@@ -339,6 +339,7 @@ def total_histogram(
         df = remove_filename_column(key)
         dfs_for_histogram[key] = pd.DataFrame(df.sum(axis=0), columns=[key])
     sums: pd.DataFrame = pd.concat(dfs_for_histogram.values(), join="outer", axis=1).fillna(0).astype(int)
+    sums.drop(index="undefined", inplace=True)
     sums["sum"] = sums.sum(axis=1)
     sums.sort_values(by="sum", ascending=ascending, inplace=True)
     sums.drop("sum", axis=1, inplace=True)
