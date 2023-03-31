@@ -5,7 +5,7 @@ During the migration software to processors of the new open RISC-V
 architecture, the issue of optimizing programs for this architecture is acute.
 It would be useful for compiler developers or specialists optimizing specific sections of machine code in a non-trivial
 way manually to understand which applications and utilities in popular
-GNU/Linux distributions on the x86-64 platform use, for example, vector extensions or
+GNU/Linux distributions on various platforms use, for example, vector extensions or
 instructions to speed up encryption. This knowledge would help to understand how to improve
 the compiler or in which programs there are sections of machine code that need
 to be optimized manually for the RISC-V architecture.
@@ -114,7 +114,7 @@ clarity of data analysis.
 остро стоит вопрос оптимизации программ именно под эту архитектуру. Разработчикам
 компиляторов или специалистам, оптимизирующим отдельные участки машинного кода нетривиальным
 образом вручную, было бы полезно понимать, в каких приложениях и утилитах в популярных
-дистрибутивах GNU/Linux на платформе x86-64 используются, например, векторные расширения или
+дистрибутивах GNU/Linux на разных платформах используются, например, векторные расширения или
 инструкции для ускорения шифрования. Эти знания помогли бы понять, как можно улучшить
 компилятор или в каких программах есть участки машинного кода, которые необходимо
 оптимизировать вручную для архитектуры RISC-V.
