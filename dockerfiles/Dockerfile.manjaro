@@ -1,8 +1,0 @@
-FROM manjarolinux/base:20230226
-LABEL maintainer="Danila Pechenev <danila.pechenev@gmail.com>"
-RUN pacman -S --noconfirm binutils && \
-    pacman -S --noconfirm firefox && \
-    pacman -S --noconfirm chromium && \
-    pacman -S --noconfirm kcachegrind && \
-    pacman -S --noconfirm vlc
-#   install other packages here
