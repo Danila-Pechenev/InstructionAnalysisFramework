@@ -14,8 +14,8 @@
         },
         {
             "key": "freebsd_riscv64",
-            "url": "https://download.freebsd.org/ftp/snapshots/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-CURRENT-riscv-riscv64-20230309-c581962414ed-261408-bootonly.iso",
-            "objdump-package": "binutils-riscv64-linux-gnu",
+            "url": "https://download.freebsd.org/ftp/snapshots/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-CURRENT-riscv-riscv64-20230316-cee09bda03c8-261544-bootonly.iso",
+            "objdump-package",: "binutils-riscv64-linux-gnu",
             "objdump-command": "riscv64-linux-gnu-objdump"
         }
     ]
