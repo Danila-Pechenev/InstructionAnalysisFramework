@@ -78,17 +78,17 @@ that generates a table with data. The resulting tables are stored in archives  o
 as workflow artifacts.
 #### On different platforms
 The framework provides the ability to scan disk images (now in .iso format), which allows one to collect data
-from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
-to collect data from a disk image that is already downloaded, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_disk_image_collection.sh)
+to collect data from a disk image that is already downloaded, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_disk_image_collection.sh)
 to scan the image by its URL. For example, one can collect data from an image by URL as follows:
 ```bash
 (venv) [...]$ ./data_collection/url_iso_collection.sh <link to disk image> <table path>
 ```
 
-In addition, data from disk images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
-For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json),
+In addition, data from disk images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DiskImagesDC.yml)).
+For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/disk-images.json),
 in particular, the URL and objdump, which will be used in the data collection process.
-Then, the process on GitHub Actions, using an auxiliary [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+Then, the process on GitHub Actions, using an auxiliary [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_disk_image_scanner.py),
 reads data from a json file, installs the necessary utilities, downloads and scans disk images.
 The resulting tables are stored in archives  on GitHub Actions as workflow artifacts.
 
@@ -108,7 +108,7 @@ There are a lot of instructions, and this can create inconvenience when analyzin
 Framework users may want to divide instructions into clusters.
 At the moment, the framework provides an approach for
 solving this problem for the x86-64 architecture. For this purpose, a [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
-that collects information from [the site](https://linasm.sourceforge.net/docs/instructions/index.php),
+that collects information from the [site](https://linasm.sourceforge.net/docs/instructions/index.php),
 covering a fairly large number of instructions.
 We call the category of the instruction the section of the site on the left where it
 is included, and the group — its subsection in it. Thus, the program collects for
@@ -194,17 +194,17 @@ GNU/Linux, а с другой -- предоставляет широкий ин�
 артефакты запуска процесса на GitHub Actions.
 #### На разных платформах
 Фреймворк предоставляет возможность сканирования образов дисков, что позволяет собирать данные
-с разных процессорных архитектур. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
-для сбора данных с уже скачанного образа диска или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+с разных процессорных архитектур. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_disk_image_collection.sh)
+для сбора данных с уже скачанного образа диска или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_disk_image_collection.sh)
 для сканирования образа по его URL. Например, собрать данные с образа по URL можно так:
 ```bash
 (venv) [...]$ ./data_collection/url_iso_collection.sh <link to disk image> <table path>
 ```
 
-Помимо этого, данные с образов дисков по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
-Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json)
+Помимо этого, данные с образов дисков по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DiskImagesDC.yml)).
+Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/disk-images.json)
 записывается некоторая информация об обрабатываемых образах, в частности, URL и objdump, который будет использоваться в процессе сбора данных.
-Далее процесс на GitHub Actions, используя вспомогательную [Python-программу](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+Далее процесс на GitHub Actions, используя вспомогательную [Python-программу](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_disk_image_scanner.py),
 считывает данные с json-файла, устанавливает необходимые утилиты, скачивает и сканирует образы дисков.
 Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.

@@ -1,5 +1,5 @@
 {
-    "iso-images": [
+    "disk-images": [
         {
             "key": "debian_amd64",
             "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-edu-11.6.0-amd64-netinst.iso",

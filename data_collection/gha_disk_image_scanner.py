@@ -16,7 +16,7 @@ def scan_image(
     """Scans disk image in GitHub Actions (runs-on: ubuntu).
     Takes the path to the json-file, key of the image in it, and the path to the table to save."""
     with open(json_file_path, "r") as read_file:
-        image_info = json.load(read_file)["iso-images"]
+        image_info = json.load(read_file)["disk-images"]
     url, objdump_package, objdump_command = None, None, None
     for item in image_info:
         if item["key"] == image_key:
