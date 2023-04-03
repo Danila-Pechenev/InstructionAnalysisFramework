@@ -1,25 +1,32 @@
 # Instruction analysis framework
 ## Description [En]
 ### Problem
-During the migration software to processors of the new open RISC-V
-architecture, the issue of optimizing programs for this architecture is acute.
-It would be useful for compiler developers or specialists optimizing specific sections of machine code in a non-trivial
-way manually to understand which applications and utilities in popular
-GNU/Linux distributions on various platforms use, for example, vector extensions or
-instructions to speed up encryption. This knowledge would help to understand how to improve
-the compiler or in which programs there are sections of machine code that need
-to be optimized manually for the RISC-V architecture.
+Currently, the open source RISC-V Instruction Set Architecture (ISA) is actively
+developing and gaining popularity. In the RISC-V community, the issue of optimizing
+programs specifically for this architecture is acute. In order to plan software migration,
+compiler developers and specialists optimizing particular sections of machine code
+in a non-trivial way manually need to understand which packages and utilities in
+popular GNU/Linux distributions on various platforms use, for example, vector extensions
+or instructions for speeding up encryption. This knowledge would help them understand
+how the compiler can be improved and in which programs there are sections of
+machine code that should be optimized manually for the RISC-V architecture.
 
-This is far from the only case when statistical analysis of data on
-the appearance of various instructions (or groups of instructions) in the machine code of programs would be useful.
-Another example is the situation when the compiler developer needs to find out how
-the generated machine code of programs has changed in general after changes in the compiler. This technique,
-in particular, is used to assess the quality of firmware optimization of embedded systems
-such as routers and data warehouses.
+In this context, it is also necessary to understand how the various GNU/Linux
+distributions are ready to migrate to RISC-V, that is, how the machine code of
+their packages is optimized and able to perform tasks in an effective manner.
 
-In order to quickly find answers to such questions, a framework
-is being created that automates the collection of data on the use of machine instructions
-and provides tools for their statistical analysis and visualization.
+To achieve this, a statistical analysis of the machine code is essential, namely,
+an analysis of the use of different types of machine instructions in the program code.
+However, the described problems are far from the only cases when such an analysis
+would be useful. Another example is the situation when the compiler developer needs
+to find out how the generated machine code of programs has changed in general after
+changes in the compiler.
+
+This repository provides a framework that will make it much easier to answer
+such questions. On the one hand, it allows one to automate the collection of data
+on the machine instruction usage on different GNU/Linux distributions and architectures,
+and on the other hand, it provides a wide range of tools for statistical analysis
+and visualization of this data.
 
 ### Getting started
 To start using the capabilities of the framework, you need to
@@ -70,19 +77,19 @@ DockerHub, a Docker container is launched, and a Python script is run in it
 that generates a table with data. The resulting tables are stored in archives  on GitHub Actions
 as workflow artifacts.
 #### On different platforms
-The framework provides the ability to scan iso images, which allows one to collect data
+The framework provides the ability to scan disk images (now in .iso format), which allows one to collect data
 from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
-to collect data from an iso image that is already on the disk, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+to collect data from a disk image that is already downloaded, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
 to scan the image by its URL. For example, one can collect data from an image by URL as follows:
 ```bash
-(venv) [...]$ ./data_collection/url_iso_collection.sh <link to iso file> <table path>
+(venv) [...]$ ./data_collection/url_iso_collection.sh <link to disk image> <table path>
 ```
 
-In addition, data from iso images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
+In addition, data from disk images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json),
 in particular, the URL and objdump, which will be used in the data collection process.
 Then, the process on GitHub Actions, using an auxiliary [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
-reads data from a json file, installs the necessary utilities, downloads and scans iso images.
+reads data from a json file, installs the necessary utilities, downloads and scans disk images.
 The resulting tables are stored in archives  on GitHub Actions as workflow artifacts.
 
 ### Data analysis
@@ -98,37 +105,44 @@ on GitHub Pages and is updated automatically when changes occur.
 
 ### Dvision of instructions into categories and groups
 There are a lot of instructions, and this can create inconvenience when analyzing data about their use.
-Framework users may want to divide instructions into clusters. To solve this problem, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
+Framework users may want to divide instructions into clusters.
+At the moment, the framework provides an approach for
+solving this problem for the x86-64 architecture. For this purpose, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
 that collects information from [the site](https://linasm.sourceforge.net/docs/instructions/index.php),
-where a fairly large number of different instructions are presented.
+covering a fairly large number of instructions.
 We call the category of the instruction the section of the site on the left where it
 is included, and the group — its subsection in it. Thus, the script collects for
-each instruction its description, category and group and stores the result in
+each instruction its description, category and group and stores the result in a
 [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
 The division of instructions into categories and groups significantly increases completeness of information and
 clarity of data analysis.
 
 ## Описание [Ru]
 ### Проблема
-При миграции программного обеспечения на процессоры новой открытой архитектуры RISC-V
-остро стоит вопрос оптимизации программ именно под эту архитектуру. Разработчикам
-компиляторов или специалистам, оптимизирующим отдельные участки машинного кода нетривиальным
-образом вручную, было бы полезно понимать, в каких приложениях и утилитах в популярных
-дистрибутивах GNU/Linux на разных платформах используются, например, векторные расширения или
-инструкции для ускорения шифрования. Эти знания помогли бы понять, как можно улучшить
-компилятор или в каких программах есть участки машинного кода, которые необходимо
-оптимизировать вручную для архитектуры RISC-V.
+В настоящее время активно развивается и набирает популярность открытая процессорная
+архитектура RISC-V. В сообществе RISC-V остро стоит вопрос оптимизации программ
+именно под эту архитектуру. Для планирования миграции программного обеспечения разработчикам
+компиляторов и специалистам, оптимизирующим отдельные участки машинного кода нетривиальным
+образом вручную, необходимо понимать, какие пакеты и утилиты в популярных дистрибутивах
+GNU/Linux используют, например, векторные расширения или инструкции для ускорения
+шифрования. Эти знания помогли бы им понять, как можно улучшить комилятор и в каких
+программах есть участки кода, которые необходимо оптимизировать вручную для архитектуры
+RISC-V.
 
-Это далеко не единственный случай, когда был бы полезен статистический анализ данных о
-появлении различных инструкций (или групп инструкций) в машинном коде программ. Другим
-примером является ситуация, когда разработчику компилятора необходимо узнать, как в целом
-поменялся сгенерированный машинный код программ после изменений в компиляторе. Эта методика,
-в частности, применяется для оценки качества оптимизации прошивок встраиваемых систем,
-например, маршрутизаторов и хранилищ данных.
+В этом контексте также необходимо понимать, как различные дистрибутивы GNU/Linux готовы
+для миграции на RISC-V, то есть, насколько оптимизирован машинный код их пакетов.
 
-С целью быстрого нахождения ответов на такого рода вопросы создается фреймворк,
-автоматизирующий сбор данных об использовании машинных инструкций и предоставляющий
-инструментарий для их статистического анализа и визуализации.
+Для этого необходим статистический анализ использования различный инструкций в машинном
+коде программ. Однако описанные проблемы являются далеко не единственными случаями,
+когда был бы полезен такой анализ. Другим примером является ситуация,
+когда разработчику компилятора необходимо узнать, как в целом
+поменялся сгенерированный машинный код программ после изменений в компиляторе.
+
+Этот репозиторий предоставляет фреймворк, который значительно упростит ответы на
+такого рода вопросы. С одной стороны, он позволяет автоматизировать сбор данных
+об использовании машинных инструкций на разных архитектурах и дистрибутивах 
+GNU/Linux, а с другой -- предоставляет широкий инструментарий для статистического
+анализа и визуализации этих данных.
 
 ### Начало работы
 Чтобы начать пользоваться возможностями фреймворка, необходимо
@@ -179,19 +193,19 @@ clarity of data analysis.
 генерирующий таблицу с данными. Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
 #### На разных платформах
-Фреймворк предоставляет возможность сканирования iso-образов, что позволяет собирать данные
-с разных архитектур набора команд. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
-для сбора данных с iso-образа, который уже лежит на диске, или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
+Фреймворк предоставляет возможность сканирования образов дисков, что позволяет собирать данные
+с разных процессорных архитектур. Можно запустить [скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_iso_collection.sh)
+для сбора данных с уже скачанного образа диска или воспользовать [скриптом](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_iso_collection.sh)
 для сканирования образа по его URL. Например, собрать данные с образа по URL можно так:
 ```bash
-(venv) [...]$ ./data_collection/url_iso_collection.sh <link to iso file> <table path>
+(venv) [...]$ ./data_collection/url_iso_collection.sh <link to disk image> <table path>
 ```
 
-Помимо этого, данные с iso-образов по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
+Помимо этого, данные с образов дисков по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json)
 записывается некоторая информация об обрабатываемых образах, в частности, URL и objdump, который будет использоваться в процессе сбора данных.
 Далее процесс на GitHub Actions, используя вспомогательный [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
-считывает данные с json-файла, устанавливает необходимые утилиты, скачивает и сканирует iso-образы.
+считывает данные с json-файла, устанавливает необходимые утилиты, скачивает и сканирует образы дисков.
 Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
 
@@ -207,10 +221,12 @@ clarity of data analysis.
 
 ### Разделение инструкций на категории и группы
 Инструкций очень много, и это может создать неудобства при анализе данных об их использовании.
-У пользователей фреймворка может возникнуть желание разделить инструкции на кластеры. Для решения этой проблемы был
+У пользователей фреймворка может возникнуть желание разделить инструкции на кластеры.
+В настоящий момент, фреймворк предоставяет способ решения этой проблемы для
+архитектуры x86-64. Для этого был
 написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py),
 собирающий информацию с [сайта](https://linasm.sourceforge.net/docs/instructions/index.php),
-где представлено достаточно большое количество различных инструкций.
+где представлено достаточно большое количество инструкций.
 Мы будем называть категорией инструкции тот раздел сайта слева, куда она
 включена, а группой — ее подраздел в нем. Таким образом, скрипт собирает для
 каждой инструкции ее описание, категорию и группу и сохраняет результат в
