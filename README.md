@@ -43,24 +43,24 @@ To start using the capabilities of the framework, you need to
 ```
 
 ### Data collection
-A [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py) was written to collect the data.
+A [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py) was written to collect the data.
 It provides many options for configuration for the needs of particular
-users. In general, the script runs through certain files in parallel and tries to get an assembly listing
+users. In general, the program runs through certain files in parallel and tries to get an assembly listing
 of each file. If the attempt is successful, that is, the file contains the code,
 the path to the file and the number of all instructions found in it are
-recorded in a csv table, which is the result of the script. Program parameters determine
-which files script goes through. One can get acquainted with them as follows:
+recorded in a csv table, which is the result of the program. Program parameters determine
+which files program goes through. One can get acquainted with them as follows:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py --help
 ```
-For example, one can run a script on all files that are available in the system as follows:
+For example, one can run a program on all files that are available in the system as follows:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
 #### On different GNU/Linux distributions
 In order for data collection to take place on different GNU/Linux
 distributions, regardless of which operating system is installed on the machine
-on which the script is running, the script is run in Docker containers.
+on which the program is running, the program is run in Docker containers.
 The [dockerfiles](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/tree/master/dockerfiles) folder
 contains dockerfiles for building images. They include the installation of a utility for obtaining
 assembly listings of programs, as well as the installation of all programs whose machine
@@ -73,7 +73,7 @@ First, the images are collected according to docker files and published in the [
 on DockerHub. If the dockerfile has not been modified since the last GitHub Actions workflow,
 the image is not reassembled. At the next stage, data is collected on all
 distributions in parallel: in each distribution, an image is loaded from
-DockerHub, a Docker container is launched, and a Python script is run in it
+DockerHub, a Docker container is launched, and a program is run in it
 that generates a table with data. The resulting tables are stored in archives  on GitHub Actions
 as workflow artifacts.
 #### On different platforms
@@ -88,7 +88,7 @@ to scan the image by its URL. For example, one can collect data from an image by
 In addition, data from disk images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json),
 in particular, the URL and objdump, which will be used in the data collection process.
-Then, the process on GitHub Actions, using an auxiliary [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+Then, the process on GitHub Actions, using an auxiliary [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
 reads data from a json file, installs the necessary utilities, downloads and scans disk images.
 The resulting tables are stored in archives  on GitHub Actions as workflow artifacts.
 
@@ -107,11 +107,11 @@ on GitHub Pages and is updated automatically when changes occur.
 There are a lot of instructions, and this can create inconvenience when analyzing data about their use.
 Framework users may want to divide instructions into clusters.
 At the moment, the framework provides an approach for
-solving this problem for the x86-64 architecture. For this purpose, a [Python script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
+solving this problem for the x86-64 architecture. For this purpose, a [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
 that collects information from [the site](https://linasm.sourceforge.net/docs/instructions/index.php),
 covering a fairly large number of instructions.
 We call the category of the instruction the section of the site on the left where it
-is included, and the group — its subsection in it. Thus, the script collects for
+is included, and the group — its subsection in it. Thus, the program collects for
 each instruction its description, category and group and stores the result in a
 [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
 The division of instructions into categories and groups significantly increases completeness of information and
@@ -158,24 +158,24 @@ GNU/Linux, а с другой -- предоставляет широкий ин�
 (venv) [InstructionAnalysisFramework]$ pip install -r requirements.txt
 ```
 ### Сбор данных
-Для сбора данных был написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py).
+Для сбора данных была написана [Python-программа](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py).
 Он предоставляет множество возможностей для конфигурации под нужды конкретных
-пользователей. В целом, скрипт параллельно проходит по определенным файлам и пробует получить ассемблерный
+пользователей. В целом, программа параллельно проходит по определенным файлам и пробует получить ассемблерный
 листинг каждого файла. Если попытка удачна, то есть файл содержит код, путь до файла
 и количество всех инструкций, встречающихся в нем, записываются в csv-таблицу,
-которая и является результатом работы скрипта. По каким именно файлам необходимо
+которая и является результатом работы программы. По каким именно файлам необходимо
 пройтись и определяют параметры программы. Ознакомиться с ними можно так:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py --help
 ```
-Например, запустить скрипт на всех файлах, которые имеются в системе, можно следующим образом:
+Например, запустить программу на всех файлах, которые имеются в системе, можно следующим образом:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py -r <path to the table>
 ```
 #### На разных дистрибутивах GNU/Linux
 Чтобы сбор данных мог происходить на разных дистрибутивах GNU/Linux
 вне зависимости от того, какая операционная система установлена на машине,
-производящей запуск, скрипт запускается в Docker-контейнерах.
+производящей запуск, программа запускается в Docker-контейнерах.
 В папке [dockerfiles](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/tree/master/dockerfiles)
 находятся докерфайлы для сборки образов. Они включают в себя установку утилиты для получения
 ассемблерных листингов программ, а также установку всех программ, данные о машинном
@@ -189,8 +189,8 @@ GNU/Linux, а с другой -- предоставляет широкий ин�
 запуска процесса на GitHub Actions, повторная сборка образа не производится.
 На следующем этапе данные собираются на всех дистрибутивах параллельно:
 в каждом дистрибутиве загружается образ с DockerHub,
-запускается Docker-контейнер, а в нем запускается Python-скрипт,
-генерирующий таблицу с данными. Полученные таблицы сохраняются в архивах как
+запускается Docker-контейнер, а в нем запускается программа,
+генерирующая таблицу с данными. Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
 #### На разных платформах
 Фреймворк предоставляет возможность сканирования образов дисков, что позволяет собирать данные
@@ -204,7 +204,7 @@ GNU/Linux, а с другой -- предоставляет широкий ин�
 Помимо этого, данные с образов дисков по их URL могут собираться при помощи GitHub Actions ([yml-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/IsoImagesDC.yml)).
 Для этого в специальный [json-файл](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/iso-images.json)
 записывается некоторая информация об обрабатываемых образах, в частности, URL и objdump, который будет использоваться в процессе сбора данных.
-Далее процесс на GitHub Actions, используя вспомогательный [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
+Далее процесс на GitHub Actions, используя вспомогательную [Python-программу](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_iso_scanner.py),
 считывает данные с json-файла, устанавливает необходимые утилиты, скачивает и сканирует образы дисков.
 Полученные таблицы сохраняются в архивах как
 артефакты запуска процесса на GitHub Actions.
@@ -223,12 +223,12 @@ GNU/Linux, а с другой -- предоставляет широкий ин�
 Инструкций очень много, и это может создать неудобства при анализе данных об их использовании.
 У пользователей фреймворка может возникнуть желание разделить инструкции на кластеры.
 В настоящий момент, фреймворк предоставяет способ решения этой проблемы для
-архитектуры x86-64. Для этого был
-написан [Python-скрипт](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py),
+архитектуры x86-64. Для этого была
+написана [Python-программа](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py),
 собирающий информацию с [сайта](https://linasm.sourceforge.net/docs/instructions/index.php),
 где представлено достаточно большое количество инструкций.
 Мы будем называть категорией инструкции тот раздел сайта слева, куда она
-включена, а группой — ее подраздел в нем. Таким образом, скрипт собирает для
+включена, а группой — ее подраздел в нем. Таким образом, программа собирает для
 каждой инструкции ее описание, категорию и группу и сохраняет результат в
 [json-файле](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
 Разделение инструкций на категории и группы значительно повышает информативность и
