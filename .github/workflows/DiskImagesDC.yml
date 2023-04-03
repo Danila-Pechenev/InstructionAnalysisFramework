@@ -1,13 +1,13 @@
-name: Iso Images Data Collection
+name: Disk Images Data Collection
 
 on: [push, workflow_dispatch]
 
 jobs:
   data_collection:
-    name: Collect data from iso images
+    name: Collect data from disk images
     strategy:
       matrix:
-        iso_key: [ debian_amd64, debian_arm64, freebsd_riscv64 ]
+        disk_key: [ debian_amd64, debian_arm64, freebsd_riscv64 ]
     runs-on: ubuntu-latest
     steps:
       - name: Check out a repo
@@ -15,15 +15,15 @@ jobs:
       - name: Generate unique filename
         run: |
           TIME=$(date +'%Y-%m-%dT%H-%M-%S')
-          echo "FILENAME=${{ matrix.iso_key }}_${TIME}_${{ github.sha }}" >> $GITHUB_ENV
-      - name: Gather data from iso image
+          echo "FILENAME=${{ matrix.disk_key }}_${TIME}_${{ github.sha }}" >> $GITHUB_ENV
+      - name: Gather data from disk image
         run: |
           python3 -m venv venv
           . ./venv/bin/activate
           python3 -m pip install -r requirements.txt
           sudo apt-get update
           sudo apt-get install --yes fuseiso
-          python3 data_collection/gha_iso_scanner.py iso-images.json "${{ matrix.iso_key }}" ${{ env.FILENAME }}.csv
+          python3 data_collection/gha_disk_image_scanner.py disk-images.json "${{ matrix.disk_key }}" ${{ env.FILENAME }}.csv
       - name: Save data as artifact of workflow
         uses: actions/upload-artifact@v3
         with:

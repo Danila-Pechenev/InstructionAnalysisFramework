@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 #
-# This is a script for collecting data from iso image
+# This is a script for collecting data from a disk image
 # Run it from InstructionAnalysisFramework folder
 # Usage:
-# ./data_collection/local_iso_collection.sh <path_to_iso_file> <table_path> [optional: <objdump_command>
+# ./data_collection/local_disk_image_collection.sh <path_to_disk_image> <table_path> [optional: <objdump_command>
 # (default: objdump)]
 #
 function clean {
