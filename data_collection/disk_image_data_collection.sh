@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-usage="Usage: $(basename "$0") [OPTIONS] IMAGE TABLE_PATH
+usage="Usage: $(basename "$0") [OPTIONS] -- IMAGE TABLE_PATH
 
 Scans a disk image.
 
