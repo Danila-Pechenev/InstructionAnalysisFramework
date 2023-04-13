@@ -9,10 +9,12 @@ Options:
     -u       Download the disk image by given URL.
     -p TEXT  Partition of the disk image. Default: /dev/sda1
     -o TEXT  Objdump command. Default: objdump
+    -a       Save archive with image (if it appears during operation).
+    -i       Save disk image (if it appears during operation).
     -h       Show this message and exit.
 
 Args:
-    IMAGE       URL or path to the disk image.
+    IMAGE       URL or path to the disk image (can be packed).
     TABLE_PATH  Output table path."
 
 function clean {
@@ -27,11 +29,11 @@ function clean {
       rmdir -- "$mountpoint"
     fi
 
-    if [[ -v archive_to_remove ]]; then
+    if [[ -v archive_to_remove && ! -v save_archive ]]; then
       rm -f -- "$archive_to_remove"
     fi
 
-    if [[ -v remove_image ]]; then
+    if [[ -v remove_image && ! -v save_image ]]; then
       rm -f -- "$image"
     fi
 }
@@ -40,7 +42,7 @@ trap clean EXIT
 partition="/dev/sda1"
 objdump="objdump"
 
-while getopts u:p:o:h: OPTION; do
+while getopts u:p:o:a:i:h: OPTION; do
   case "$OPTION" in
     u)
       byurl="def"
@@ -50,6 +52,12 @@ while getopts u:p:o:h: OPTION; do
       ;;
     o)
       objdump="$OPTARG"
+      ;;
+    a)
+      save_archive="def"
+      ;;
+    i)
+      save_image="def"
       ;;
     h)
       echo "$usage"
@@ -87,9 +95,12 @@ extension="${image##*.}"
 if [[ $extension == "iso" ]]; then
   mountedby="fuseiso"
   fuseiso -- "$image" "$mountpoint"
-else
+elif [[ $extension == "img" || $extension == "vmdk" ]]; then
   mountedby="guestmount"
   guestmount -a "$image" -m "$partition" -r -- "$mountpoint"
+else
+  echo "Unsupported disk image format."
+  exit 2
 fi
 
 python data_collection/data_collection.py scan-folder -o "$objdump" -d "$mountpoint" -r -- "$table_path"
