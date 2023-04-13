@@ -26,7 +26,7 @@ def scan_image(
     if url is None:
         raise KeyError("No such key.")
     sp.run(["sudo", "apt-get", "install", "--yes", objdump_package], capture_output=False)
-    sp.run(["./data_collection/url_disk_image_collection.sh", url, table_path, objdump_command], capture_output=False)
+    sp.run(["./data_collection/disk_image_data_collection.sh", "-u", "-o", objdump_command, url, table_path], capture_output=False)
 
 
 if __name__ == "__main__":
