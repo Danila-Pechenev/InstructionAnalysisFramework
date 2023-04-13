@@ -81,12 +81,18 @@ if [[ -v byurl ]]; then
 fi
 
 extension="${image##*.}"
-if [[ $extension == "xz" ]]; then
+if [[ $extension == "xz" || $extension == "7z" || $extension == "bz2" ]]; then
   remove_image="def"
   if [[ -v byurl ]]; then
     archive_to_remove="$image"
   fi
-  unxz -k -f -- "$image"
+  if [[ $extension == "xz" ]]; then
+    unxz -k -f -- "$image"
+  elif [[ $extension == "7z" ]]; then
+    7z x -y -- "$image"
+  else
+    bzip2 -d -f -- "$image"
+  fi
   image="${image%.*}"
 fi
 
