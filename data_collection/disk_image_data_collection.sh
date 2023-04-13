@@ -42,7 +42,7 @@ trap clean EXIT
 partition="/dev/sda1"
 objdump="objdump"
 
-while getopts u:p:o:a:i:h: OPTION; do
+while getopts up:o:aih OPTION; do
   case "$OPTION" in
     u)
       byurl="def"
