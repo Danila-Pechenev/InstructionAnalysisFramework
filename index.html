@@ -72,17 +72,19 @@ $(function() {
   <div class="headertitle"><div class="title">Instruction analysis framework </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Description</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Problem</h2>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <a href="https://app.codacy.com/gh/Danila-Pechenev/InstructionAnalysisFramework/dashboard?utm_source=gh&amp;utm_medium=referral&amp;utm_content=&amp;utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/41b0ffa0df484dafbb4e74416ca2d6cc" alt="Codacy Badge" class="inline"/></a> <img src="https://img.shields.io/github/stars/Danila-Pechenev/InstructionAnalysisFramework?style=social" alt="GitHub stars" class="inline"/> <img src="https://img.shields.io/github/forks/Danila-Pechenev/InstructionAnalysisFramework?style=social" alt="GitHub forks" class="inline"/> <img src="https://img.shields.io/github/last-commit/Danila-Pechenev/InstructionAnalysisFramework?color=red&amp;style=plastic" alt="GitHub last commit" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Instruction analysis framework</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Description</h2>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Problem</h3>
 <p>Currently, the open source RISC-V Instruction Set Architecture (ISA) is actively developing and gaining popularity. In the RISC-V community, the issue of optimizing programs specifically for this architecture is acute. In order to plan software migration, compiler developers and specialists optimizing particular sections of machine code in a non-trivial way manually need to understand which packages and utilities in popular GNU/Linux distributions on various platforms use, for example, vector extensions or instructions for speeding up encryption. This knowledge would help them understand how the compiler can be improved and in which programs there are sections of machine code that should be optimized manually for the RISC-V architecture.</p>
 <p>In this context, it is also necessary to understand how the various GNU/Linux distributions are ready to migrate to RISC-V, that is, how the machine code of their packages is optimized and able to perform tasks in an effective manner.</p>
 <p>To achieve this, a statistical analysis of the machine code is essential, namely, an analysis of the use of different types of machine instructions in the program code. However, the described problems are far from the only cases when such an analysis would be useful. Another example is the situation when the compiler developer needs to find out how the generated machine code of programs has changed in general after changes in the compiler.</p>
 <p>This repository provides a framework that will make it much easier to answer such questions. On the one hand, it allows one to automate the collection of data on the machine instruction usage on different GNU/Linux distributions and architectures, and on the other hand, it provides a wide range of tools for statistical analysis and visualization of this data.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Getting started</h2>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Getting started</h3>
 <p>To start using the capabilities of the framework, you need to</p><ol type="1">
 <li>Make a fork of this repository.</li>
 <li>Clone the fork.</li>
@@ -92,23 +94,23 @@ Getting started</h2>
 <li>Install requirements. <div class="fragment"><div class="line">(venv) [InstructionAnalysisFramework]$ pip install -r requirements.txt</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Data collection</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Data collection</h3>
 <p>A <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py">Python program</a> was written to collect the data. It provides many options for configuration for the needs of particular users. In general, the program runs through certain files in parallel and tries to get an assembly listing of each file. If the attempt is successful, that is, the file contains the code, the path to the file and the number of all instructions found in it are recorded in a csv table, which is the result of the program. Program parameters determine which files program goes through. One can get acquainted with them as follows: </p><div class="fragment"><div class="line">(venv) [...]$ python data_collection/data_collection.py --help</div>
 </div><!-- fragment --><p> For example, one can run a program on all files that are available in the system as follows: </p><div class="fragment"><div class="line">(venv) [...]$ python data_collection/data_collection.py -r &lt;path to the table&gt;</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md5"></a>
-On different GNU/Linux distributions</h3>
+</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md5"></a>
+On different GNU/Linux distributions</h4>
 <p>In order for data collection to take place on different GNU/Linux distributions, regardless of which operating system is installed on the machine on which the program is running, the program is run in Docker containers. The <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/tree/master/dockerfiles">dockerfiles</a> folder contains dockerfiles for building images. They include the installation of a utility for obtaining assembly listings of programs, as well as the installation of all programs whose machine code data the user wants to get. This approach allows the framework to achieve extensibility — to add a distribution for scanning, one just needs to add the corresponding docker file.</p>
 <p>Data is collected using GitHub Actions in two stages (<a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml">yml-file</a>). First, the images are collected according to docker files and published in the <a href="https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general">repository</a> on DockerHub. If the dockerfile has not been modified since the last GitHub Actions workflow, the image is not reassembled. At the next stage, data is collected on all distributions in parallel: in each distribution, an image is loaded from DockerHub, a Docker container is launched, and a program is run in it that generates a table with data. The resulting tables are stored in archives on GitHub Actions as workflow artifacts. </p>
-<h3><a class="anchor" id="autotoc_md6"></a>
-On different platforms</h3>
+<h4><a class="anchor" id="autotoc_md6"></a>
+On different platforms</h4>
 <p>The framework provides the ability to scan disk images (now in .iso format), which allows one to collect data from different instruction set architectures (ISA). One can run a <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_disk_image_collection.sh">script</a> to collect data from a disk image that is already downloaded, or use a <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_disk_image_collection.sh">script</a> to scan the image by its URL. For example, one can collect data from an image by URL as follows: </p><div class="fragment"><div class="line">(venv) [...]$ ./data_collection/url_iso_collection.sh &lt;link to disk image&gt; &lt;table path&gt;</div>
 </div><!-- fragment --><p>In addition, data from disk images by their URL can be collected using GitHub Actions (<a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DiskImagesDC.yml">yml-file</a>). For this purpose, some information about the processed images is written to a special <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/disk-images.json">json file</a>, in particular, the URL and objdump, which will be used in the data collection process. Then, the process on GitHub Actions, using an auxiliary <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_disk_image_scanner.py">Python program</a>, reads data from a json file, installs the necessary utilities, downloads and scans disk images. The resulting tables are stored in archives on GitHub Actions as workflow artifacts.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Data analysis</h2>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Data analysis</h3>
 <p>Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment both using standard functions provided by the pandas library and using <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/analysis_tool.py">functions</a> provided by the framework. An example of such an analysis with a demonstration of some capabilities of the tool is presented in <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_analysis/demo.ipynb">demo.ipynb</a>. The functions for analysis and visualization are carefully documented. The documentation is <a href="https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html">published</a> on GitHub Pages and is updated automatically when changes occur.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Dvision of instructions into categories and groups</h2>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Dvision of instructions into categories and groups</h3>
 <p>There are a lot of instructions, and this can create inconvenience when analyzing data about their use. Framework users may want to divide instructions into clusters. At the moment, the framework provides an approach for solving this problem for the x86-64 architecture. For this purpose, a <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py">Python program</a> was written that collects information from the <a href="https://linasm.sourceforge.net/docs/instructions/index.php">site</a>, covering a fairly large number of instructions. We call the category of the instruction the section of the site on the left where it is included, and the group — its subsection in it. Thus, the program collects for each instruction its description, category and group and stores the result in a <a href="https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json">json file</a>. The division of instructions into categories and groups significantly increases completeness of information and clarity of data analysis. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
