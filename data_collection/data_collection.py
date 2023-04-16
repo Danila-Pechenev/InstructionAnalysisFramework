@@ -110,7 +110,7 @@ def parse_paths(paths: str) -> list[str]:
 def validate_objdump(objdump_command: str):
     try:
         sp.run([objdump_command, "-v"], capture_output=False)
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         raise Exception(f"No such objdump: {objdump_command}.")
 
 
