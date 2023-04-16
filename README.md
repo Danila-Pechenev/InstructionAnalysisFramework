@@ -30,14 +30,14 @@ and visualization of this data.
 
 ### Getting started
 To start using the capabilities of the framework, you need to
-1. Make a fork of this repository.
-2. Clone the fork.
-3. Create and activate virtual environment.
+ 1. Make a fork of this repository.
+ 2. Clone the fork.
+ 3. Create and activate virtual environment.
 ```bash
 [InstructionAnalysisFramework]$ python -m venv venv
 [InstructionAnalysisFramework]$ source venv/bin/activate
 ```
-4. Install requirements.
+ 4. Install requirements.
 ```bash
 (venv) [InstructionAnalysisFramework]$ pip install -r requirements.txt
 ```
