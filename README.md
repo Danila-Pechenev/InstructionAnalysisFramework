@@ -4,6 +4,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Danila-Pechenev/InstructionAnalysisFramework?color=red&style=plastic)
 
 # Instruction analysis framework
+## Data
+We have uploaded some data obtained on April 1, 2023, to the [syrcose-data](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/tree/syrcose-data) branch.
+Feel free to explore it.
+
 ## Description
 ### Problem
 Currently, the open source RISC-V Instruction Set Architecture (ISA) is actively
