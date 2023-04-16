@@ -1,3 +1,8 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/41b0ffa0df484dafbb4e74416ca2d6cc)](https://app.codacy.com/gh/Danila-Pechenev/InstructionAnalysisFramework/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+![GitHub stars](https://img.shields.io/github/stars/Danila-Pechenev/InstructionAnalysisFramework?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Danila-Pechenev/InstructionAnalysisFramework?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/Danila-Pechenev/InstructionAnalysisFramework?color=red&style=plastic)
+
 # Instruction analysis framework
 ## Description
 ### Problem
