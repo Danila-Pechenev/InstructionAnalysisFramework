@@ -89,7 +89,7 @@ as workflow artifacts and can then be downloaded for data analysis.
 
 #### On different platforms
 The framework provides the ability to scan disk images (currently in .iso, .img, and .vmdk formats), which allows one to collect data
-from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/syrcose/data_collection/disk_image_data_collection.sh)
+from different ISA. One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/syrcose/data_collection/disk_image_data_collection.sh)
 to collect data from a disk image that is already downloaded or scan the image by its URL.
 Compressed image processing is provided too (for now, in .xz, .7z, and .bz2 formats). As an example, data collection from an image by URL can be performed as follows:
 ```bash
