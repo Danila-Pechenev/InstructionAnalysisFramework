@@ -1,4 +1,4 @@
-name: Docker Containers Data Collection
+name: Docker Images Data Collection
 
 on: [push, workflow_dispatch]
 
