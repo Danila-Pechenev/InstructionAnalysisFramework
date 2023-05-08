@@ -78,7 +78,7 @@ code data the user wants to explore. This approach allows the framework to attai
 extensibility — to add a distribution for scanning, one just needs
 to add the corresponding dockerfile.
 
-Data is collected using GitHub Actions in two stages ([yml file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml)).
+Data is collected using GitHub Actions in two stages ([yml file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerImagesDC.yml)).
 First, the images are collected according to dockerfiles and published in the [repository](https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general)
 on DockerHub. If the dockerfile has not been modified since the last GitHub Actions workflow,
 the image is not rebuild. This determines such an architecture. At the next stage, data is collected on all
@@ -90,7 +90,8 @@ as workflow artifacts and can then be downloaded for data analysis.
 #### On different platforms
 The framework provides the ability to scan disk images (currently in .iso, .img, and .vmdk formats), which allows one to collect data
 from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/disk_image_data_collection.sh)
-to collect data from a disk image that is already downloaded or scan the image by its URL. For example, data collection from an image by URL can be performed as follows:
+to collect data from a disk image that is already downloaded or scan the image by its URL.
+Compressed image processing is provided too (for now, in .xz, .7z, and .bz2 formats). As an example, data collection from an image by URL can be performed as follows:
 ```bash
 (venv) [...]$ ./data_collection/disk_image_data_collection.sh -u -o <objdump command> <url> <table path>
 ```
