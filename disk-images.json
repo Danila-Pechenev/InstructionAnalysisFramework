@@ -2,19 +2,19 @@
     "disk-images": [
         {
             "key": "debian_amd64",
-            "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-edu-11.6.0-amd64-netinst.iso",
+            "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-edu-11.7.0-amd64-netinst.iso",
             "objdump-package": "binutils",
             "objdump-command": "objdump"
         },
         {
             "key": "debian_arm64",
-            "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-11.6.0-arm64-netinst.iso",
+            "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-11.7.0-arm64-netinst.iso",
             "objdump-package": "gcc-aarch64-linux-gnu",
             "objdump-command": "aarch64-linux-gnu-objdump"
         },
         {
             "key": "freebsd_riscv64",
-            "url": "https://download.freebsd.org/ftp/snapshots/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-CURRENT-riscv-riscv64-20230323-b5d43972e394-261711-bootonly.iso",
+            "url": "https://download.freebsd.org/ftp/snapshots/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-CURRENT-riscv-riscv64-20230420-f369f10dd812-262341-bootonly.iso",
             "objdump-package": "binutils-riscv64-linux-gnu",
             "objdump-command": "riscv64-linux-gnu-objdump"
         }
