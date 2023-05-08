@@ -7,7 +7,7 @@ env:
 
 jobs:
   docker_images_processing:
-    name: Build & push docker images to Docker Hub
+    name: Build & push Docker images to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out a repo
@@ -28,7 +28,7 @@ jobs:
           done
 
   data_collection:
-    name: Collect data from docker containers
+    name: Collect data from Docker images
     needs: docker_images_processing
     strategy:
       matrix:
