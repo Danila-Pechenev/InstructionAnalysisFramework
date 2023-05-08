@@ -27,11 +27,11 @@ their packages is optimized and able to perform tasks in an effective manner.
 To achieve this, a statistical analysis of the machine code is essential, namely,
 an analysis of the use of different types of machine instructions in the program code.
 However, the described problems are far from the only cases when such an analysis
-would be useful. Another example is the situation when the compiler developer needs
-to find out how the generated machine code of programs has changed in general after
-changes in the compiler.
+would be useful. Another example is when a compiler developer needs to
+find out how the generated machine code of programs as a whole has
+changed after changes in the compiler.
 
-This repository provides a framework that will make it much easier to answer
+This repository provides a framework that makes it easy to answer
 such questions. On the one hand, it allows one to automate the collection of data
 on the machine instruction usage on different GNU/Linux distributions and architectures,
 and on the other hand, it provides a wide range of tools for statistical analysis
@@ -52,12 +52,13 @@ To start using the capabilities of the framework, you need to
 ```
 
 ### Data collection
-A [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py) was written to collect the data.
-It provides many options for configuration for the needs of particular
-users. In general, the program runs through certain files in parallel and tries to get an assembly listing
+To collect data, a [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/data_collection.py) was written that provides many
+configuration options for the needs of specific users, as well
+as a convenient command-line interface that allows one to
+gather all the necessary data with a single command. In general, the program runs through certain files in parallel and tries to get an assembly listing
 of each file. If the attempt is successful, that is, the file contains the code,
 the path to the file and the number of all instructions found in it are
-recorded in a csv table, which is the result of the program. Program parameters determine
+written in a csv table, which is the result of the program. Program parameters determine
 which files program goes through. One can get acquainted with them as follows:
 ```bash
 (venv) [...]$ python data_collection/data_collection.py --help
@@ -73,33 +74,33 @@ on which the program is running, the program is run in Docker containers.
 The [dockerfiles](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/tree/master/dockerfiles) folder
 contains dockerfiles for building images. They include the installation of a utility for obtaining
 assembly listings of programs, as well as the installation of all programs whose machine
-code data the user wants to get. This approach allows the framework to achieve
+code data the user wants to explore. This approach allows the framework to attain
 extensibility — to add a distribution for scanning, one just needs
-to add the corresponding docker file.
+to add the corresponding dockerfile.
 
-Data is collected using GitHub Actions in two stages ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml)).
-First, the images are collected according to docker files and published in the [repository](https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general)
+Data is collected using GitHub Actions in two stages ([yml file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DockerContainersDC.yml)).
+First, the images are collected according to dockerfiles and published in the [repository](https://hub.docker.com/repository/docker/danilapechenev/instruction-analysis/general)
 on DockerHub. If the dockerfile has not been modified since the last GitHub Actions workflow,
-the image is not reassembled. At the next stage, data is collected on all
+the image is not rebuild. This determines such an architecture. At the next stage, data is collected on all
 distributions in parallel: in each distribution, an image is loaded from
-DockerHub, a Docker container is launched, and a program is run in it
+DockerHub, a Docker container is launched, and the program is run in it
 that generates a table with data. The resulting tables are stored in archives  on GitHub Actions
-as workflow artifacts.
+as workflow artifacts and can then be downloaded for data analysis.
+
 #### On different platforms
-The framework provides the ability to scan disk images (now in .iso format), which allows one to collect data
-from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/local_disk_image_collection.sh)
-to collect data from a disk image that is already downloaded, or use a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/url_disk_image_collection.sh)
-to scan the image by its URL. For example, one can collect data from an image by URL as follows:
+The framework provides the ability to scan disk images (currently in .iso, .img, and .vmdk formats), which allows one to collect data
+from different instruction set architectures (ISA). One can run a [script](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/disk_image_data_collection.sh)
+to collect data from a disk image that is already downloaded or scan the image by its URL. For example, data collection from an image by URL can be performed as follows:
 ```bash
-(venv) [...]$ ./data_collection/url_iso_collection.sh <link to disk image> <table path>
+(venv) [...]$ ./data_collection/disk_image_data_collection.sh -u -o <objdump command> <url> <table path>
 ```
 
-In addition, data from disk images by their URL can be collected using GitHub Actions ([yml-file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DiskImagesDC.yml)).
+In addition, data from disk images by their URL can also be collected using GitHub Actions ([yml file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/.github/workflows/DiskImagesDC.yml)).
 For this purpose, some information about the processed images is written to a special [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/disk-images.json),
 in particular, the URL and objdump, which will be used in the data collection process.
 Then, the process on GitHub Actions, using an auxiliary [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/data_collection/gha_disk_image_scanner.py),
-reads data from a json file, installs the necessary utilities, downloads and scans disk images.
-The resulting tables are stored in archives  on GitHub Actions as workflow artifacts.
+reads data from this file, installs the necessary utilities, downloads and scans disk images.
+The resulting tables are stored in archives on GitHub Actions as workflow artifacts.
 
 ### Data analysis
 Archives with tables are downloaded and analyzed in the Jupiter Notebook interactive environment
@@ -112,8 +113,8 @@ The functions for analysis and visualization are carefully documented. The docum
 [published](https://danila-pechenev.github.io/InstructionAnalysisFramework/namespaceanalysis__tool.html)
 on GitHub Pages and is updated automatically when changes occur.
 
-### Dvision of instructions into categories and groups
-There are a lot of instructions, and this can create inconvenience when analyzing data about their use.
+### Division of instructions into categories and groups
+There are a lot of instructions, and this can create inconvenience when analyzing data about their usage.
 Framework users may want to divide instructions into clusters.
 At the moment, the framework provides an approach for
 solving this problem for the x86-64 architecture. For this purpose, a [Python program](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/scripts/x86-64_instructions.py) was written
@@ -123,5 +124,5 @@ We call the category of the instruction the section of the site on the left wher
 is included, and the group — its subsection in it. Thus, the program collects for
 each instruction its description, category and group and stores the result in a
 [json file](https://github.com/Danila-Pechenev/InstructionAnalysisFramework/blob/master/x86-64_instructions.json).
-The division of instructions into categories and groups significantly increases completeness of information and
-clarity of data analysis.
+The division of instructions into categories and groups significantly increases clarity and
+completeness of data analysis.
